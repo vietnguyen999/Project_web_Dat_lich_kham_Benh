@@ -2,6 +2,7 @@ import React from 'react';
 import img1 from '../img/Hinh-123.jpg'
 import img2 from '../img/hinh-234.jpg'
 import img3 from '../img/hinh-3456.jpg'
+import "./slider.css"
 import Carousel from 'react-bootstrap/Carousel';
 
 function Slider() {
