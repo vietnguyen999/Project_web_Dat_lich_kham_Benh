@@ -1,4 +1,4 @@
-import './Register.css'
+import './Login.css'
 
 export const Register = () => {
     return (
