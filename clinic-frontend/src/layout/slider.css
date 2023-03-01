@@ -1,3 +1,10 @@
 .d-block{
     height: 500px;
 }
+.container {
+    height: 300px;
+    background: rgb(10, 20, 30);
+}
+.row{
+    padding-top: 50px;
+}
