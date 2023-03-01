@@ -20,6 +20,7 @@ function Nabar() {
        <Nav.Link  className='navbare' as={Link} to={"/blog"}>Dịch Vụ</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/news"}>Tin Tức</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/blog"}>Liên Hệ</Nav.Link>
+
        
       
      </Nav>
@@ -30,8 +31,8 @@ function Nabar() {
          className="me-2"
          aria-label="Search"
        />  */}
-       <Button variant="outline-success" className='onli'>
-  Login
+       <Button variant="outline-success" className='onli'> 
+       <Nav.Link  className='navbare' as={Link} to={"/signIn"}>Login</Nav.Link>
        </Button>
       
      </Form>
