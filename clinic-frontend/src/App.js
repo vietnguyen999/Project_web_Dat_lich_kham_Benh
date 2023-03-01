@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/signIn' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/signUp' element={<Register/>}/>
         <Route
             path="/profile"
             element={getToken() ? <Profile /> : <Navigate to="/signin" />}

@@ -1,12 +1,12 @@
 import './Login.css'
 import { message, Alert, Spin } from "antd"
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../context/AuthContext";
-import useScreenSize from "../../hooks/useScreenSize";
-import { API } from "../../constant";
-import { setToken } from "../../helpers";
+import { useAuthContext } from "../context/AuthContext";
+import useScreenSize from "react";
+import { API } from "../constant";
+import { setToken } from "../helpers";
+
 export const Login = () => {
   const { isDesktopView } = useScreenSize();
       const navigate = useNavigate();
@@ -55,7 +55,7 @@ export const Login = () => {
       };
     return(
         <div className='login'>
-          <div className="App">
+          <div className="App" span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}>
         <img className="logo" alt="Business view - Reports" />
         {error ? (
                   <Alert

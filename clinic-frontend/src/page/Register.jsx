@@ -3,10 +3,10 @@ import { message, Alert, Spin } from "antd"
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../context/AuthContext";
-import useScreenSize from "../../hooks/useScreenSize";
-import { API } from "../../constant";
-import { setToken } from "../../helpers";
+import { useAuthContext } from "../context/AuthContext";
+import useScreenSize from "react";
+import { API } from "../constant";
+import { setToken } from "../helpers";
     
 export const Register = () => {
   const { isDesktopView } = useScreenSize();
@@ -52,7 +52,7 @@ export const Register = () => {
       };
     return (
         <div className="login " >
-          <div className="App" >
+          <div className="App" span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0} >
             <img className="logo" src='' alt="Business view - Reports" />
             {error ? (
                   <Alert
