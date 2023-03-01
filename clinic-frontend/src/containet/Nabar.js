@@ -20,6 +20,7 @@ function Nabar() {
        <Nav.Link  className='navbare' as={Link} to={"/blog"}>Dịch Vụ</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/news"}>Tin Tức</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/blog"}>Liên Hệ</Nav.Link>
+       
       
      </Nav>
       <Form className="d-flex">
@@ -29,7 +30,9 @@ function Nabar() {
          className="me-2"
          aria-label="Search"
        />  */}
-       <Button variant="outline-success" className='onli'>Login</Button>
+       <Button variant="outline-success" className='onli'>
+  Login
+       </Button>
       
      </Form>
    </Navbar.Collapse>
