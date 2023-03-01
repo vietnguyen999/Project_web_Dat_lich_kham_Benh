@@ -2,18 +2,19 @@ import './Login.css'
 
 export const Login = () => {
     return(
-        <div className="App">
+        <div className='login'>
+          <div className="App">
         <img className="logo" alt="Business view - Reports" />
         <form className="form">
           <div className="input-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email text-red-800">Email</label>
             <input type="email" name="email" placeholder="nome@gmail.com" />
           </div>
           <div className="input-group">
             <label htmlFor="password">PASSWORD</label>
             <input type="password" name="password" />
           </div>
-          <button className="primary">ENTRAR</button>
+          <button className="primary">Login</button>
         </form>
         <div className='forgot-password' >
             <div className='forgot-password-handle' >
@@ -25,5 +26,6 @@ export const Login = () => {
             
         </div>
       </div>
+        </div>
     )
 }
