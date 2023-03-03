@@ -11,7 +11,9 @@ html {
   min-height: 100%;
   min-width: 100%;
 }
-
+#root {
+  --primary: #fe2c55;
+}
 html,
 /* body {
   height: 100%;
