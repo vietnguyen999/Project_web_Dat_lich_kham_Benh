@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css';
 import Slider from '../../layout/Slider';
-import Footer from '../../layout/Footer'
+ import Footer from '../../layout/Footer'
 import imgs1 from "../../img/imgs1.png"
 import imgs2 from "../../img/imgs2.png"
 import imgs3 from "../../img/imgs3.png"
@@ -12,6 +12,11 @@ import imgs7 from "../../img/imgs7.jpg"
 import imgs8 from "../../img/imgs8.jpg"
 import imgs9 from "../../img/imgs9.jpg"
 import {AiOutlineCalendar} from 'react-icons/ai'
+import imgs10 from "../../img/imgs11.png"
+import imgs11 from "../../img/imgs12.png"
+import imgs12 from "../../img/imgs13.png"
+import imgs13 from "../../img/imgs14.png"
+import imgs14 from "../../img/imgs15.png"
 
 export default function Home() {
   return (
@@ -126,13 +131,40 @@ export default function Home() {
               </div>
             </div>
           </div>
+          
+
+          <div className="section-information">
+                    <div className="row section-information-row">
+                      <div className="col section-information-col">
+                           <img src={imgs10} alt='...' className='section-information-col-imgs'/>
+                           <h3 className='section-information-col-h3'>2</h3> 
+                      </div>
+                      <div className="col section-information-col">
+                            <img src={imgs11} alt='...' className='section-information-col-imgs'/>
+                            <h3  className='section-information-col-h3'>20+</h3> 
+                      </div>
+                      <div className="col section-information-col">
+                            <img src={imgs12} alt='...' className='section-information-col-imgs'/>
+                           <h3  className='section-information-col-h3'>6+</h3> 
+                       </div>
+                       <div className="col section-information-col">
+                            <img src={imgs13} alt='...' className='section-information-col-imgs'/>
+                            <h3  className='section-information-col-h3'>60.000+</h3> 
+                      </div>
+                      <div className="col section-information-col">
+                          <img src={imgs14} alt='...' className='section-information-col-imgs'/>
+                          <h3>60.000+</h3> 
+                      </div>
+                    </div>
+                  </div>
+  
+            <Footer />
+
+          </div>  
+  
+    
+    
     
 
-    
-   </div>
-    
-    
-    
-
-  )
+  );
 }
