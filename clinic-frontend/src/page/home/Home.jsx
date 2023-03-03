@@ -11,6 +11,7 @@ import imgs6 from "../../img/logo.png"
 import imgs7 from "../../img/imgs7.jpg"
 import imgs8 from "../../img/imgs8.jpg"
 import imgs9 from "../../img/imgs9.jpg"
+import {AiOutlineCalendar} from 'react-icons/ai'
 
 export default function Home() {
   return (
@@ -112,16 +113,16 @@ export default function Home() {
           <div className="row section-datlich">
             <div className="col">
               <div className="section-datlich-left">
-                <h1>Tư vấn khám chữa bệnhchuẩn xác, hiệu quả.</h1>
-                <p>Đội ngũ y bác sĩ đầu ngành và giàu kinh nghiệm mang đến cho bạn những lời khuyên chuẩn xác và phù hợp nhất với tình trạng mỗi cá nhân</p>
-                <button>Đặt lịch</button>
-                <button>Tư vấn</button>
+                <h2 className="section-datlich-left-h2">Tư vấn khám chữa bệnh chuẩn xác, hiệu quả.</h2>
+                <p className="section-datlich-left-p" >Đội ngũ y bác sĩ đầu ngành và giàu kinh nghiệm mang đến cho bạn những lời khuyên chuẩn xác và phù hợp nhất với tình trạng mỗi cá nhân</p>
+                <button  className="section-datlich-left-btn"><span className='section-datlich-left-btn-icon'><AiOutlineCalendar/></span>Đặt lịch</button>
+                <button  className=" section-datlich-left-btn section-datlich-right-btn ">Tư vấn</button>
               </div>
             </div>
             <div className="col">
               <div className="section-datlich-right">
-                 <img src={imgs9} alt='...' className=' part-service-left-imgs'/>
-                 <h1>Nha khoa </h1>
+                 <img src={imgs9} alt='...' className='section-datlich-right-img'/>
+                 <h1 className='section-datlich-right-h1'>Nha khoa </h1>
               </div>
             </div>
           </div>
