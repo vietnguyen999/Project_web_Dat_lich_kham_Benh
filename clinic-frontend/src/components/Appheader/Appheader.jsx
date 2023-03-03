@@ -5,8 +5,9 @@ import { Button, Space } from "antd";
     import { useAuthContext } from "../../context/AuthContext";
     import { removeToken } from "../../helpers";
     
-    const AppHeader = () => {
+export  const AppHeader = () => {
       const { user } = useAuthContext();
+      console.log(user)
       const navigate = useNavigate();
     
       const handleLogout = () => {
@@ -51,5 +52,3 @@ import { Button, Space } from "antd";
         </Space>
       );
     };
-    
-    export default AppHeader;

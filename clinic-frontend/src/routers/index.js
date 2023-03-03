@@ -1,6 +1,7 @@
 import { Home } from "../page/home/Home"
 import { Login } from "../page/Login"
 import { Register } from "../page/Register"
+import {AppHeader} from "../components/Appheader/Appheader"
 
 export const publicRouters = [
     {
@@ -18,7 +19,11 @@ export const publicRouters = [
     {
         path: '/signUp',
         component: Register
-    }
+    },
+    {
+        path: '/header',
+        component: AppHeader
+    },
 ]
 
 export const praviteRouters = []

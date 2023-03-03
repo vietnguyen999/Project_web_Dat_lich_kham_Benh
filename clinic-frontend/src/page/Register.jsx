@@ -53,7 +53,7 @@ export const Register = () => {
 
         message.success(`Welcome to Social Cards ${data.user.username}!`);
 
-        navigate("/profile", { replace: true });
+        navigate("/home", { replace: true });
       }
     } catch (error) {
       setError(error?.message ?? "Something went wrong!");

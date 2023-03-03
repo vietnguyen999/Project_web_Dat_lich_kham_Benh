@@ -1,15 +1,10 @@
-
-import './App.css';
-import {Route, Routes, BrowserRouter, Navigate} from "react-router-dom"
-import Profile from "./components/Profile/Profile";
-import { getToken } from "./helpers";
 import { publicRouters } from './routers';
-import LayoutDefault from './components/layout/Layout';
 
-function AppRoutes () {
+import React from "react";
+import {Route, Routes, BrowserRouter} from "react-router-dom"
+
+const AppRoutes = () => {
   return (
-    <>
-    <BrowserRouter>
       <Routes>
         {publicRouters.map((route, index) => {
           const Page = route.component
@@ -20,9 +15,7 @@ function AppRoutes () {
             element={getToken() ? <Profile /> : <Navigate to="/signIn" />}
           /> */}
       </Routes>
-    </BrowserRouter>
-    </>
   );
-}
+};
 
-export default AppRoutes ;
+export default AppRoutes;
