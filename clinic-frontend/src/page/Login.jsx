@@ -63,7 +63,7 @@ export const Login = () => {
   return (
     <div className="login">
       <div
-        className="App"
+        className="App-Login"
         span={isDesktopView ? 8 : 24}
         offset={isDesktopView ? 8 : 0}
       >
@@ -106,27 +106,6 @@ export const Login = () => {
           >
             <Input.Password placeholder="Password" />
           </Form.Item>
-          {/* <div className="input-group">
-            <label
-              label="Email"
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  type: "email",
-                },
-              ]}
-              htmlFor="email text-red-800">Email</label>
-            <input type="email" name="email" placeholder="nome@gmail.com" />
-          </div>
-          <div className="input-group">
-            <label
-              label="Password"
-              name="password"
-              rules={[{ required: true }]}
-              htmlFor="password">PASSWORD</label>
-            <input type="password" name="password" />
-          </div> */}
           <Form.Item>
             <Button type="primary" htmlType="submit" className="primary">
               Login {isLoading && <Spin size="small" />}
@@ -139,16 +118,16 @@ export const Login = () => {
         </Form>
         <div className="forgot-password">
           <div className="forgot-password-handle">
-            <a className="underline text-blue-700" href="#">
+            <Button type="link" className="underline text-blue-700">
               Quên mật khẩu
-            </a>
+            </Button>
           </div>
           <div className="create-account">
             <span>
-              Bạn chưa có tài khoản{" "}
-              <a className="underline text-blue-700" href="#">
+              Bạn chưa có tài khoản
+              <Button type="link" className="underline text-blue-700" href="/signUp" >
                 Tạo ngay
-              </a>
+              </Button>
             </span>
           </div>
         </div>

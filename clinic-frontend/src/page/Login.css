@@ -23,11 +23,6 @@
   padding-top: 46px;
   text-align: center;
   width: 90%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
   margin: auto;
   height: 500px;
 }
@@ -44,6 +39,7 @@
 .input-group {
   margin-bottom: 26px;
   padding: 0 20px;
+  display: flow-root;
 }
 
 .input-group:nth-last-child(-n + 2) {
@@ -100,7 +96,7 @@ button {
   outline: 0;
   padding: 10px 0;
   transition: background 0.3s;
-  width: 80%;
+  width: 100%;
 }
 
 button.primary {
