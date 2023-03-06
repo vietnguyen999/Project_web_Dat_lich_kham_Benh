@@ -1,0 +1,95 @@
+.header-rangsu{
+    width: 100%;
+    height: 25px;
+    background-color: cornflowerblue;
+}
+.header-rangsu-p{
+    color: white;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.header-rangsu-dau{
+    padding: 3px 5px 3px 3px;
+}
+.section-rangsu{
+    padding-top: 10px;
+}
+.section-rangsu-left{
+    padding-left: 40px;
+    padding-top: 10px;
+}
+.section-rangsu-left-h2{
+    color: darkslateblue;
+    font-size: 40px;
+    font-weight: 600;
+}
+.section-rangsu-left-p{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+    
+}
+.section-rangsu-left-tin-left{
+    width: 400px;
+    height: 450px;
+    display: block;
+    margin: auto;
+    padding: auto;
+    border-radius: 15px;
+    box-shadow: -10px -10px 10px rgba(255,255,255,0.4),10px 10px 10px rgba(0,0,0,0.1);
+    
+}
+.section-rangsu-left-tin-left:hover{
+    border-radius: 15px;
+    box-shadow: -25px -25px 25px rgba(255,255,255,0.2),25px 25px 25px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+.section-rangsu-left-tin-left-img{
+    width: 350px;
+    height: 200px;
+}
+.section-rangsu-left-tin-left-h3{
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: 22px;
+    color: darkmagenta;
+    font-weight: 700;
+}
+.section-rangsu-left-tin-left-p{
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.section-rangsu-left-tin-left-btn{
+    margin-left: 10px;
+    margin-top: 20px;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: white;
+}
+.section-rangsu-right{
+    padding-top: 70px;
+    justify-content: left;
+}
+.section-rangsu-right-h4{
+    font-size: 22px;
+    color: darkmagenta;
+    font-weight: 700;
+}
+.section-rangsu-right-dichvu{
+    padding-top: 35px;
+}
+.section-rangsu-right-dichvu-h5
+{
+    font-size: 18px;
+    margin-top: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 0 10px 10px;
+    border-left: 1px solid black;
+}
+.section-rangsu-right-dichvu-h5:hover{
+    color: blueviolet;
+}

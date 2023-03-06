@@ -7,6 +7,7 @@ import Blog from './page/blog/Blog'
 import News from './page/news/News';
 import Contact from './page/contact/Contact';
 import List from './page/list/List';
+import Rangsu from './page/Rangsu/Rangsu';
 import Nabar from './layout/Nabar'
 
 
@@ -16,7 +17,8 @@ function App() {
     <div className="App">
       <Nabar />
       <Routes>
-      <Route path="/" element={<Home />} />
+         <Route path="/" element={<Home />} />
+         <Route path="/rangsu" element={<Rangsu />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/news" element={<News />} />
