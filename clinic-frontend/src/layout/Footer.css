@@ -1,5 +1,6 @@
 .footer {
     height: 350px;
+    background-color:rgb(175, 109, 222);
 }
 .row{
     padding-top: 50px;
@@ -7,4 +8,44 @@
 }
 .col-md-4{
     text-align: left;
+}
+.section-footer-cool-left-h4{
+    color: rgb(230, 235, 240);
+    font-size: 28px;
+    padding-top: 10px;
+    font-family: Arial white Gadget;
+}
+.section-footer-cool-left-p{
+    font-size: 18px;
+    color: rgb(230, 235, 240);
+    font-family: Arial white Gadget;
+    padding-top: 5px;
+}
+.section-footer-cool-center-h4{
+    font-size: 28px;
+    color: rgb(230, 235, 240);
+    font-family: Arial white Gadget;
+    padding-top: 5px;
+}
+.section-footer-cool-center-p{
+    font-size: 18px;
+    color: rgb(230, 235, 240);
+    font-family: Arial white Gadget;
+    padding-top: 5px;
+}
+.section-footer-cool-center-icon{
+    font-size: 30px;
+    color: rgb(230, 235, 240);
+    padding-left: 10px;
+}
+.section-footer-cool-right-h4{
+    color: rgb(230, 235, 240);
+    font-size: 26px;
+    padding-top: 5px;
+    font-family: Arial white Gadget;
+}
+.section-footer-cool-right-p{
+    font-size: 18px;
+    color: rgb(230, 235, 240);
+    font-family: Arial white Gadget;
 }
