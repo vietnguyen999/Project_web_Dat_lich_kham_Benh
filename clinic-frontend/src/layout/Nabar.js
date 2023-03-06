@@ -7,7 +7,7 @@ function Nabar() {
     <div>
     <Navbar bg="dark" variant={"dark"} expand="lg">
    <Container fluid>
-   <Navbar.Brand href="#">Logo  </Navbar.Brand>
+   <Navbar.Brand href="/">Logo  </Navbar.Brand>
    <Navbar.Toggle aria-controls="navbarScroll" />
    <Navbar.Collapse id="navbarScroll">
      {/* <Nav
@@ -15,11 +15,12 @@ function Nabar() {
        style={{ maxHeight: '100px' }}
        navbarScroll > */}
         <Nav className="justify-content-end flex-grow-1 pe-3 navx">
-        <Nav.Link className='navbare' as={Link} to={"/"}>Trang Chủ</Nav.Link>
-       <Nav.Link  className='navbare' as={Link} to={"/about"}>Giới Thiệu</Nav.Link>
-       <Nav.Link  className='navbare' as={Link} to={"/blog"}>Dịch Vụ</Nav.Link>
-       <Nav.Link  className='navbare' as={Link} to={"/news"}>Tin Tức</Nav.Link>
-       <Nav.Link  className='navbare' as={Link} to={"/blog"}>Liên Hệ</Nav.Link>
+        <Nav.Link className='navbare' as={Link} to={"/"}>RĂNG SỨ THẨM MỸ</Nav.Link>
+       <Nav.Link  className='navbare' as={Link} to={"/blog"}>CHỈNH NHA-NIỀNG RĂNG</Nav.Link>
+       <Nav.Link  className='navbare' as={Link} to={"/news"}>TRỒNG RĂNG IMPLANT</Nav.Link>
+       <Nav.Link  className='navbare' as={Link} to={"/contac"}>NHA KHOA TỔNG QUÁT</Nav.Link>
+       <Nav.Link  className='navbare' as={Link} to={"/list"}>BẢNG GIÁ</Nav.Link>
+       <Nav.Link  className='navbare' as={Link} to={"/about"}>VỀ CHÚNG TÔI</Nav.Link>
 
        
       

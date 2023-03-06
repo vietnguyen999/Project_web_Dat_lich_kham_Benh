@@ -6,6 +6,7 @@ import About from './page/about/About'
 import Blog from './page/blog/Blog'
 import News from './page/news/News';
 import Contact from './page/contact/Contact';
+import List from './page/list/List';
 import Nabar from './layout/Nabar'
 
 
@@ -20,7 +21,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
-
+        <Route path="/list" element={<List />} />
         
       </Routes>
       

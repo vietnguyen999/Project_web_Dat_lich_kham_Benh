@@ -137,23 +137,29 @@ export default function Home() {
                     <div className="row section-information-row">
                       <div className="col section-information-col">
                            <img src={imgs10} alt='...' className='section-information-col-imgs'/>
-                           <h3 className='section-information-col-h3'>2</h3> 
+                           <h3 className='section-information-col-h3'>2+</h3> 
+                           <p className='section-information-col-p'>Trung Tâm</p> 
                       </div>
                       <div className="col section-information-col">
                             <img src={imgs11} alt='...' className='section-information-col-imgs'/>
                             <h3  className='section-information-col-h3'>20+</h3> 
+                            <p className='section-information-col-p'>Bác Sĩ</p> 
                       </div>
                       <div className="col section-information-col">
                             <img src={imgs12} alt='...' className='section-information-col-imgs'/>
                            <h3  className='section-information-col-h3'>6+</h3> 
+                           <p className='section-information-col-p'>Năm Kinh Nghiện</p> 
                        </div>
                        <div className="col section-information-col">
                             <img src={imgs13} alt='...' className='section-information-col-imgs'/>
                             <h3  className='section-information-col-h3'>60.000+</h3> 
+                            <p className='section-information-col-p'>Khách Hàng</p> 
                       </div>
                       <div className="col section-information-col">
                           <img src={imgs14} alt='...' className='section-information-col-imgs'/>
-                          <h3>60.000+</h3> 
+                          <h3 className='section-information-col-h3'>60.000+</h3> 
+                          <p className='section-information-col-p'>Ca Phẫu Thuật Thành Công</p> 
+
                       </div>
                     </div>
                   </div>
