@@ -2,14 +2,10 @@ import "./Login.css";
 import {
   Alert,
   Button,
-  Card,
-  Col,
   Form,
   Input,
   message,
-  Row,
   Spin,
-  Typography,
 } from "antd";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";

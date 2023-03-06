@@ -1,7 +1,11 @@
-import { Home } from "../page/home/Home"
+import  Home  from "../page/home/Home"
 import { Login } from "../page/Login"
 import { Register } from "../page/Register"
-import {AppHeader} from "../components/Appheader/Appheader"
+import About from "../page/about/About"
+import Blog from "../page/blog/Blog"
+import News from "../page/news/News"
+import Contact from "../page/contact/Contact"
+
 
 export const publicRouters = [
     {
@@ -21,8 +25,20 @@ export const publicRouters = [
         component: Register
     },
     {
-        path: '/header',
-        component: AppHeader
+        path: '/about',
+        component: About
+    },
+    {
+        path: '/blog',
+        component: Blog
+    },
+    {
+        path: '/news',
+        component: News
+    },
+    {
+        path: '/contact',
+        component: Contact
     },
 ]
 

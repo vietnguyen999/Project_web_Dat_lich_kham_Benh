@@ -65,7 +65,7 @@ export const Register = () => {
     <Fragment>
       <div className="login ">
         <div
-          className="App"
+          className="App-Login"
           span={isDesktopView ? 8 : 24}
           offset={isDesktopView ? 8 : 0}
         >
