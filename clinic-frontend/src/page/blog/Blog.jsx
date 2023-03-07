@@ -17,7 +17,7 @@ export default function Blog() {
          <p className='section-rangsu-left-p'>Tìm được 2 bài viết</p>
             <Row className="section-rangsu-left-tin">
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
-            <img src={imgs22} className='section-rangsu-left-tin-left-img'/>
+            <img src={imgs22} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NIỀNG RĂNG TRONG SUỐT INVISALIGN</h3>
             <p className='section-rangsu-left-tin-left-p'>
                Niềng răng trong suốt invisalign 
@@ -26,7 +26,7 @@ export default function Blog() {
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
-         <img src={imgs23} className='section-rangsu-left-tin-left-img'/>
+         <img src={imgs23} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NIỀNG RĂNG MẮC CÀI</h3>
             <p className='section-rangsu-left-tin-left-p'>
             Niềng răng mắc cài là gì? Có những loại niềng răng mắc cài nào? Ưu,

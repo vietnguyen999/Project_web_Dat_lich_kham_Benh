@@ -9,7 +9,7 @@ export default function News() {
     <div>
 
 <div className="header-rangsu">
-            <p className='header-rangsu-p'>Trang chủ <span className='header-rangsu-dau' >-</span>Răng Sứ</p>
+            <p className='header-rangsu-p'>Trang chủ <span className='header-rangsu-dau' >-</span>Trồng Răng IMPLANT</p>
         </div>
         <Row className='section-rangsu'>
         <Col className='section-rangsu-left' xs={12} md={8}>
@@ -17,7 +17,7 @@ export default function News() {
          <p className='section-rangsu-left-p'>Tìm được 2 bài viết</p>
             <Row className="section-rangsu-left-tin">
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
-            <img src={imgs24} className='section-rangsu-left-tin-left-img'/>
+            <img src={imgs24} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>TRỒNG RĂNG TOÀN HÀM</h3>
             <p className='section-rangsu-left-tin-left-p'>
             Trồng răng Implant toàn hàm với kỹ thuật All on 4 hay All on 6 hiện nay được 
@@ -25,7 +25,7 @@ export default function News() {
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
-         <img src={imgs25} className='section-rangsu-left-tin-left-img'/>
+         <img src={imgs25} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>CẤY GHÉP IMPLANT</h3>
             <p className='section-rangsu-left-tin-left-p'>
             Cấy ghép Implant có khả năng phục hồi răng mang lại hiệu quả cải thiện tốt như

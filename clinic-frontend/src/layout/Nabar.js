@@ -10,7 +10,7 @@ function Nabar() {
     <Navbar  expand="lg" className='Navbar-container'>
    <Container fluid >
    <Navbar.Brand href="/" >
-   <Nav.Link className='navbare' as={Link} to={"/"} className='Navbar-logo' >LOGO</Nav.Link>
+   <Nav.Link className='navbare Navbar-logo' as={Link} to={"/"} >LOGO</Nav.Link>
       </Navbar.Brand>
    <Navbar.Toggle aria-controls="navbarScroll" />
    <Navbar.Collapse id="navbarScroll">
@@ -19,7 +19,7 @@ function Nabar() {
         <Nav.Link className='navbare' as={Link} to={"/rangsu"}>RĂNG SỨ THẨM MỸ</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/blog"}>CHỈNH NHA-NIỀNG RĂNG</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/news"}>TRỒNG RĂNG IMPLANT</Nav.Link>
-       <Nav.Link  className='navbare' as={Link} to={"/contac"}>NHA KHOA TỔNG QUÁT</Nav.Link>
+       <Nav.Link  className='navbare' as={Link} to={"/contact"}>NHA KHOA TỔNG QUÁT</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/list"}>BẢNG GIÁ</Nav.Link>
        <Nav.Link  className='navbare' as={Link} to={"/about"}>VỀ CHÚNG TÔI</Nav.Link>
 

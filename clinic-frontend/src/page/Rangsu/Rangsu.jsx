@@ -16,7 +16,7 @@ export default function Rangsu() {
          <p className='section-rangsu-left-p'>Tìm được 2 bài viết</p>
             <Row className="section-rangsu-left-tin">
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
-            <img src={imgs20} className='section-rangsu-left-tin-left-img'/>
+            <img src={imgs20} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>MẶT DÁN SỨ VENEER</h3>
             <p className='section-rangsu-left-tin-left-p'>
                 Răng sứ Veneer là mặt dán sứ bọc dùng để bọc bên ngoài bề mặt
@@ -24,7 +24,7 @@ export default function Rangsu() {
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
-         <img src={imgs21} className='section-rangsu-left-tin-left-img'/>
+         <img src={imgs21} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>BỌC SỨ THẨM MỸ</h3>
             <p className='section-rangsu-left-tin-left-p'>
                 Răng sứ Veneer là mặt dán sứ bọc dùng để bọc bên ngoài bề mặt
