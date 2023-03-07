@@ -8,7 +8,7 @@ export default function News() {
   return (
     <div>
 
-<div className="header-rangsu">
+   <div className="header-rangsu">
             <p className='header-rangsu-p'>Trang chủ <span className='header-rangsu-dau' >-</span>Trồng Răng IMPLANT</p>
         </div>
         <Row className='section-rangsu'>

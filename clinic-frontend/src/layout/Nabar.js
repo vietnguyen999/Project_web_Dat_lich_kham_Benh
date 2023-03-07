@@ -8,15 +8,15 @@ function Nabar() {
   return (
     // variant={"dark"}
     <div>
-    <Navbar  expand="lg" className='Navbar-container'>
-   <Container fluid >
-   <Navbar.Brand href="/" >
-   <Nav.Link className='navbare ' as={Link} to={"/"} >
-   <img src={logo1} alt='' className='Navbar-logo'/>
-    </Nav.Link>
+      <Navbar  expand="lg" >
+        <Container fluid >
+        <Navbar.Brand href="/" >
+        <Nav.Link className='navbare ' as={Link} to={"/"} >
+        <img src={logo1} alt='' className='Navbar-logo'/>
+         </Nav.Link>
       </Navbar.Brand>
-   <Navbar.Toggle aria-controls="navbarScroll" />
-   <Navbar.Collapse id="navbarScroll">
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
      
         <Nav className="justify-content-end flex-grow-1 pe-3 navx">
         <Nav.Link className='navbare' as={Link} to={"/rangsu"}>RĂNG SỨ THẨM MỸ</Nav.Link>
