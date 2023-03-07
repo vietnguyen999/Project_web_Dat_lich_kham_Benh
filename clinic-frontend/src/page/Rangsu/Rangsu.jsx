@@ -25,7 +25,7 @@ export default function Rangsu() {
          </Col>
          <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
          <img src={imgs21} className='section-rangsu-left-tin-left-img'/>
-            <h3 className='section-rangsu-left-tin-left-h3'>MẶT DÁN SỨ VENEER</h3>
+            <h3 className='section-rangsu-left-tin-left-h3'>BỌC SỨ THẨM MỸ</h3>
             <p className='section-rangsu-left-tin-left-p'>
                 Răng sứ Veneer là mặt dán sứ bọc dùng để bọc bên ngoài bề mặt
                 răng nhằm che lấp các khuyết điểm khi răng bị tổn thương cấu trúc hoặc xỉn...</p>
