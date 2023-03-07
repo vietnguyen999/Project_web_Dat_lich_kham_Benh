@@ -1,6 +1,7 @@
 import React from 'react'
 import {Navbar,Container,Nav,Form,Button} from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import logo1 from '../img/logoviet.png'
 import './Navbar.css';
 import {BsCalendarCheck} from 'react-icons/bs'
 function Nabar() {
@@ -10,7 +11,9 @@ function Nabar() {
     <Navbar  expand="lg" className='Navbar-container'>
    <Container fluid >
    <Navbar.Brand href="/" >
-   <Nav.Link className='navbare Navbar-logo' as={Link} to={"/"} >LOGO</Nav.Link>
+   <Nav.Link className='navbare ' as={Link} to={"/"} >
+   <img src={logo1} alt='' className='Navbar-logo'/>
+    </Nav.Link>
       </Navbar.Brand>
    <Navbar.Toggle aria-controls="navbarScroll" />
    <Navbar.Collapse id="navbarScroll">
