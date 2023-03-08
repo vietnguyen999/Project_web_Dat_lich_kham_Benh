@@ -9,6 +9,8 @@ import Contact from './page/contact/Contact';
 import List from './page/list/List';
 import Rangsu from './page/Rangsu/Rangsu';
 import Nabar from './layout/Nabar'
+import Bocsu from './page/Rangsu/Bocsu';
+import Matdansu from './page/Rangsu/Matdansu'
 
 
 
@@ -24,6 +26,8 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/list" element={<List />} />
+        <Route path="/bocsu" element={<Bocsu />} />
+        <Route path="/madansu" element={<Matdansu />} />
         
       </Routes>
       
