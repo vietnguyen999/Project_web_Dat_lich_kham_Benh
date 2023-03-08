@@ -49,3 +49,8 @@
     color: rgb(230, 235, 240);
     font-family: Arial white Gadget;
 }
+@media only screen and (max-width: 390px){
+    .footer{
+        height: 800px;
+    }
+}
