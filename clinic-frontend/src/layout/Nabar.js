@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import { removeToken } from "../helpers";
 import { useNavigate } from "react-router-dom";
-import { SplitButton, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AiOutlineCalendar } from "react-icons/ai";
 import "./Nabar.css";
+import Calendar from "../page/calendar/Calendar";
 
 function Nabar() {
   const { user, setUser } = useAuthContext();
-  console.log(user);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
     removeToken();
     setUser(undefined);
     navigate("/signin", { replace: true });
+  };
+  const handleShow = () => {
+    setShow(true);
   };
   return (
     <div>
@@ -53,12 +59,21 @@ function Nabar() {
             {user ? (
               <>
                 <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
-                  {user.username}
+                  <Dropdown.Toggle
+                    className="info"
+                    variant="success"
+                    id="dropdown-basic"
+                  >
+                    {user.username}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item onClick={handleLogout} >Logout</Dropdown.Item>
+                    <Dropdown.Item>
+                      <Nav.Link className="navbare" as={Link} to={"/profile"}>
+                        Thông tin cá nhân
+                      </Nav.Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </>
@@ -71,6 +86,14 @@ function Nabar() {
                 </Button>
               </>
             )}
+            <div className="calendar-days">
+              <button onClick={handleShow}>
+                <span>
+                  <AiOutlineCalendar />
+                </span>
+              </button>
+              <Calendar show={show} handleClose={() => setShow(false)} />
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

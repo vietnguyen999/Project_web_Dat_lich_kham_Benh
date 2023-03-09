@@ -1,12 +1,7 @@
 import "./Login.css";
-import {
-  Alert,
-  Button,
-  Form,
-  Input,
-  message,
-  Spin,
-} from "antd";
+import { Alert, Button, Form, Input, message, Spin, } from "antd";
+import { Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
@@ -107,14 +102,14 @@ export const Login = () => {
             <Input.Password placeholder="Password" />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit" className="primary">
+            <Button
+              className="login-Button primary"
+              type="primary"
+              htmlType="submit"
+            >
               Login {isLoading && <Spin size="small" />}
             </Button>
           </Form.Item>
-          {/* <Button 
-            type="primary"
-            htmlType="submit"
-            className="primary">Login{isLoading && <Spin size="small" />}</Button> */}
         </Form>
         <div className="forgot-password">
           <div className="forgot-password-handle">
@@ -125,9 +120,12 @@ export const Login = () => {
           <div className="create-account">
             <span>
               Bạn chưa có tài khoản
-              <Button type="link" className="underline text-blue-700" href="/signUp" >
+              {/* <Button type="link" className="underline text-blue-700" href="/signUp" >
                 Tạo ngay
-              </Button>
+              </Button> */}
+                <Nav.Link className="navbare create-now" as={Link} to={"/signUp"}>
+                Tạo ngay
+                </Nav.Link>
             </span>
           </div>
         </div>

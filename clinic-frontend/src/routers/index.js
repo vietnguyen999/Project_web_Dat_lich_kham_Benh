@@ -5,6 +5,7 @@ import About from "../page/about/About"
 import Blog from "../page/blog/Blog"
 import News from "../page/news/News"
 import Contact from "../page/contact/Contact"
+import Profile from "../components/Profile/Profile"
 
 
 export const publicRouters = [
@@ -39,6 +40,10 @@ export const publicRouters = [
     {
         path: '/contact',
         component: Contact
+    },
+    {
+        path: '/profile',
+        component: Profile
     },
 ]
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Home.css";
 import { Modal, Button } from "react-bootstrap";
+import Calendar from "../calendar/Calendar";
 import Slider from "../../layout/Slider";
 import Footer from "../../layout/Footer";
 import imgs1 from "../../img/imgs1.png";
@@ -24,7 +25,6 @@ export default function Home() {
   const handleShow = () => {
     setShow(true);
   };
-  const handleClose = () => setShow(false);
   return (
     <div>
       <Slider />
@@ -150,14 +150,9 @@ export default function Home() {
               </span>
               Đặt lịch
             </button>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                Woohoo, you're reading this text in a modal!
-              </Modal.Body>
-            </Modal>
+
+            <Calendar show={show} handleClose={() => setShow(false)} />
+
             <button className=" section-datlich-left-btn section-datlich-right-btn ">
               Tư vấn
             </button>

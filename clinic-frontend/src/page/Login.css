@@ -5,6 +5,23 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.ant-form-item-control-input-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-now {
+  color: blue;
+  margin-left: 10px;
+}
+
+.create-account span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .login {
   width: 100%;
   display: flex;
@@ -24,7 +41,7 @@
   text-align: center;
   width: 90%;
   margin: auto;
-  height: 500px;
+  /* height: 500px; */
 }
 
 .App>.logo {
@@ -42,9 +59,9 @@
   display: flow-root;
 }
 
-.input-group:nth-last-child(-n + 2) {
+/* .input-group:nth-last-child(-n + 2) {
   margin-bottom: 50px;
-}
+} */
 
 .input-group>label,
 .input-group>input {
@@ -83,7 +100,7 @@
   font-size: 16px;
 }
 
-button {
+.login-Button {
   border-radius: 5px;
   border: none;
   color: #fff;
@@ -96,11 +113,14 @@ button {
   outline: 0;
   padding: 10px 0;
   transition: background 0.3s;
-  width: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button.primary {
-  background: #f58733;
+  background: #198754;
 }
 
 button.primary:hover {
