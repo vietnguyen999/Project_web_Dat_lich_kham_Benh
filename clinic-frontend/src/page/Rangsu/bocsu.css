@@ -1,0 +1,113 @@
+.header-bocsu{
+    width: 100%;
+    height: 25px;
+    background-color: cornflowerblue;
+}
+.header-bocsu-p{
+    color: white;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.header-bocsu-dau{
+    padding: 3px 5px 3px 3px;
+}
+.section-bocsu{
+    padding-top: 10px;
+}
+.section-bocsu-left{
+    padding-left: 40px;
+    padding-top: 10px;
+}
+.section-bocsu-left-h2{
+    color: darkslateblue;
+    font-size: 36px;
+    font-weight: 600;
+}
+.section-bocsu-left-p{
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+    
+}
+.section-bocsu-left-tin-left{
+    width: 400px;
+    height: 450px;
+    display: block;
+    margin: auto;
+    padding: auto;
+    border-radius: 15px;
+    box-shadow: -10px -10px 10px rgba(255,255,255,0.4),10px 10px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+}
+.section-bocsu-left-tin-left:hover{
+    border-radius: 15px;
+    box-shadow: -25px -25px 25px rgba(255,255,255,0.2),25px 25px 25px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+.section-bocsu-left-img{
+    width: 100%;
+    height: auto;
+}
+.section-bocsu-left-text-h5{
+    padding-top: 10px;
+    font-size: 18px;
+}
+.section-bocsu-right{
+    padding-top: 70px;
+    justify-content: left;
+}
+.section-bocsu-right-h4{
+    font-size: 22px;
+    color: darkmagenta;
+    font-weight: 700;
+}
+.section-bocsu-right-dichvu{
+    padding-top: 35px;
+   
+}
+.section-bocsu-right-dichvu-h5
+{
+    font-size: 18px;
+    margin-top: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 0 10px 10px;
+    border-left: 1.6px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.section-bocsu-right-dichvu-h5:hover{
+    color: blueviolet;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 0 10px 10px;
+    border-left: 1.6px solid blue;
+}
+@media only screen and (max-width: 390px){
+    .section-bocsu-left-tin-left{
+        width: 350px;
+        height: auto;
+        margin-top: 15px;
+    }   
+    .section-bocsu-left-h2{
+        font-size: 26px;
+    }
+    .section-bocsu-left-p{
+        font-weight: 500;
+    }
+    .section-bocsu-left-tin-left-img{
+        width: 340px;
+    }
+    .section-bocsu-right{
+        width: 380px;
+    }
+    .section-bocsu-right-h4{
+        font-size: 20px;
+        text-align: center;
+    }
+    .section-bocsu-right-dichvu-h5{
+        margin-left: 30px;
+        font-size: 16px;
+
+    }
+    
+}
