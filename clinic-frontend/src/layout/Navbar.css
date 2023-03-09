@@ -1,0 +1,26 @@
+.Navbar-container{
+    height: 80px;
+}
+.Navbar-logo{
+   
+    
+    padding-left: 20px;
+    width: 130px;
+    height: 70px;
+}
+
+.Navbar-datlich
+{
+    padding: 5px 10px 5px 10px;
+    color: black;
+}
+.navbare{
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Times New Roman;
+    
+}
+.justify-content-end
+{
+    position:relative;
+}

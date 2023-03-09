@@ -1,12 +1,13 @@
 import React from 'react';
-import img1 from '../img/Hinh-123.jpg'
-import img2 from '../img/hinh-234.jpg'
-import img3 from '../img/hinh-3456.jpg'
+import img1 from '../img/imgs16.jpg'
+import img2 from '../img/imgs18.png'
+import img3 from '../img/imgs19.jpg'
 import "./slider.css"
 import Carousel from 'react-bootstrap/Carousel';
 
 function Slider() {
   return (
+    <div className='carouself'>
     <Carousel>
       <Carousel.Item>
         <img
@@ -14,10 +15,6 @@ function Slider() {
           src={img2}
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -25,11 +22,6 @@ function Slider() {
           src={img1}
           alt="Second slide"
         />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -37,16 +29,9 @@ function Slider() {
           src={img3}
           alt="Third slide"
         />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    
+    </div>
   )
 }
 

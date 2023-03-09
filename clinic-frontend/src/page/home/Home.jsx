@@ -31,10 +31,9 @@ export default function Home() {
 
       <section>
         <div class="container text-center">
-          <div class="row">
-            <div class="col-md-3">
+          <div class="row sectiopn-information-clinic">
+            <div class="col-md-3 sectiopn-information">
               <img src={imgs1} alt="..." className="imgs_left_img" />
-
               <div className="text-section">
                 <h4 className="text-section-h4">BÁC SĨ KINH NGIỆN</h4>
                 <p className="text-section-p">
@@ -43,9 +42,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div class="col-md-3">
-              <img src={imgs2} alt="..." className="imgs_left_img" />
 
+            <div class="col-md-3 sectiopn-information">
+              <img src={imgs2} alt="..." className="imgs_left_img" />
               <div className="text-section">
                 <h4 className="text-section-h4">CÔNG NGHỆ HIỆN ĐẠI</h4>
                 <p className="text-section-p">
@@ -54,9 +53,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div class="col-md-3">
-              <img src={imgs3} alt="..." className="imgs_left_img" />
 
+            <div class="col-md-3 sectiopn-information">
+              <img src={imgs3} alt="..." className="imgs_left_img" />
               <div className="text-section">
                 <h4 className="text-section-h4">CHI PHÍ HỢP LÝ</h4>
                 <p className="text-section-p">
@@ -65,9 +64,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div class="col-md-3">
-              <img src={imgs4} alt="..." className="imgs_left_img" />
 
+            <div class="col-md-3 sectiopn-information">
+              <img src={imgs4} alt="..." className="imgs_left_img" />
               <div className="text-section">
                 <h4 className="text-section-h4">ĐẠI CHỈ</h4>
                 <p className="text-section-p">QUY NHƠN, BINH ĐỊNH</p>
@@ -150,9 +149,7 @@ export default function Home() {
               </span>
               Đặt lịch
             </button>
-
             <Calendar show={show} handleClose={() => setShow(false)} />
-
             <button className=" section-datlich-left-btn section-datlich-right-btn ">
               Tư vấn
             </button>
@@ -161,7 +158,7 @@ export default function Home() {
         <div className="col">
           <div className="section-datlich-right">
             <img src={imgs9} alt="..." className="section-datlich-right-img" />
-            <h1 className="section-datlich-right-h1">Nha khoa </h1>
+            <h1 className="section-datlich-right-h1">Nha khoa Viet Nguyen</h1>
           </div>
         </div>
       </div>
@@ -174,7 +171,8 @@ export default function Home() {
               alt="..."
               className="section-information-col-imgs"
             />
-            <h3 className="section-information-col-h3">2</h3>
+            <h3 className="section-information-col-h3">2+</h3>
+            <p className="section-information-col-p">Trung Tâm</p>
           </div>
           <div className="col section-information-col">
             <img
@@ -183,6 +181,7 @@ export default function Home() {
               className="section-information-col-imgs"
             />
             <h3 className="section-information-col-h3">20+</h3>
+            <p className="section-information-col-p">Bác Sĩ</p>
           </div>
           <div className="col section-information-col">
             <img
@@ -191,6 +190,7 @@ export default function Home() {
               className="section-information-col-imgs"
             />
             <h3 className="section-information-col-h3">6+</h3>
+            <p className="section-information-col-p">Năm Kinh Nghiện</p>
           </div>
           <div className="col section-information-col">
             <img
@@ -199,6 +199,7 @@ export default function Home() {
               className="section-information-col-imgs"
             />
             <h3 className="section-information-col-h3">60.000+</h3>
+            <p className="section-information-col-p">Khách Hàng</p>
           </div>
           <div className="col section-information-col">
             <img
@@ -206,7 +207,10 @@ export default function Home() {
               alt="..."
               className="section-information-col-imgs"
             />
-            <h3>60.000+</h3>
+            <h3 className="section-information-col-h3">60.000+</h3>
+            <p className="section-information-col-p">
+              Ca Phẫu Thuật Thành Công
+            </p>
           </div>
         </div>
       </div>

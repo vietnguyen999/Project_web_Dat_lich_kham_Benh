@@ -1,0 +1,66 @@
+.header-banggia{
+    width: 100%;
+    height: 25px;
+    background-color: cornflowerblue;
+}
+.header-banggia-p{
+    color: white;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.header-banggia-dau{
+    padding: 3px 5px 3px 3px;
+}
+.section-banggia{
+    padding-top: 10px;
+}
+.section-banggia-left{
+    padding-top: 30px;
+}
+.section-banggia-left-h5{
+    color: rgb(7, 4, 26);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+}
+.section-banggia-left-img{
+    width: 850px;
+    height: auto;
+    margin-top: 25px;
+}
+.section-banggia-right{
+    padding-top: 70px;
+    justify-content: left;
+}
+.section-banggia-right-h4{
+    font-size: 22px;
+    color: darkmagenta;
+    font-weight: 700;
+}
+.section-banggia-right-dichvu{
+    padding-top: 5px;
+    margin-right: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.section-right-banggia-h5
+{
+    font-size: 18px;
+    font-size: 18px;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 0 10px 10px;
+    border-left: 1.6px solid black;
+}
+.section-right-banggia-h5:hover{
+    color: blueviolet;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 10px 0 10px 10px;
+    border-left: 1.6px solid blue;
+}
+@media only screen and (max-width: 390px){
+    .section-banggia-left-img{
+        width: 380px;
+        height: auto;
+    }
+}

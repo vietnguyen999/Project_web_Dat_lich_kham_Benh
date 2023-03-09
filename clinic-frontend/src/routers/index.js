@@ -6,7 +6,10 @@ import Blog from "../page/blog/Blog"
 import News from "../page/news/News"
 import Contact from "../page/contact/Contact"
 import Profile from "../components/Profile/Profile"
-
+import Rangsu from "../page/Rangsu/Rangsu"
+import List from "../page/list/List"
+import Bocsu from "../page/Rangsu/Bocsu"
+import Matdansu from "../page/Rangsu/Matdansu"
 
 export const publicRouters = [
     {
@@ -44,6 +47,22 @@ export const publicRouters = [
     {
         path: '/profile',
         component: Profile
+    },
+    {
+        path: '/rangsu',
+        component: Rangsu
+    },
+    {
+        path: '/list',
+        component: List
+    },
+    {
+        path: '/bocsu',
+        component: Bocsu
+    },
+    {
+        path: '/madansu',
+        component: Matdansu
     },
 ]
 

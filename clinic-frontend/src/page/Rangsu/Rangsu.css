@@ -38,7 +38,7 @@
     padding: auto;
     border-radius: 15px;
     box-shadow: -10px -10px 10px rgba(255,255,255,0.4),10px 10px 10px rgba(0,0,0,0.1);
-    
+    text-decoration: none;
 }
 .section-rangsu-left-tin-left:hover{
     border-radius: 15px;
@@ -63,14 +63,11 @@
 }
 .section-rangsu-left-tin-left-btn{
     margin-left: 10px;
-    margin-top: 15px;
+    margin-top: 20px;
     border: none;
     font-size: 12px;
     font-weight: 500;
     background-color: white;
-}
-.section-rangsu-left-tin-left-btn1{
-    padding-top: 23px;
 }
 .section-rangsu-right{
     padding-top: 70px;
@@ -83,6 +80,7 @@
 }
 .section-rangsu-right-dichvu{
     padding-top: 35px;
+   
 }
 .section-rangsu-right-dichvu-h5
 {
@@ -92,10 +90,40 @@
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
     border-left: 1.6px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .section-rangsu-right-dichvu-h5:hover{
     color: blueviolet;
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
     border-left: 1.6px solid blue;
+}
+@media only screen and (max-width: 390px){
+    .section-rangsu-left-tin-left{
+        width: 350px;
+        height: auto;
+        margin-top: 15px;
+    }   
+    .section-rangsu-left-h2{
+        font-size: 26px;
+    }
+    .section-rangsu-left-p{
+        font-weight: 500;
+    }
+    .section-rangsu-left-tin-left-img{
+        width: 340px;
+    }
+    .section-rangsu-right{
+        width: 380px;
+    }
+    .section-rangsu-right-h4{
+        font-size: 20px;
+        text-align: center;
+    }
+    .section-rangsu-right-dichvu-h5{
+        margin-left: 30px;
+        font-size: 16px;
+
+    }
+    
 }

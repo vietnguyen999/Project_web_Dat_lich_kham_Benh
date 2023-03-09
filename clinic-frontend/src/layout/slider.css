@@ -1,3 +1,8 @@
 .d-block{
-    height: 500px;
+    height: 550px;
+}
+@media only screen and (max-width: 390px){
+    .carouself{
+        display: none;
+    }
 }
