@@ -11,11 +11,12 @@ import Rangsu from './page/Rangsu/Rangsu';
 import Nabar from './layout/Nabar'
 import Bocsu from './page/Rangsu/Bocsu';
 import Matdansu from './page/Rangsu/Matdansu'
+import AppRoutes from "./Routes";
 
 
 
-function App() {
-  return (
+const App = () => {
+  return(
     <div className="App">
       <Nabar />
       <Routes>
@@ -32,7 +33,10 @@ function App() {
       </Routes>
       
       
+      <AppRoutes />
+
     </div>
-  );
+  ) 
 }
+
 export default App;

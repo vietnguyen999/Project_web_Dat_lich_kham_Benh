@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:where(.css-dev-only-do-not-override-10ed4xt).ant-form-vertical .ant-form-item-label>label {
+    color: #198754;
+}
+
+
+.modal-body {
+    padding-bottom: 32px;
+}
+
+.calendar-days-form-title {
+    color: #198754;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-days-form {
+    background-color: #b5c0ad;
+    width: 100%;
+    padding: 15px 0 10px 0;
+}
+
+.waiting-item li {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 26px;
+    color: gray;
+}
+
+.waiting {
+    color: #198754;
+    padding: 0 0 0 4%;
+    margin-bottom: 13%;
+}
+
+.modal-dialog {
+    --bs-modal-width: 78%;
+}
+
+.modal-calendar-day {
+    display: flex;
+    align-items: center;
+}
+
+.modal-calendar-title {
+    width: 45%;
+}
+
+.calendar-day-register {
+    width: 55%;
+    padding: 0 18px 0 32px;
+}

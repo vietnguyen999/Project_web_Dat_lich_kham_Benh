@@ -10,6 +10,9 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@strapi/strapi": "4.7.0",
+    "@strapi/plugin-users-permissions": "4.7.0",
+    "@strapi/plugin-i18n": "4.7.0",
     "@strapi/plugin-documentation": "^4.6.2",
     "@strapi/plugin-i18n": "4.6.2",
     "@strapi/plugin-users-permissions": "4.6.2",
@@ -21,7 +24,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "c10bd25e-82d9-4dc7-8992-faa1df4dd4b5"
+    "uuid": "44da7194-c94b-4244-a313-0a828118b539"
   },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",

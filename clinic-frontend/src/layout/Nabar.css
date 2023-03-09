@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.onli {
+    width: 7%;
+}
+
+.info:hover {
+    background: none;
+    border: none;
+}
+
+.info {
+    background: none;
+    border: none;
+}
+
+.calendar-days {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.collapse {
+    align-items: center;
+}
+
+.btn.show {
+    background: none;
+    border: none;
+}
+
+button#dropdown-basic:active {
+    background: no-repeat;
+    border: none;
+}
+
+.calendar-days button {
+    background-color: initial;
+    border: none;
+    color: #198754;
+    font-size: 1.2rem;
+    border: 1px solid #198754;
+    padding: 8px;
+    border-radius: 17%;
+}
+
+.calendar-days button:hover {
+    background-color: #198754;
+    color: white;
+    border: 1px px solid #198754;
+}
+
+.calendar-days span {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
