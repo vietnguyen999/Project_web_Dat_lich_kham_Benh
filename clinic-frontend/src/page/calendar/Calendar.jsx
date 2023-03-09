@@ -1,6 +1,6 @@
-import { Modal } from "react-bootstrap";
+import { Modal, Col, Row } from "react-bootstrap";
 import { useState } from "react";
-import { Form, Input, Button, Col, Row } from "antd";
+import { Form, Input, Button } from "antd";
 import { useAuthContext } from "../../context/AuthContext";
 import "./Calendar.css";
 
@@ -13,8 +13,8 @@ function Calendar(props) {
         <Modal.Title>Đặt Lịch</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className="modal-calendar-day">
-          <div className="modal-calendar-title">
+        <Row className="modal-calendar-day">
+          <Col md={6} lg={6} sm={12} xs={12}  className="modal-calendar-title">
             <div className="calendar-title">
               <div className="waiting">
                 <h2>LƯU Ý</h2>
@@ -42,8 +42,8 @@ function Calendar(props) {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="calendar-day-register">
+          </Col>
+          <Col md={6} lg={6} sm={12} xs={12} className="calendar-day-register">
             <div className="calendar-days-form">
               <div className="calendar-days-form-title">
                 <h2>ĐẶT LỊCH KHÁM</h2>
@@ -135,19 +135,28 @@ function Calendar(props) {
                   />
                 </Form.Item>
                 <Form.Item>
-                  <Button
+                  {/* <Button
                     className="login-Button primary"
                     type="primary"
                     htmlType="submit"
                   >
                     Đặt lịch hẹn
-                    {/* Login {isLoading && <Spin size="small" />} */}
+                  </Button> */}
+                  {/* <Button
+                    className="login-Button primary "
+                    type="primary"
+                    htmlType="submit"
+                  >
+                    Đặt lịch hẹn
+                  </Button> */}
+                  <Button type="primary" htmlType="submit" className="primary">
+                    Đặt Lịch Hẹn
                   </Button>
                 </Form.Item>
               </Form>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Modal.Body>
     </Modal>
   );

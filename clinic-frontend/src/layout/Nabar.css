@@ -3,18 +3,23 @@
     padding: 0;
 }
 
-.onli {
-    width: 7%;
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Times New Roman;
 }
 
 .info:hover {
     background: none;
     border: none;
+    color: black;
 }
 
 .info {
     background: none;
     border: none;
+    color: black;
+    font-family: Times New Roman;
 }
 
 .calendar-days {

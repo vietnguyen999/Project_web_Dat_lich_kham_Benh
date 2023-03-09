@@ -39,7 +39,7 @@
 }
 
 .modal-dialog {
-    --bs-modal-width: 78%;
+    --bs-modal-width: 80%;
 }
 
 .modal-calendar-day {
@@ -48,10 +48,10 @@
 }
 
 .modal-calendar-title {
-    width: 45%;
+    /* width: 45%; */
 }
 
 .calendar-day-register {
-    width: 55%;
+    /* width: 55%; */
     padding: 0 18px 0 32px;
 }
