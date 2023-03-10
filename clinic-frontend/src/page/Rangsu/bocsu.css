@@ -53,6 +53,51 @@
     padding-top: 10px;
     font-size: 18px;
 }
+.section-bocsu-left-text-li{
+    margin-left: 13px;
+}
+.section-bocsu-left-text-h6-chiase{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+.section-bocsu-left-text-icon{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.section-bocsu-left-text-icon-fa{
+    padding-left: 5px;
+    font-size: 32px;
+    color: blue;
+}
+.section-bocsu-left-btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}
+.section-bocsu-left-text-btn{
+    margin-left: 3%;
+    width: 40%;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: wheat;    
+}
+.section-bocsu-left-text-btn:hover{
+    transition: 1s;
+    background-color: rgb(57, 21, 91);
+}
+.section-bocsu-left-text-noidung{
+    padding-top: 30px;
+}
+.section-bocsu-left-text-noidumg-h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: blue;
+}
 .section-bocsu-right{
     padding-top: 70px;
     justify-content: left;

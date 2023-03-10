@@ -6,6 +6,12 @@ import './bocsu.css';
 import bocsu from '../../img/bocsu1.png'
 import rangbocsu from '../../img/rangbocsu.png'
 import { FaFacebook } from 'react-icons/fa';
+import {AiFillTwitterCircle} from 'react-icons/ai'
+import { BsPinterest } from 'react-icons/bs';
+import {AiFillGooglePlusCircle} from 'react-icons/ai';
+import { BsFillJournalBookmarkFill } from 'react-icons/bs';
+import {BiPhoneCall} from 'react-icons/bi';
+
 import Footer from '../../layout/Footer';
 export default function Bocsu() {
   return (
@@ -98,19 +104,18 @@ export default function Bocsu() {
                     và giúp bạn tự tin tỏa sáng với nụ cười đẹp rạng ngời. Nếu còn bất
                      kỳ thắc mắc về dịch vụ bọc răng sứ thẩm mỹ, bạn đừng ngần ngại liên hệ hoặc
                      đến trực tiếp các phòng khám để được bác sĩ tư vấn cụ thể nhé! Chia sẻ:</p>
-                    <h6 className='section-bocsu-left-text-h6-chiase'>
-                      Chia sẻ
-                    </h6>
+                    <h6 className='section-bocsu-left-text-h6-chiase'> Chia sẻ </h6>
                       <div className='section-bocsu-left-text-icon'>
-                      <a href='#er'><span className='section-bocsu-left-text-icon-fa'><FaFacebook /></span></a>
-                      <a href='#er'><span className='section-bocsu-left-text-icon-fa'><FaFacebook /></span></a>
-                      <a href='#er'><span className='section-bocsu-left-text-icon-fa'><FaFacebook /></span></a>
-                      <a href='#er'><span className='section-bocsu-left-text-icon-fa'><FaFacebook /></span></a>
+                      <span className='section-bocsu-left-text-icon-fa'><FaFacebook /></span>
+                      <span className='section-bocsu-left-text-icon-fa'><AiFillTwitterCircle /></span>
+                      <span className='section-bocsu-left-text-icon-fa'><BsPinterest /></span>
+                      <span className='section-bocsu-left-text-icon-fa'><AiFillGooglePlusCircle /></span>
+                     
                       </div>
                      <div className="section-bocsu-left-btn">
-                      <button className='section-bocsu-left-text-btn'>0941828083</button>
-                      <button className='section-bocsu-left-text-btn'>ĐẶT LỊCH KHÁM</button>
-                      <button className='section-bocsu-left-text-btn'>NHẬN TƯ VẤN</button>
+                      <button className='section-bocsu-left-text-btn'> <span><BiPhoneCall/></span> 0941828083</button>
+                      <button className='section-bocsu-left-text-btn'><span><BsFillJournalBookmarkFill/></span> ĐẶT LỊCH KHÁM</button>
+                      <button className='section-bocsu-left-text-btn'><span><BsFillJournalBookmarkFill/></span> NHẬN TƯ VẤN</button>
                      </div>
                      <div className="section-bocsu-left-text-noidung">
                       <h3 className='section-bocsu-left-text-noidumg-h3'>NỘI DUNG LIÊN QUANG </h3>
