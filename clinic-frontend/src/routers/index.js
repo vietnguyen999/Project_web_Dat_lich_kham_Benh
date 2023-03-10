@@ -10,6 +10,8 @@ import Rangsu from "../page/Rangsu/Rangsu"
 import List from "../page/list/List"
 import Bocsu from "../page/Rangsu/Bocsu"
 import Matdansu from "../page/Rangsu/Matdansu"
+import Niengrangmaccai from "../page/blog/Niengrangmaccai"
+import Niengrangtrongsuot from "../page/blog/Niengrangtrongsuot"
 
 export const publicRouters = [
     {
@@ -63,6 +65,14 @@ export const publicRouters = [
     {
         path: '/matdansu',
         component: Matdansu
+    },
+    {
+        path: '/niengrangtrongsuot',
+        component: Niengrangtrongsuot
+    },
+    {
+        path: '/niengrangmaccai',
+        component: Niengrangmaccai
     },
 ]
 

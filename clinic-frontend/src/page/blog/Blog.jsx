@@ -1,5 +1,6 @@
 import React from 'react'
 import './Blog.css';
+import { Link } from "react-router-dom";
 import {Row,Col} from 'react-bootstrap';
 import imgs22 from "../../img/imgs22.png"
 import imgs23 from "../../img/imgs23.png"
@@ -16,7 +17,7 @@ export default function Blog() {
          <h2 className='section-rangsu-left-h2'>CHỈNH NHA - NIỀNG RĂNG</h2>
          <p className='section-rangsu-left-p'>Tìm được 2 bài viết</p>
             <Row className="section-rangsu-left-tin">
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left'  as={Link} to={"/niengrangtrongsuot"} xs={12} md={6}>
             <img src={imgs22} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NIỀNG RĂNG TRONG SUỐT INVISALIGN</h3>
             <p className='section-rangsu-left-tin-left-p'>
@@ -25,7 +26,7 @@ export default function Blog() {
                 Align Technology - Hoa Kỳ....</p>
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left' as={Link} to={"/niengrangmaccai"} xs={12} md={6}>
          <img src={imgs23} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NIỀNG RĂNG MẮC CÀI</h3>
             <p className='section-rangsu-left-tin-left-p'>
