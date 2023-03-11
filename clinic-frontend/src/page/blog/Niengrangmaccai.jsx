@@ -2,8 +2,10 @@ import React from 'react'
 import {Row,Col} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import niengrangmaccai1 from "../../img/niengrangmaccai1.png"
+import imgs22 from "../../img/imgs22.png"
 import maccaisu from "../../img/maccaisu.png"
 import { useState } from "react";
+import "./Niengrangmaccai.css";
 import Calendar from "../calendar/Calendar";
 import maccaikimloai from "../../img/maccaikimloai1.jpg"
 import { FaFacebook } from 'react-icons/fa';
@@ -68,7 +70,7 @@ export default function Niengrangmaccai() {
            <li className='section-niengrangmaccai-left-text-li'>Tính thẩm mỹ không cao, mắc cài nhìn lộ rõ khi bạn giao tiếp.</li>
            <li className='section-niengrangmaccai-left-text-li'>Độ dày lớn hơn so với mắc cài tiêu chuẩn nên khi đeo niềng sẽ có cảm giác vướng víu, khó chịu hơn.</li>
            <h5 className='section-niengrangmaccai-left-text-h3'>Niềng răng mắc cài sứ :</h5>
-            <img src={maccaisu} alt=''className='section-matdansu-left-img'/>
+            <img src={maccaisu} alt=''className='section-niengrangmaccai-left-img-maccaisu'/>
             <h5 className='section-niengrangmaccai-left-text-h3'>Đặc điển</h5>
             <p className='section-niengrangmaccai-left-text-p'>Sử dụng mắc cài bằng chất liệu sứ kết hợp với
              dây thun để cố định dây cung trong rãnh mắc cài, tạo lực kéo giúp răng dịch chuyển. Mắc cài sứ
@@ -125,29 +127,30 @@ export default function Niengrangmaccai() {
                            <p className='section-niengrangmaccai-left-text-p'>Hi vọng qua những thông tin mà chúng tôi vừa chia sẻ đã giúp bạn hiểu được niềng răng mắc cài là gì? Ưu, nhược điểm của từng loại
                             mắc cài ra sao? Nên niềng răng mắc cài loại nào tốt, tiết kiệm chi phí, thẩm mỹ cao?</p>
                            <p className='section-niengrangmaccai-left-text-p'>Nếu bạn có thắc mắc hoặc cần tư vấn cụ thể về kế hoạch chỉnh nha của mình cũng như tìm hiểu về công nghệ chỉnh nha hiện đại hãy liên hệ với Nha Khoa Phúc Nguyên ngay nhé!</p>
-                 <h6 className='section-matdansu-left-text-h6-chiase'> Chia sẻ </h6>
-                   <div className='section-matdansu-left-text-icon'>
-                   <span className='section-matdansu-left-text-icon-fa'><FaFacebook /></span>
-                   <span className='section-matdansu-left-text-icon-fa'><AiFillTwitterCircle /></span>
-                   <span className='section-matdansu-left-text-icon-fa'><BsPinterest /></span>
-                   <span className='section-matdansu-left-text-icon-fa'><AiFillGooglePlusCircle /></span>
+                 <h6 className='section-niengrangmaccai-left-text-h6-chiase'> Chia sẻ </h6>
+                   <div className='section-niengrangmaccai-left-text-icon'>
+                   <span className='section-niengrangmaccai-left-text-icon-fa'><FaFacebook /></span>
+                   <span className='section-niengrangmaccai-left-text-icon-fa'><AiFillTwitterCircle /></span>
+                   <span className='section-niengrangmaccai-left-text-icon-fa'><BsPinterest /></span>
+                   <span className='section-niengrangmaccai-left-text-icon-fa'><AiFillGooglePlusCircle /></span>
                    </div>
-                  <div className="section-matdansu-left-btn">
-                   <button className='section-matdansu-left-text-btn'> <span><BiPhoneCall/></span> 0941828083</button>
-                  <button onClick={handleShow} className='section-matdansu-left-text-btn'><span><BsFillJournalBookmarkFill/></span> ĐẶT LỊCH KHÁM</button>
+                  <div className="section-niengrangmaccai-left-btn">
+                   <button className='section-niengrangmaccai-left-text-btn'> <span><BiPhoneCall/></span> 0941828083</button>
+                  <button onClick={handleShow} className='section-niengrangmaccai-left-text-btn'><span><BsFillJournalBookmarkFill/></span> ĐẶT LỊCH KHÁM</button>
                   <Calendar show={show} handleClose={() => setShow(false)} />
-                   <button className='section-matdansu-left-text-btn'><span><BsFillJournalBookmarkFill/></span> NHẬN TƯ VẤN</button>
+                   <button className='section-niengrangmaccai-left-text-btn'><span><BsFillJournalBookmarkFill/></span> NHẬN TƯ VẤN</button>
                   </div>
-                  <div className="section-matdansu-left-text-noidung">
-                   <h3 className='section-matdansu-left-text-noidumg-h3'>NỘI DUNG LIÊN QUANG </h3>
-                   <Col className=' section-rangsu-left-tin-left'   as={Link} to={"/bocsu"} xs={12} md={6}>
-                     <img src={niengrangmaccai1} alt=''className='section-rangsu-left-tin-left-img'/>
-                     <h3 className='section-rangsu-left-tin-left-h3'>MẶT DÁN SỨ VENEER</h3>
-                     <p className='section-rangsu-left-tin-left-p'>
-                       Răng sứ Veneer là mặt dán sứ bọc dùng để bọc bên ngoài bề mặt
-                       răng nhằm che lấp các khuyết điểm khi răng bị tổn thương cấu trúc hoặc xỉn...</p>
-                     <button className='section-rangsu-left-tin-left-btn' >XEM CHI TIẾT...</button>
-                   </Col>
+                  <div className="section-niengrangmaccai-left-text-noidung">
+                   <h3 className='section-niengrangmaccai-left-text-noidumg-h3'>NỘI DUNG LIÊN QUANG </h3>
+                   <Col className=' section-rangsu-left-tin-left'  as={Link} to={"/niengrangtrongsuot"} xs={12} md={6}>
+                    <img src={imgs22} alt='' className='section-rangsu-left-tin-left-img'/>
+                    <h3 className='section-rangsu-left-tin-left-h3'>NIỀNG RĂNG TRONG SUỐT INVISALIGN</h3>
+                    <p className='section-rangsu-left-tin-left-p'>
+                      Niềng răng trong suốt invisalign 
+                      Là hệ thống máng chỉnh nha trong suốt của tập đoàn
+                      Align Technology - Hoa Kỳ....</p>
+                     <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
+                    </Col>
                   </div>
                   
                           

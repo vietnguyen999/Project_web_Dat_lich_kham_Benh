@@ -21,8 +21,8 @@ export default function Blog() {
             <img src={imgs22} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NIỀNG RĂNG TRONG SUỐT INVISALIGN</h3>
             <p className='section-rangsu-left-tin-left-p'>
-               Niềng răng trong suốt invisalign 
-               Là hệ thống máng chỉnh nha trong suốt của tập đoàn
+                Niềng răng trong suốt invisalign 
+                Là hệ thống máng chỉnh nha trong suốt của tập đoàn
                 Align Technology - Hoa Kỳ....</p>
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
