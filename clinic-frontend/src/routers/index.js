@@ -14,6 +14,8 @@ import Niengrangmaccai from "../page/blog/Niengrangmaccai"
 import Niengrangtrongsuot from "../page/blog/Niengrangtrongsuot"
 import Trongrangtoanham from "../page/news/Trongrangtoanham"
 import Cayghepinplant from "../page/news/Cayghepinplant"
+import Taytrangrang from "../page/contact/Taytrangrang"
+import Nhorangsua from "../page/contact/Nhorangsua"
 export const publicRouters = [
     {
         path: '/',
@@ -82,6 +84,14 @@ export const publicRouters = [
     {
         path: '/cayghepinplant',
         component: Cayghepinplant
+    },
+    {
+        path: '/taytrangrang',
+        component: Taytrangrang
+    },
+    {
+        path: '/nhorangsua',
+        component: Nhorangsua
     },
 ]
 

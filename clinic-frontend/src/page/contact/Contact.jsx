@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import {Row,Col} from 'react-bootstrap';
 import imgs26 from "../../img/imgs26.jpg"
 import imgs27 from "../../img/imgs27.jpg"
@@ -18,7 +19,7 @@ export default function Contact() {
          <h2 className='section-rangsu-left-h2'>RĂNG SỨ THẨM MỸ</h2>
          <p className='section-rangsu-left-p'>Tìm được 6 bài viết</p>
             <Row className="section-rangsu-left-tin">
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left' as={Link} to={"/taytrangrang"} xs={12} md={6}>
             <img src={imgs26} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>TẨY TRẮNG RĂNG</h3>
             <p className='section-rangsu-left-tin-left-p'>
@@ -26,7 +27,7 @@ export default function Contact() {
              nâu đen, xỉn màu trên bề mặt răng đồng thời giúp hàm răng...</p>
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left' as={Link} to={"/nhorangsua"} xs={12} md={6}>
          <img src={imgs27} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NHỔ RĂNG SỮA TRẺ EM</h3>
             <p className='section-rangsu-left-tin-left-p'>
