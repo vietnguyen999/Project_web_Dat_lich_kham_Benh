@@ -12,7 +12,8 @@ import Bocsu from "../page/Rangsu/Bocsu"
 import Matdansu from "../page/Rangsu/Matdansu"
 import Niengrangmaccai from "../page/blog/Niengrangmaccai"
 import Niengrangtrongsuot from "../page/blog/Niengrangtrongsuot"
-
+import Trongrangtoanham from "../page/news/Trongrangtoanham"
+import Cayghepinplant from "../page/news/Cayghepinplant"
 export const publicRouters = [
     {
         path: '/',
@@ -73,6 +74,14 @@ export const publicRouters = [
     {
         path: '/niengrangmaccai',
         component: Niengrangmaccai
+    },
+    {
+        path: '/trongrangtoanham',
+        component: Trongrangtoanham
+    },
+    {
+        path: '/cayghepinplant',
+        component: Cayghepinplant
     },
 ]
 
