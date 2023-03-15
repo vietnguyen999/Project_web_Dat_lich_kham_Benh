@@ -288,15 +288,17 @@ export default function Dieutrituy() {
           <h4 className="section-bocsu-right-h4">DỊCH VỤ</h4>
           <div className="section-bocsu-right-dichvu">
             <h5 className="section-bocsu-right-dichvu-h5">
-              NHA KHOA TỔNG QUÁT
+            <Link to="/contact" className="section-rangsu-right-dichvu-h5-link"> NHA KHOA TỔNG QUÁT</Link>
             </h5>
             <h5 className="section-bocsu-right-dichvu-h5">
-              TRỒNG RĂNG IMPLANT
+            <Link to="/news" className="section-rangsu-right-dichvu-h5-link"> TRỒNG RĂNG IMPLANT</Link>
             </h5>
             <h5 className="section-bocsu-right-dichvu-h5">
-              CHỈNH NHA - NIỀNG RĂNG
+            <Link to="/blog" className="section-rangsu-right-dichvu-h5-link"> CHỈNH NHA - NIỀNG RĂNG</Link>
             </h5>
-            <h5 className="section-bocsu-right-dichvu-h5">RĂNG SỨ THẪM MỸ</h5>
+            <h5 className="section-bocsu-right-dichvu-h5">
+            <Link to="/rangsu" className="section-rangsu-right-dichvu-h5-link"> RĂNG SỨ THẪM MỸ</Link>
+            </h5>
           </div>
         </Col>
       </Row>

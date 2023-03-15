@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import { Modal, Button } from "react-bootstrap";
 import Calendar from "../calendar/Calendar";
@@ -110,7 +111,9 @@ export default function Home() {
             <div className="part-service-left">
               <img src={imgs7} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Răng Sứ Thẩm Mỹ</p>
-              <button className=" part-service-left-btn">xem thêm</button>
+              <button className=" part-service-left-btn">
+              <Link to="/rangsu" className="section-rangsu-right-dichvu-h5-link"> xem thêm</Link>
+              </button>
             </div>
           </div>
           <div className="col ">
@@ -119,14 +122,18 @@ export default function Home() {
               <p className=" part-service-left-text-p">
                 Chỉnh sữa - Niềng Răng
               </p>
-              <button className="part-service-left-btn">xem thêm</button>
+              <button className="part-service-left-btn">
+              <Link to="/blog" className="section-rangsu-right-dichvu-h5-link"> xem thêm</Link>
+              </button>
             </div>
           </div>
           <div className="col ">
             <div className="part-service-left">
               <img src={imgs9} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Trồng Răng IPMLANT</p>
-              <button className=" part-service-left-btn">xem thêm</button>
+              <button className=" part-service-left-btn">
+              <Link to="/news" className="section-rangsu-right-dichvu-h5-link"> xem thêm</Link>  
+              </button>
             </div>
           </div>
         </div>
