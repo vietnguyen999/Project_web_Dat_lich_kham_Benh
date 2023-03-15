@@ -38,7 +38,7 @@ export default function Contact() {
          </Row>
 
          <Row className="section-rangsu-left-tin">
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left' as={Link} to={"/nhorangsieuam"} xs={12} md={6}>
             <img src={imgs28} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>NHỔ RĂNG SIÊU ÂM PIEZOTOME</h3>
             <p className='section-rangsu-left-tin-left-p'>
@@ -46,7 +46,7 @@ export default function Contact() {
             được điều đó,Nha Khoa Phúc Nguyên đã ứng dụng công nghệ nhổ răng...</p>
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left'  as={Link} to={"/dieutrituy"} xs={12} md={6}>
          <img src={imgs29} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>ĐIỀU TRỊ TỦY</h3>
             <p className='section-rangsu-left-tin-left-p'>
