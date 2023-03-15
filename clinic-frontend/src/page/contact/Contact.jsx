@@ -57,7 +57,7 @@ export default function Contact() {
          </Row>
 
          <Row className="section-rangsu-left-tin">
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left'  as={Link} to={"/tramrang"} xs={12} md={6}>
             <img src={imgs30} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>TRÁM RĂNG</h3>
             <p className='section-rangsu-left-tin-left-p'>
@@ -65,7 +65,7 @@ export default function Contact() {
              thì hàn trám răng sẽ là sự lựa chọn tối ưu. Nha Khoa Phú...</p>
             <button className='section-rangsu-left-tin-left-btn'>XEM CHI TIẾT...</button>
          </Col>
-         <Col className=' section-rangsu-left-tin-left' xs={12} md={6}>
+         <Col className=' section-rangsu-left-tin-left'  as={Link} to={"/caovoirang"} xs={12} md={6}>
          <img src={imgs31} alt='' className='section-rangsu-left-tin-left-img'/>
             <h3 className='section-rangsu-left-tin-left-h3'>CẠO VÔI RĂNG</h3>
             <p className='section-rangsu-left-tin-left-p'>

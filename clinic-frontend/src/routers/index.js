@@ -18,6 +18,8 @@ import Taytrangrang from "../page/contact/Taytrangrang"
 import Nhorangsua from "../page/contact/Nhorangsua"
 import Nhorangsieuam from "../page/contact/Nhorangsieuam"
 import Dieutrituy from "../page/contact/Dieutrituy"
+import Tramrang from "../page/contact/Tramrang"
+import Caovoirang from "../page/contact/Caovoirang"
 export const publicRouters = [
     {
         path: '/',
@@ -102,6 +104,14 @@ export const publicRouters = [
     {
         path: '/dieutrituy',
         component: Dieutrituy
+    },
+    {
+        path: '/tramrang',
+        component: Tramrang
+    },
+    {
+        path: '/caovoirang',
+        component: Caovoirang
     },
 ]
 
