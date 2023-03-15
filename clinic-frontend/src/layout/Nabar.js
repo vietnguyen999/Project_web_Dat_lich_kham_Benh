@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../context/AuthContext";
-import { removeToken } from "../helpers";
+import useData from "../helpers";
 import { useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,12 +12,12 @@ import logo1 from "../img/logoviet.png";
 import "./Navbar.css";
 import { BsCalendarCheck } from "react-icons/bs";
 function Nabar() {
-  const { user, setUser } = useAuthContext();
+  const {username} = useData()
+  // const { user, setUser } = useAuthContext();
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
-    removeToken();
-    setUser(undefined);
+    // setUser(undefined);
     navigate("/signin", { replace: true });
   };
   const handleShow = () => {
@@ -63,7 +62,7 @@ function Nabar() {
                 </Nav.Link>
               </Button>
             </Form> */}
-            {user ? (
+            {username ? (
               <>
                 <Dropdown>
                   <Dropdown.Toggle
@@ -71,7 +70,7 @@ function Nabar() {
                     variant="success"
                     id="dropdown-basic"
                   >
-                    {user.username}
+                    {username}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>
@@ -82,6 +81,14 @@ function Nabar() {
                     <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+                <div className="calendar-days">
+                  <button onClick={handleShow}>
+                    <span>
+                      <AiOutlineCalendar />
+                    </span>
+                  </button>
+                  <Calendar show={show} handleClose={() => setShow(false)} />
+                </div>
               </>
             ) : (
               <>
@@ -90,16 +97,17 @@ function Nabar() {
                     Login
                   </Nav.Link>
                 </Button>
+                <div className="calendar-days">
+                  <button>
+                    <Nav.Link as={Link} to={"/signIn"}>
+                      <span>
+                        <AiOutlineCalendar />
+                      </span>
+                    </Nav.Link>
+                  </button>
+                </div>
               </>
             )}
-            <div className="calendar-days">
-              <button onClick={handleShow}>
-                <span>
-                  <AiOutlineCalendar />
-                </span>
-              </button>
-              <Calendar show={show} handleClose={() => setShow(false)} />
-            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -1,16 +1,16 @@
-
 import React from "react";
 import AppRoutes from "./Routes";
-import Nabar from "./layout/Nabar"
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Nabar from "./layout/Nabar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "reactstrap";
 
 const App = () => {
-  return(
+  return (
     <div className="App">
-      <Nabar />
-      <AppRoutes />
+        <Nabar />
+        <AppRoutes />
     </div>
-  ) ;
+  );
 };
 
 export default App;

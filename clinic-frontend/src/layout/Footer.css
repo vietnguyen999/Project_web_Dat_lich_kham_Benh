@@ -2,9 +2,8 @@
     height: 350px;
     background-color:rgb(175, 109, 222);
 }
-.row{
+.section-information-row {
     padding-top: 50px;
-   
 }
 .col-md-4{
     text-align: left;

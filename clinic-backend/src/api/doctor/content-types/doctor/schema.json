@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "Doctor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "doctorname": {
+      "type": "string"
+    },
+    "doctoremail": {
+      "type": "email"
+    },
+    "doctorphone": {
+      "type": "integer"
+    },
+    "doctordescribe": {
+      "type": "text"
+    }
+  }
+}

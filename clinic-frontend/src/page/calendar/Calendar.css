@@ -3,8 +3,46 @@
     padding: 0;
 }
 
+.hotline-link::after {
+    background-color: green;
+}
+
+.hotline-link {
+    background-color: #198754;
+    text-decoration: none;
+    color: black;
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+.hotline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
 :where(.css-dev-only-do-not-override-10ed4xt).ant-form-vertical .ant-form-item-label>label {
     color: #198754;
+}
+
+.btn-calendar button:hover {
+    color: black;
+    background-color: #198754;
+}
+
+.btn-calendar button {
+    background-color: #198754;
+    color: black;
+}
+
+.btn-calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -22,7 +60,7 @@
 .calendar-days-form {
     background-color: #b5c0ad;
     width: 100%;
-    padding: 15px 0 10px 0;
+    padding: 15px 20px 10px 20px;
 }
 
 .waiting-item li {
@@ -40,6 +78,7 @@
 
 .modal-dialog {
     --bs-modal-width: 80%;
+    color: #198754;
 }
 
 .modal-calendar-day {
