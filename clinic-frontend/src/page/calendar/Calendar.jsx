@@ -7,6 +7,7 @@ import "./Calendar.css";
 import { API } from "../../constant";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { BsFillTelephoneInboundFill } from "react-icons/bs";
 
 const infoCalendar = {
   username: "",
@@ -26,11 +27,12 @@ function Calendar(props) {
       [name]: value,
     }));
   };
-  const handleCalendarClick = async() => {
+  const handleCalendarClick = async () => {
     const url = `${API}/calendars`;
     try {
-      if (calendar.username && calendar.email && calendar.phone && calendar.datetiem && calendar.describe) {
+      if (calendar.username && calendar.email && calendar.phone && calendar.datetime && calendar.describe) {
         const res = await axios.post(url, calendar);
+        
         if (res) {
           toast.success('Đặt lịch thành công', { hideProgressBar: true });
           setCalendar(infoCalendar);
@@ -75,7 +77,7 @@ function Calendar(props) {
                     </li>
                   </ul>
                   <div className="hotline" >
-                    <Link className="hotline-link" >0123456789</Link>
+                    <Link className="hotline-link" > <span><BsFillTelephoneInboundFill/></span> HOTLINE: 0123456789</Link>
                   </div>
                 </div>
               </div>

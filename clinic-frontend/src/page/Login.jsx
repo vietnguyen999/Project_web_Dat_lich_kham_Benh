@@ -1,17 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { FormGroup, Col, Input, Button, Row } from "reactstrap";
+import { FormGroup, Col, Input, Button, Row, Label } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
-import{ storeUser } from "../helpers";
-import { API } from '../constant'
-
+import { storeUser } from "../helpers";
+import { API } from "../constant";
+import "./Login.css";
 
 const initalUser = { email: "", password: "" };
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [user, setUser] = useState(initalUser);
-  const handleChange = ({target}) => {
+  const handleChange = ({ target }) => {
     const { name, value } = target;
     setUser((currenUser) => ({
       ...currenUser,
@@ -22,13 +22,14 @@ function Login() {
     const url = `${API}/auth/local`;
     try {
       if (user.identifier && user.password) {
-        const {data} = await axios.post(url, user);
+        const { data } = await axios.post(url, user);
         if (data.jwt) {
-          storeUser(data)
-          toast.success(`welcome ${data.user.username}`,
-          {hideProgressBar: true})
-          setUser(initalUser)
-          navigate("/")
+          storeUser(data);
+          toast.success(`welcome ${data.user.username}`, {
+            hideProgressBar: true,
+          });
+          setUser(initalUser);
+          navigate("/");
         }
       }
     } catch (error) {
@@ -38,16 +39,18 @@ function Login() {
     }
   };
   return (
-    <Row>
-      <Col sm={10}>
-        <h1 >Login</h1>
+    <Row className="login">
+      <Col sm={4} className="login-form">
+        <div className="login-title" >
+          <h2>Đăng Nhập</h2>
+        </div>
         <FormGroup>
           <Input
             type="email"
             name="identifier"
             onChange={handleChange}
             value={user.identifier}
-            placeholder="Nhap email"
+            placeholder="Nhập email"
           />
         </FormGroup>
         <FormGroup>
@@ -56,14 +59,16 @@ function Login() {
             name="password"
             onChange={handleChange}
             value={user.password}
-            placeholder="Nhap mat khau"
+            placeholder="Nhập mật khẩu"
           />
         </FormGroup>
         <Button onClick={handleClick} color="primary">
-          Login
+          Đăng Nhập
         </Button>
-        <div>
-          <h6>Click <Link to='/register' >Here</Link></h6>
+        <div className="login-create-now" >
+          <h6>
+            Bạn chưa có tài khoản <Link to="/signUp">Tạo ngay</Link>
+          </h6>
         </div>
       </Col>
     </Row>

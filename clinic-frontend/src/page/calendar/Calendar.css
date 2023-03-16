@@ -3,14 +3,22 @@
     padding: 0;
 }
 
+.calendar-day-register textarea {
+    border: 1px solid #2866b1;
+}
+
+.calendar-day-register input {
+    border: 1px solid #2866b1;
+}
+
 .hotline-link::after {
     background-color: green;
 }
 
 .hotline-link {
-    background-color: #198754;
+    background-color: #2866b1;
     text-decoration: none;
-    color: black;
+    color: white;
     width: 80%;
     text-align: center;
     padding: 20px;
@@ -30,13 +38,13 @@
 }
 
 .btn-calendar button:hover {
-    color: black;
-    background-color: #198754;
+    color: white;
+    background-color: #5b81af;
 }
 
 .btn-calendar button {
-    background-color: #198754;
-    color: black;
+    background-color: #2866b1;
+    color: white;
 }
 
 .btn-calendar {
@@ -51,14 +59,14 @@
 }
 
 .calendar-days-form-title {
-    color: #198754;
+    color: #2866b1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .calendar-days-form {
-    background-color: #b5c0ad;
+    border: 1px solid #2866b1;
     width: 100%;
     padding: 15px 20px 10px 20px;
 }
@@ -71,14 +79,14 @@
 }
 
 .waiting {
-    color: #198754;
+    color: #2866b1;
     padding: 0 0 0 4%;
     margin-bottom: 13%;
 }
 
 .modal-dialog {
     --bs-modal-width: 80%;
-    color: #198754;
+    color: #2866b1;
 }
 
 .modal-calendar-day {

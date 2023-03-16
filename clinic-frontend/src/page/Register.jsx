@@ -34,16 +34,19 @@ function Register() {
     }
   };
   return (
-    <Row>
-      <Col sm={10}>
-        <h1>Register</h1>
+    <Row className="login">
+      <Col sm={4} className="login-form">
+        <div className="login-title">
+          <h1>Đăng Ký</h1>
+        </div>
+
         <FormGroup>
           <Input
             type="text"
             name="username"
             onChange={handleUserChange}
             value={user.username}
-            placeholder="Nhap email"
+            placeholder="Nhập họ tên"
           />
         </FormGroup>
         <FormGroup>
@@ -52,7 +55,7 @@ function Register() {
             name="email"
             onChange={handleUserChange}
             value={user.email}
-            placeholder="Nhap email"
+            placeholder="Nhập email"
           />
         </FormGroup>
         <FormGroup>
@@ -61,11 +64,12 @@ function Register() {
             name="password"
             onChange={handleUserChange}
             value={user.password}
-            placeholder="Nhap mat khau"
+            placeholder="Nhập mật khẩu"
           />
         </FormGroup>
+        
         <Button onClick={handleSignUp} color="primary">
-          Sign Up
+          Đăng Ký
         </Button>
       </Col>
     </Row>
