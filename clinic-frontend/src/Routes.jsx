@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import DefaultLayout from "./components/layout/DefaultLayout/Layout";
 import { Fragment } from "react";
 
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -14,7 +15,7 @@ const AppRoutes = () => {
         } else if(route.layout === null) {
           Layout = Fragment;
         }
-        
+
         const Page = route.component;
         return (
           <Route
