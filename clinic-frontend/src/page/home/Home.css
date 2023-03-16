@@ -20,7 +20,7 @@
     font-size: 14px;
 }
 .part-news{
-    background: aqua;
+    background: rgb(246, 246, 250);
 }
 .part-news-imgs-1{
     width: 600px;
@@ -29,21 +29,23 @@
     border-radius: 50%  30px 5px 5px;
 }
 .part-news-text{
-    padding-top: 50px;
+    padding-top: 30px;
 }
 .part-news-text-img{
-    width: 50px;
+    width: 80px;
     height: auto;
 }
 .part-news-text-h4{
     padding: 10px;
     font-weight: bold;
-    color: cornflowerblue;
-    font-size: 24px;
+    color: rgb(80, 30, 124);
+    font-size: 28px;
 }
 .part-news-text-p{
-    padding: 10px;
+    padding: 5px;
      font-style: italic;
+     font-weight: 450;
+     font-size: 15px;
 }
 .part-service{
     padding-top: 10px;
@@ -53,13 +55,16 @@
 }
 .part-servie-h1{
     text-align: center;
+    padding-top: 20px;
+    color: rgb(134, 72, 220);
 }
 
 .part-service-left{
    
     width: 350px;
     height: 370px;
-    background: rgb(222, 213, 221);
+    background: white;
+    border: 1px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -78,21 +83,42 @@
     text-align: center;
     font-weight: 500;
     font-size: 20px;
-    margin-top: 10px;
-    color:deepskyblue;
+    margin-top: 15px;
+    color:rgb(134, 72, 220);
 }
 .part-service-left-btn{
     margin-top: 70px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(56, 43, 240);
+    background-color: rgb(121, 113, 236);
     border: none;
-    color: aliceblue;
+    color: white;
     width: 150px;
     height: 40px;
+    border: 1px solid #b1154a;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+.section-datlich-left-btn-dl{
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(69, 56, 246);
+    font-size: 22px;
+    border: none;
+    color: white;
+    width: 250px;
+    height: 60px;
+    border: 1px solid #b1154a;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    margin-left: 30px;
+}
+.section-rangsu-right-dichvu-h5-link-home{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
 }
 .part-service-left-btn:hover {
     cursor: pointer;
@@ -101,7 +127,7 @@
 }
  .section-datlich{
     margin-top: 20px;
-    background-color: aqua;
+    background: white;
     height: 550px;
     border-radius: 140px 5px;
  }
@@ -133,17 +159,18 @@
     background-color: darkslategrey;
     border-radius: 20px 20px;
     font-size: 20px;
-    color: blueviolet;
+    color: rgb(244, 240, 248);
 }
 .section-datlich-right-btn{
     background-color: white;
     border:1in;
+    color: blueviolet;
 }
 .section-datlich-left-btn-icon{
     padding-right: 20px;
 }
-.section-datlich-left-btn:hover{
-    background-color:cadetblue;
+.section-datlich-left-btn-dl:hover{
+    background-color:cadetblue;transition: 1s;
 }
 .section-datlich-right{
     margin-left: 20px;
@@ -154,7 +181,7 @@
     border-radius: 10px 5px;
 }
 .section-datlich-right-h1{
-    font-size: 40px;
+    font-size: 60px;
     margin-top: 10px;
     margin-left: 50px;
     color: blueviolet;
