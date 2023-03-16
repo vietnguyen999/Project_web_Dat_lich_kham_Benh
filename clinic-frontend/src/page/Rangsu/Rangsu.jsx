@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import imgs20 from "../../img/imgs20.png";
 import imgs21 from "../../img/imgs21.png";
-import Footer from "../../layout/Footer";
 export default function Rangsu() {
   return (
     <div>
@@ -86,8 +85,6 @@ export default function Rangsu() {
           </div>
         </Col>
       </Row>
-
-      <Footer />
     </div>
   );
 }

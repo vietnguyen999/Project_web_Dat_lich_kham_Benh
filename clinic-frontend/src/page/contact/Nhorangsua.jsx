@@ -14,7 +14,6 @@ import { BsPinterest } from "react-icons/bs";
 import { AiFillGooglePlusCircle } from "react-icons/ai";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import { BiPhoneCall } from "react-icons/bi";
-import Footer from "../../layout/Footer";
 export default function Nhorangsua() {
   const [show, setShow] = useState(false);
   const handleShow = () => {
@@ -244,7 +243,6 @@ export default function Nhorangsua() {
           </div>
         </Col>
       </Row>
-      <Footer />
     </div>
   );
 }

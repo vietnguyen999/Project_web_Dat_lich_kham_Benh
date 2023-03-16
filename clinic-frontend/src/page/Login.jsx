@@ -1,135 +1,78 @@
-import "./Login.css";
-import { Alert, Button, Form, Input, message, Spin, } from "antd";
-import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../context/AuthContext";
-import useScreenSize from "../hooks/useScreenSize";
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { FormGroup, Col, Input, Button, Row, Label } from "reactstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { storeUser } from "../helpers";
 import { API } from "../constant";
-import { setToken } from "../helpers";
+import "./Login.css";
 
-export const Login = () => {
-  const { isDesktopView } = useScreenSize();
-
+const initalUser = { email: "", password: "" };
+function Login() {
   const navigate = useNavigate();
-
-  const { setUser } = useAuthContext();
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const [error, setError] = useState("");
-
-  const onFinish = async (values) => {
-    setIsLoading(true);
+  const [user, setUser] = useState(initalUser);
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setUser((currenUser) => ({
+      ...currenUser,
+      [name]: value,
+    }));
+  };
+  const handleClick = async () => {
+    const url = `${API}/auth/local`;
     try {
-      const value = {
-        identifier: values.email,
-        password: values.password,
-      };
-      const response = await fetch(`${API}/auth/local`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(value),
-      });
-
-      const data = await response.json();
-      if (data?.error) {
-        throw data?.error;
-      } else {
-        // set the token
-        setToken(data.jwt);
-
-        // set the user
-        setUser(data.user);
-
-        message.success(`Welcome back ${data.user.username}!`);
-
-        navigate("/home", { replace: true });
+      if (user.identifier && user.password) {
+        const { data } = await axios.post(url, user);
+        if (data.jwt) {
+          storeUser(data);
+          toast.success(`welcome ${data.user.username}`, {
+            hideProgressBar: true,
+          });
+          setUser(initalUser);
+          navigate("/");
+        }
       }
     } catch (error) {
-      setError(error?.message ?? "Something went wrong!");
-    } finally {
-      setIsLoading(false);
+      toast.error(error.message, {
+        hideProgressBar: true,
+      });
     }
   };
   return (
-    <div className="login">
-      <div
-        className="App-Login"
-        span={isDesktopView ? 8 : 24}
-        offset={isDesktopView ? 8 : 0}
-      >
-        <img className="logo" alt="Business view - Reports" />
-        {error ? (
-          <Alert
-            className="alert_error"
-            message={error}
-            type="error"
-            closable
-            afterClose={() => setError("")}
-          />
-        ) : null}
-        <Form
-          name="basic"
-          layout="vertical"
-          onFinish={onFinish}
-          autoComplete="off"
-          className="form"
-        >
-          <Form.Item
-            label="Email"
-            className="input-group"
-            name="email"
-            rules={[
-              {
-                required: true,
-                type: "email",
-              },
-            ]}
-          >
-            <Input placeholder="Email address" />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            className="input-group"
-            name="password"
-            rules={[{ required: true }]}
-          >
-            <Input.Password placeholder="Password" />
-          </Form.Item>
-          <Form.Item>
-            <Button
-              className="login-Button primary"
-              type="primary"
-              htmlType="submit"
-            >
-              Login {isLoading && <Spin size="small" />}
-            </Button>
-          </Form.Item>
-        </Form>
-        <div className="forgot-password">
-          <div className="forgot-password-handle">
-            <Button type="link" className="underline text-blue-700">
-              Quên mật khẩu
-            </Button>
-          </div>
-          <div className="create-account">
-            <span>
-              Bạn chưa có tài khoản
-              {/* <Button type="link" className="underline text-blue-700" href="/signUp" >
-                Tạo ngay
-              </Button> */}
-                <Nav.Link className="navbare create-now" as={Link} to={"/signUp"}>
-                Tạo ngay
-                </Nav.Link>
-            </span>
-          </div>
+    <Row className="login">
+      <Col sm={4} className="login-form">
+        <div className="login-title" >
+          <h2>Đăng Nhập</h2>
         </div>
-      </div>
-    </div>
+        <FormGroup>
+          <Input
+            type="email"
+            name="identifier"
+            onChange={handleChange}
+            value={user.identifier}
+            placeholder="Nhập email"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={user.password}
+            placeholder="Nhập mật khẩu"
+          />
+        </FormGroup>
+        <Button onClick={handleClick} color="primary">
+          Đăng Nhập
+        </Button>
+        <div className="login-create-now" >
+          <h6>
+            Bạn chưa có tài khoản <Link to="/signUp">Tạo ngay</Link>
+          </h6>
+        </div>
+      </Col>
+    </Row>
   );
-};
+}
+
+export default Login;

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import imgs22 from "../../img/imgs22.png";
 import imgs23 from "../../img/imgs23.png";
-import Footer from "../../layout/Footer";
 export default function Blog() {
   return (
     <div>
@@ -85,8 +84,6 @@ export default function Blog() {
           </div>
         </Col>
       </Row>
-
-      <Footer />
     </div>
   );
 }

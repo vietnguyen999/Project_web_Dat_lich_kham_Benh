@@ -7,7 +7,6 @@ import imgs28 from "../../img/imgs28.jpg";
 import imgs29 from "../../img/imgs29.png";
 import imgs30 from "../../img/imgs31.jpg";
 import imgs31 from "../../img/imgs32.jpg";
-import Footer from "../../layout/Footer";
 export default function Contact() {
   return (
     <div>
@@ -183,8 +182,6 @@ export default function Contact() {
           </div>
         </Col>
       </Row>
-
-      <Footer />
     </div>
   );
 }

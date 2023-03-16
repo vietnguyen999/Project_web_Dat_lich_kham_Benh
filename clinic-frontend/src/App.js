@@ -1,14 +1,10 @@
-
 import React from "react";
 import AppRoutes from "./Routes";
-import Nabar from "./layout/Nabar";
-
 
 const App = () => {
-  return(
+  return (
     <div className="App">
-      <Nabar />
-      <AppRoutes />
+        <AppRoutes />
     </div>
   ) 
 }

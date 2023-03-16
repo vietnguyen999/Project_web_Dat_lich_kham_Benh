@@ -1,20 +1,57 @@
 import { Modal, Col, Row } from "react-bootstrap";
 import { useState } from "react";
-import { Form, Input, Button } from "antd";
-import { useAuthContext } from "../../context/AuthContext";
+import axios from "axios";
+import { FormGroup, Input, Button, Label } from "reactstrap";
+import useScreenSize from "../../hooks/useScreenSize";
 import "./Calendar.css";
+import { API } from "../../constant";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { BsFillTelephoneInboundFill } from "react-icons/bs";
 
+const infoCalendar = {
+  username: "",
+  email: "",
+  phone: "",
+  datetiem: "",
+  describe: "",
+};
 function Calendar(props) {
-  const [loading, setLoading] = useState(false);
-  const { user, isLoading, setUser } = useAuthContext();
+  const { isDesktopView } = useScreenSize();
+  const [calendar, setCalendar] = useState(infoCalendar);
+
+  const handleCalendarChange = ({ target }) => {
+    const { name, value } = target;
+    setCalendar((currentUser) => ({
+      ...currentUser,
+      [name]: value,
+    }));
+  };
+  const handleCalendarClick = async () => {
+    const url = `${API}/calendars`;
+    try {
+      if (calendar.username && calendar.email && calendar.phone && calendar.datetime && calendar.describe) {
+        const res = await axios.post(url, calendar);
+        
+        if (res) {
+          toast.success('Đặt lịch thành công', { hideProgressBar: true });
+          setCalendar(infoCalendar);
+        }
+      }
+    } catch (error) {
+      toast.error(error.message, {
+        hideProgressBar: true,
+      });
+    }
+  };
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Đặt Lịch</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}>
         <Row className="modal-calendar-day">
-          <Col md={6} lg={6} sm={12} xs={12}  className="modal-calendar-title">
+          <Col md={5} lg={5} sm={12} xs={12} className="modal-calendar-title">
             <div className="calendar-title">
               <div className="waiting">
                 <h2>LƯU Ý</h2>
@@ -39,121 +76,83 @@ function Calendar(props) {
                       liên hệ trực tiếp cơ sở y tế để kịp thời xử lý.
                     </li>
                   </ul>
+                  <div className="hotline" >
+                    <Link className="hotline-link" > <span><BsFillTelephoneInboundFill/></span> HOTLINE: 0123456789</Link>
+                  </div>
                 </div>
               </div>
             </div>
           </Col>
-          <Col md={6} lg={6} sm={12} xs={12} className="calendar-day-register">
+          <Col md={7} lg={7} sm={12} xs={12} className="calendar-day-register">
             <div className="calendar-days-form">
               <div className="calendar-days-form-title">
                 <h2>ĐẶT LỊCH KHÁM</h2>
               </div>
-              <Form
-                initialValues={{
-                  username: user?.username,
-                  email: user?.email,
-                }}
-                name="basic"
-                layout="vertical"
-                // onFinish={onFinish}
-                autoComplete="off"
-                className="form"
-              >
-                <Form.Item
-                  label="Họ tên"
-                  className="input-group"
+              <FormGroup>
+                <Label>Họ tên</Label>
+                <Input
+                  type="text"
                   name="username"
-                  rules={[
-                    {
-                      required: true,
-                      type: "string",
-                    },
-                  ]}
-                >
-                  <Input />
-                </Form.Item>
-                <Form.Item
-                  label="Email"
-                  className="input-group"
+                  onChange={handleCalendarChange}
+                  value={calendar.username}
+                  placeholder="Nhập họ tên của bạn"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label>Email</Label>
+                <Input
+                  type="email"
                   name="email"
-                  rules={[
-                    {
-                      required: true,
-                      type: "email",
-                    },
-                  ]}
-                >
-                  <Input placeholder="Email address" />
-                </Form.Item>
-                <Row>
-                  <Col md={12} lg={12} sm={24} xs={24}>
-                    <Form.Item
-                      label="Số điện thoại"
-                      className="input-group"
+                  onChange={handleCalendarChange}
+                  value={calendar.email}
+                  placeholder="Nhập email của bạn"
+                />
+              </FormGroup>
+              <Row>
+                <Col md={6} lg={6} sm={12} xs={12}>
+                  <FormGroup>
+                    <Label>Số điện thoại</Label>
+                    <Input
+                      type="string"
                       name="phone"
-                      rules={[
-                        {
-                          required: true,
-                          type: "number",
-                        },
-                      ]}
-                    >
-                      <Input placeholder="Số điện thoại" />
-                    </Form.Item>
-                  </Col>
-                  <Col md={12} lg={12} sm={24} xs={24}>
-                    <Form.Item
-                      label="Ngày đặt hẹn"
-                      className="input-group"
-                      name="appointmentdate"
-                      rules={[
-                        {
-                          required: true,
-                          type: "date",
-                        },
-                      ]}
-                    >
-                      <Input type="datetime-local" />
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <Form.Item
-                  label="Mô tả triệu chứng/lý do khám"
-                  className=" input-group  "
+                      onChange={handleCalendarChange}
+                      value={calendar.phone}
+                      placeholder="Nhập số điện thoại của bạn"
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md={6} lg={6} sm={12} xs={12}>
+                  <FormGroup>
+                    <Label>Lịch hẹn</Label>
+                    <Input
+                      type="datetime-local"
+                      name="datetime"
+                      onChange={handleCalendarChange}
+                      value={calendar.datetime}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <FormGroup>
+                <Label>Mô tả</Label>
+                <Input
+                  type="textarea"
+                  rows={4}
                   name="describe"
-                  rules={[
-                    {
-                      required: true,
-                      type: "string",
-                      max: 120,
-                    },
-                  ]}
+                  onChange={handleCalendarChange}
+                  value={calendar.describe}
+                  placeholder="Chào Bác Sỹ ! Tôi có vài câu hỏi về [Về Sức Khỏe/răng]. Vui lòng liên hệ tôi sớm nhất. Xin Cảm ơn!"
+                />
+              </FormGroup>
+              <div className="btn-calendar">
+                <Button
+                  type="primary"
+                  onClick={handleCalendarClick}
+                  className=""
                 >
-                  <Input.TextArea
-                    placeholder="Chào Bác Sỹ ! Tôi có vài câu hỏi về [Về Sức Khỏe/răng]. Vui lòng liên hệ tôi sớm nhất. Xin Cảm ơn!"
-                    rows={4}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  {/* <Button
-                    className="login-Button primary"
-                    type="primary"
-                    htmlType="submit"
-                  >
-                    Đặt lịch hẹn
-                  </Button> */}
-                  {/* <Button
-                    className="login-Button primary "
-                    type="primary"
-                    htmlType="submit"
-                  >
-                    Đặt lịch hẹn
-                  </Button> */}
-                  <Button type="primary" htmlType="submit" className="primary">
-                    Đặt Lịch Hẹn
-                  </Button>
-                </Form.Item>
-              </Form>
+                  Đặt Lịch Hẹn
+                </Button>
+              </div>
             </div>
           </Col>
         </Row>

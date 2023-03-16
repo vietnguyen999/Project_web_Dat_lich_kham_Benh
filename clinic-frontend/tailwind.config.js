@@ -587,7 +587,7 @@ module.exports = {
       "gradient-slate": "linear-gradient(310deg," + theme("colors.slate.600") + "," + theme("colors.slate.300") + ")",
       "gradient-dark-gray": "linear-gradient(310deg," + theme("colors.gray.900") + "," + theme("colors.slate.800") + ")",
       "gradient-gray": "linear-gradient(310deg," + theme("colors.gray.400") + "," + theme("colors.gray.100") + ")",
-
+      
       "gradient-horizontal-dark": "linear-gradient(90deg,transparent,rgba(0,0,0,.4),transparent)",
       "gradient-horizontal-light": "linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent)",
     }),

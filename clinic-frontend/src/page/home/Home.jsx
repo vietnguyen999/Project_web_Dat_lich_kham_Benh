@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import { Modal, Button } from "react-bootstrap";
 import Calendar from "../calendar/Calendar";
-import Slider from "../../layout/Slider";
-import Footer from "../../layout/Footer";
+import Slider from "../../components/layout/DefaultLayout/Slider/Slider";
 import imgs1 from "../../img/imgs1.png";
 import imgs2 from "../../img/imgs2.png";
 import imgs3 from "../../img/imgs3.png";
@@ -29,7 +28,6 @@ export default function Home() {
   return (
     <div>
       <Slider />
-
       <section>
         <div class="container text-center">
           <div class="row sectiopn-information-clinic">
@@ -112,7 +110,13 @@ export default function Home() {
               <img src={imgs7} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Răng Sứ Thẩm Mỹ</p>
               <button className=" part-service-left-btn">
-              <Link to="/rangsu" className="section-rangsu-right-dichvu-h5-link-home"> xem thêm</Link>
+                <Link
+                  to="/rangsu"
+                  className="section-rangsu-right-dichvu-h5-link"
+                >
+                  {" "}
+                  xem thêm
+                </Link>
               </button>
             </div>
           </div>
@@ -123,7 +127,13 @@ export default function Home() {
                 Chỉnh sữa - Niềng Răng
               </p>
               <button className="part-service-left-btn">
-              <Link to="/blog" className="section-rangsu-right-dichvu-h5-link-home"> xem thêm</Link>
+                <Link
+                  to="/blog"
+                  className="section-rangsu-right-dichvu-h5-link"
+                >
+                  {" "}
+                  xem thêm
+                </Link>
               </button>
             </div>
           </div>
@@ -132,7 +142,13 @@ export default function Home() {
               <img src={imgs9} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Trồng Răng IPMLANT</p>
               <button className=" part-service-left-btn">
-              <Link to="/news" className="section-rangsu-right-dichvu-h5-link-home"> xem thêm</Link>  
+                <Link
+                  to="/news"
+                  className="section-rangsu-right-dichvu-h5-link"
+                >
+                  {" "}
+                  xem thêm
+                </Link>
               </button>
             </div>
           </div>
@@ -221,8 +237,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import imgs24 from "../../img/imgs24.png";
 import imgs25 from "../../img/imgs25.png";
-import Footer from "../../layout/Footer";
 export default function News() {
   return (
     <div>
@@ -87,8 +86,6 @@ export default function News() {
           </div>
         </Col>
       </Row>
-
-      <Footer />
     </div>
   );
 }
