@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { Modal, Button } from "react-bootstrap";
 import Calendar from "../calendar/Calendar";
 import Slider from "../../components/layout/DefaultLayout/Slider/Slider";
 import imgs1 from "../../img/imgs1.png";
@@ -81,7 +80,7 @@ export default function Home() {
           </div>
           <div className="col part-news-text">
             <img src={imgs6} alt="..." className="part-news-text-img" />
-            <h4 className="part-news-text-h4">NHA KHOA VIET NGUYEN </h4>
+            <h4 className="part-news-text-h4">NHA KHOA  </h4>
             <p className="part-news-text-p">
               NHA KHOA với SỨ MỆNH: “Kiến tạo hệ sinh thái Nha Khoa cực kỳ đơn
               giản. Phụng sự con người nhanh nhất trên mọi miền đất nước”
@@ -109,15 +108,14 @@ export default function Home() {
             <div className="part-service-left">
               <img src={imgs7} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Răng Sứ Thẩm Mỹ</p>
-              <button className=" part-service-left-btn">
-                <Link
+              <Link
                   to="/rangsu"
-                  className="section-rangsu-right-dichvu-h5-link"
-                >
+                  className="section-rangsu-right-dichvu-h5-link">
                   {" "}
+              <button className=" part-service-left-btn"> 
                   xem thêm
-                </Link>
               </button>
+              </Link>
             </div>
           </div>
           <div className="col ">
@@ -126,30 +124,28 @@ export default function Home() {
               <p className=" part-service-left-text-p">
                 Chỉnh sữa - Niềng Răng
               </p>
-              <button className="part-service-left-btn">
-                <Link
+              <Link
                   to="/blog"
-                  className="section-rangsu-right-dichvu-h5-link"
-                >
+                  className="section-rangsu-right-dichvu-h5-link">
                   {" "}
+              <button className="part-service-left-btn">
                   xem thêm
-                </Link>
               </button>
+              </Link>
             </div>
           </div>
           <div className="col ">
             <div className="part-service-left">
               <img src={imgs9} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Trồng Răng IPMLANT</p>
-              <button className=" part-service-left-btn">
-                <Link
+              <Link
                   to="/news"
-                  className="section-rangsu-right-dichvu-h5-link"
-                >
+                  className="section-rangsu-right-dichvu-h5-link">
                   {" "}
+              <button className=" part-service-left-btn">
                   xem thêm
-                </Link>
               </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -181,7 +177,7 @@ export default function Home() {
         <div className="col">
           <div className="section-datlich-right">
             <img src={imgs9} alt="..." className="section-datlich-right-img" />
-            <h1 className="section-datlich-right-h1">Nha khoa <br/>Viet Nguyen</h1>
+            <h1 className="section-datlich-right-h1">Nha khoa </h1>
           </div>
         </div>
       </div>
