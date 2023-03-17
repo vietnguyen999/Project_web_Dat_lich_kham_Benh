@@ -18,14 +18,14 @@
     "email": {
       "type": "email"
     },
+    "phone": {
+      "type": "string"
+    },
     "datetime": {
       "type": "datetime"
     },
     "describe": {
-      "type": "richtext"
-    },
-    "phone": {
-      "type": "string"
+      "type": "text"
     }
   }
 }

@@ -24,7 +24,7 @@ function Nabar() {
   };
   return (
     // variant={"dark"}
-    <div>
+    <div className="navbar-header" >
       <Navbar expand="lg">
         <Container fluid>
           <Navbar.Brand href="/">
@@ -115,6 +115,7 @@ function Nabar() {
         </Container>
       </Navbar>
     </div>
+    
   );
 }
 

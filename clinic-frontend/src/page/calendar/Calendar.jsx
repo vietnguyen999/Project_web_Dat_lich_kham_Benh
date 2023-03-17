@@ -4,10 +4,11 @@ import axios from "axios";
 import { FormGroup, Input, Button, Label } from "reactstrap";
 import useScreenSize from "../../hooks/useScreenSize";
 import "./Calendar.css";
-import { API } from "../../constant";
+import { API, AUTH_TOKEN } from "../../constant";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
+import useData from "../../helpers";
 
 const infoCalendar = {
   username: "",
@@ -19,6 +20,7 @@ const infoCalendar = {
 function Calendar(props) {
   const { isDesktopView } = useScreenSize();
   const [calendar, setCalendar] = useState(infoCalendar);
+  const { jwt } = useData();
 
   const handleCalendarChange = ({ target }) => {
     const { name, value } = target;
@@ -28,17 +30,60 @@ function Calendar(props) {
     }));
   };
   const handleCalendarClick = async () => {
+    // const url = `${API}/calendars`;
+    // // console.log(jwt);
+    // axios
+    // .post(
+    //   url,
+    //   calendar,
+    //   {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       // "Authorization": 'Bearer '+ jwt,
+    //     },
+    //   }
+    // )
+    // .then((res) => {
+    //   console.log("data", res.data);
+    // })
+    // .catch((err) => {
+    //   console.log("err", err);
+
+    // });
     const url = `${API}/calendars`;
     try {
-      if (calendar.username && calendar.email && calendar.phone && calendar.datetime && calendar.describe) {
-        const res = await axios.post(url, calendar);
-        
-        if (res) {
-          toast.success('Đặt lịch thành công', { hideProgressBar: true });
-          setCalendar(infoCalendar);
-        }
+      if (
+        calendar.username &&
+        calendar.email &&
+        calendar.phone &&
+        calendar.datetime &&
+        calendar.describe
+      ) {
+        axios({
+          method: "post",
+          url,
+          calendar,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${jwt}`,
+          }
+        });
+        // const res = await axios.post(url, calendar,
+        //   {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     Authorization: "Bearer " + localStorage.getItem("authToken"),
+        //   },
+        // }
+        // );
+
+        // if (res) {
+        //   toast.success("Đặt lịch thành công", { hideProgressBar: true });
+        //   setCalendar(infoCalendar);
+        // }
       }
     } catch (error) {
+      console.log("err", error);
       toast.error(error.message, {
         hideProgressBar: true,
       });
@@ -76,8 +121,14 @@ function Calendar(props) {
                       liên hệ trực tiếp cơ sở y tế để kịp thời xử lý.
                     </li>
                   </ul>
-                  <div className="hotline" >
-                    <Link className="hotline-link" > <span><BsFillTelephoneInboundFill/></span> HOTLINE: 0123456789</Link>
+                  <div className="hotline">
+                    <Link className="hotline-link">
+                      {" "}
+                      <span>
+                        <BsFillTelephoneInboundFill />
+                      </span>{" "}
+                      HOTLINE: 0123456789
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -118,6 +169,7 @@ function Calendar(props) {
                       onChange={handleCalendarChange}
                       value={calendar.phone}
                       placeholder="Nhập số điện thoại của bạn"
+                      
                     />
                   </FormGroup>
                 </Col>

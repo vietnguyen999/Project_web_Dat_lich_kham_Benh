@@ -81,7 +81,7 @@ export default function Home() {
           </div>
           <div className="col part-news-text">
             <img src={imgs6} alt="..." className="part-news-text-img" />
-            <h4 className="part-news-text-h4">NHA KHOA </h4>
+            <h4 className="part-news-text-h4">NHA KHOA VIET NGUYEN </h4>
             <p className="part-news-text-p">
               NHA KHOA với SỨ MỆNH: “Kiến tạo hệ sinh thái Nha Khoa cực kỳ đơn
               giản. Phụng sự con người nhanh nhất trên mọi miền đất nước”
@@ -112,7 +112,7 @@ export default function Home() {
               <button className=" part-service-left-btn">
                 <Link
                   to="/rangsu"
-                  className="section-rangsu-right-dichvu-h5-link"
+                  className="section-rangsu-right-dichvu-h5-link-home"
                 >
                   {" "}
                   xem thêm
@@ -129,7 +129,7 @@ export default function Home() {
               <button className="part-service-left-btn">
                 <Link
                   to="/blog"
-                  className="section-rangsu-right-dichvu-h5-link"
+                  className="section-rangsu-right-dichvu-h5-link-home"
                 >
                   {" "}
                   xem thêm
@@ -144,7 +144,7 @@ export default function Home() {
               <button className=" part-service-left-btn">
                 <Link
                   to="/news"
-                  className="section-rangsu-right-dichvu-h5-link"
+                  className="section-rangsu-right-dichvu-h5-link-home"
                 >
                   {" "}
                   xem thêm
@@ -166,14 +166,17 @@ export default function Home() {
               những lời khuyên chuẩn xác và phù hợp nhất với tình trạng mỗi cá
               nhân
             </p>
-            <button onClick={handleShow} className="section-datlich-left-btn">
+            <button
+              onClick={handleShow}
+              className="section-datlich-left-btn-dl"
+            >
               <span className="section-datlich-left-btn-icon">
                 <AiOutlineCalendar />
               </span>
               Đặt lịch
             </button>
             <Calendar show={show} handleClose={() => setShow(false)} />
-            <button className=" section-datlich-left-btn section-datlich-right-btn ">
+            <button className=" section-datlich-left-btn-dl section-datlich-right-btn ">
               Tư vấn
             </button>
           </div>
@@ -181,7 +184,10 @@ export default function Home() {
         <div className="col">
           <div className="section-datlich-right">
             <img src={imgs9} alt="..." className="section-datlich-right-img" />
-            <h1 className="section-datlich-right-h1">Nha khoa Viet Nguyen</h1>
+            {/* <h1 className="section-datlich-right-h1">
+              Nha khoa <br />
+              Viet Nguyen
+            </h1> */}
           </div>
         </div>
       </div>
