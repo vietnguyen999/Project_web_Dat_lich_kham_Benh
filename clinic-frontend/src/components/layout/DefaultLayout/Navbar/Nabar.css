@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.info:focus {
+    color: black;
+}
+
 .navbar-header {
     position: fixed;
     left: 0;
@@ -68,6 +72,7 @@
 button#dropdown-basic:active {
     background: no-repeat;
     border: none;
+    color: black;
 }
 
 .calendar-days button {

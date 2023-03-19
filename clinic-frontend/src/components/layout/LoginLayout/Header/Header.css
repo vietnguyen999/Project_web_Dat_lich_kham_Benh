@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-help {
+    justify-content: end;
+}
+
+.help {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
