@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useData from "../../../../helpers";
-import { useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -11,14 +10,9 @@ import Calendar from "../../../../page/calendar/Calendar";
 import logo1 from "../../../../img/logoviet.png"
 import "./Navbar.css";
 function Nabar() {
-  const {username} = useData()
+  const {usernameStore} = useData()
   // const { user, setUser } = useAuthContext();
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    // setUser(undefined);
-    navigate("/signin", { replace: true });
-  };
   const handleShow = () => {
     setShow(true);
   };
@@ -61,7 +55,7 @@ function Nabar() {
                 </Nav.Link>
               </Button>
             </Form> */}
-            {username ? (
+            {usernameStore ? (
               <>
                 <Dropdown>
                   <Dropdown.Toggle
@@ -69,7 +63,7 @@ function Nabar() {
                     variant="success"
                     id="dropdown-basic"
                   >
-                    {username}
+                    {usernameStore}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>
