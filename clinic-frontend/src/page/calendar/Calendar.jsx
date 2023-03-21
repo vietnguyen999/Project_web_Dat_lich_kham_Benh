@@ -142,26 +142,6 @@ function Calendar(props) {
   };
 
   const handleCalendarClick = async () => {
-    // const url = `${API}/calendars`;
-    // // console.log(jwt);
-    // axios
-    // .post(
-    //   url,
-    //   calendar,
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       // "Authorization": 'Bearer '+ jwt,
-    //     },
-    //   }
-    // )
-    // .then((res) => {
-    //   console.log("data", res.data);
-    // })
-    // .catch((err) => {
-    //   console.log("err", err);
-
-    // });
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
     const isValidPhone = handleBlurPhone();
@@ -182,21 +162,17 @@ function Calendar(props) {
       calendar.phone = phone;
       calendar.datetime = datetime;
       calendar.describe = describe;
-      // axios({
-      //   method: "post",
-      //   url,
-      //   calendar,
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${AUTH_TOKEN}`,
-      //   },
-      // });
-      const res = await axios.post(url, calendar, {
+      console.log(calendar)
+      const res = await axios.post(url, {
+        data: calendar
+      }, 
+        {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + localStorage.getItem(AUTH_TOKEN),
         },
-      });
+      }
+      );
       console.log(res);
       if (res) {
         message.success("Đặt lịch thành công!");
@@ -299,7 +275,7 @@ function Calendar(props) {
                   <FormGroup>
                     <Label>Số điện thoại</Label>
                     <Input
-                      type="string"
+                      type=""
                       maxLength={10}
                       name="phone"
                       onChange={handleChangePhone}
