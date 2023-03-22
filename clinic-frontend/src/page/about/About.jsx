@@ -4,7 +4,7 @@ import "./About.css";
 export default function About() {
 
     const { loading, error, data} = useFetch('http://localhost:1337/api/doctor-informations?populate=*')
-  // console.log(data.data)
+   console.log(data.data)
   if(loading) return (<p>loading...</p>)
   if(error) return (<p>Eror...</p>)
 
@@ -14,8 +14,7 @@ export default function About() {
           {data.data.map((doctor) => 
            <div  className="doctor-id">
                 {/* {doctor.id} */}
-              <img src={`http://localhost:1337${doctor.attributes.imgs.data[0].attributes.url}`} className='imgs-doctor'/>
-                  
+              <img src={`http://localhost:1337${doctor.attributes.imgs.data[0].attributes.url}`} className='imgs-doctor'/>   
                 <div className='imgs-name'>{doctor.attributes.Name}</div>
                 <div className='imgs-old'>{doctor.attributes.old}</div>
                 <div className='imgs-spe'>{doctor.attributes.specialized}</div>
@@ -26,6 +25,5 @@ export default function About() {
         </div>
  
  )
+
 }
-
-
