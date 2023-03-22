@@ -13,7 +13,7 @@ const useFetch = (ufl) => {
                    const res = await fetch(ufl)
                    const json = await res.json()
                    setData(json)
-                   setLoading(false) 
+             setLoading(false) 
             }catch(error){
                 setError(error)
                 setLoading(false)
