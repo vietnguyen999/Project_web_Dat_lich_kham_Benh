@@ -21,7 +21,9 @@ import Dieutrituy from "../page/contact/Dieutrituy";
 import Tramrang from "../page/contact/Tramrang";
 import Caovoirang from "../page/contact/Caovoirang";
 import LoginLayout from "../components/layout/LoginLayout/Layout"
+import UserLayout from "../components/layout/UserLayout/Layout"
 import Profile from "../page/Profile/Profile";
+import HistoryCalendar from "../page/historycalendar/HistoryCalendar";
 
 export const publicRouters = [
   {
@@ -121,6 +123,12 @@ export const publicRouters = [
   {
     path: "/profile",
     component: Profile,
+    layout: UserLayout
+  },
+  {
+    path: "/history",
+    component: HistoryCalendar,
+    layout: UserLayout
   },
 ];
 

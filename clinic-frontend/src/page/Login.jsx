@@ -28,8 +28,6 @@ function Login() {
   };
 
   const handleBlurEmail = () => {
-    const error = {};
-    console.log(error);
     if (isEmpty(email)) {
       error.email = "Vui lòng nhập Email";
     } else if (!isEmail(email)) {

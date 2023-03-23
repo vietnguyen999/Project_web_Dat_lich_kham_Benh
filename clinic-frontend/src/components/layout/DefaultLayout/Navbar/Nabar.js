@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useData from "../../../../helpers";
+import {useUserData} from "../../../../helpers";
 import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -10,7 +10,7 @@ import Calendar from "../../../../page/calendar/Calendar";
 import logo1 from "../../../../img/logoviet.png"
 import "./Navbar.css";
 function Nabar() {
-  const {usernameStore} = useData()
+  const {usernameStore, idStore} = useUserData()
   // const { user, setUser } = useAuthContext();
   const [show, setShow] = useState(false);
   const handleShow = () => {
@@ -62,13 +62,17 @@ function Nabar() {
                     className="info"
                     variant="success"
                     id="dropdown-basic"
-                  >
-                    {usernameStore}
+                  >{usernameStore}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>
                       <Nav.Link className="navbare" as={Link} to={"/profile"}>
                         Thông tin cá nhân
+                      </Nav.Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <Nav.Link className="navbare" as={Link} to={"/history"}>
+                        Lịch hẹn
                       </Nav.Link>
                     </Dropdown.Item>
                     <Dropdown.Item>

@@ -1,18 +1,16 @@
 import { Modal, Col, Row } from "react-bootstrap";
 import { message, Alert } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { FormGroup, Input, Button, Label } from "reactstrap";
 import useScreenSize from "../../hooks/useScreenSize";
 import "./Calendar.css";
 import { API, AUTH_TOKEN } from "../../constant";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
-import useData from "../../helpers";
+import { useUserData, useCalendarData, storeCalendar } from "../../helpers";
 import isEmpty from "validator/lib/isEmpty";
 import isEmail from "validator/lib/isEmail";
-import { current } from "@reduxjs/toolkit";
 
 const infoCalendar = {
   username: "",
@@ -20,15 +18,42 @@ const infoCalendar = {
   phone: "",
   datetime: "",
   describe: "",
+  iduser: "",
 };
 function Calendar(props) {
-  const {usernameStore, emailStore} = useData();
+  const { usernameStore, emailStore, idStore } = useUserData();
+  const {
+    idCalendarStore,
+    usernameCalendarStore,
+    emailCalendarStore,
+    phoneCalendarStore,
+    datetimeCalendarStore,
+    describeCalendarStore,
+  } = useCalendarData();
+  let userCalendar,
+    emailCalendar,
+    phoneCalendar,
+    datetimeCalendar,
+    describeCalendar;
+  if (idCalendarStore === undefined) {
+    userCalendar = usernameStore;
+    emailCalendar = emailStore;
+    phoneCalendar = "";
+    datetimeCalendar = "";
+    describeCalendar = "";
+  } else {
+    userCalendar = usernameCalendarStore;
+    emailCalendar = emailCalendarStore;
+    phoneCalendar = phoneCalendarStore;
+    datetimeCalendar = datetimeCalendarStore;
+    describeCalendar = describeCalendarStore;
+  }
   const { isDesktopView } = useScreenSize();
-  const [username, setUsername] = useState(usernameStore);
-  const [email, setEmail] = useState(emailStore);
-  const [phone, setPhone] = useState("");
-  const [datetime, setDatetime] = useState("");
-  const [describe, setDescribe] = useState("");
+  const [username, setUsername] = useState(userCalendar);
+  const [email, setEmail] = useState(emailCalendar);
+  const [phone, setPhone] = useState(phoneCalendar);
+  const [datetime, setDatetime] = useState(datetimeCalendar);
+  const [describe, setDescribe] = useState(describeCalendar);
   const [messageEmail, setMessageEmail] = useState("");
   const [messageUsername, setMessageUsername] = useState("");
   const [messagePhone, setMessagePhone] = useState("");
@@ -39,7 +64,7 @@ function Calendar(props) {
   const [calendar, setCalendar] = useState(infoCalendar);
 
   const handleChangeUsername = (e) => {
-    setUsername(e.target.value)
+    setUsername(e.target.value);
   };
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -141,6 +166,17 @@ function Calendar(props) {
     return true;
   };
 
+  const handleCalendarClickDelete = () => {
+    const url = `${API}/calendars/${idCalendarStore}`;
+    localStorage.setItem("calendar", "");
+    axios.delete(url);
+    setUsername("");
+    setEmail("");
+    setPhone("");
+    setDatetime("");
+    setDescribe("");
+  };
+
   const handleCalendarClick = async () => {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
@@ -154,35 +190,61 @@ function Calendar(props) {
       !isValidDatetime &&
       !isValidDescribe
     )
-      return
-    const url = `${API}/calendars`;
-    try {
-      calendar.username = username;
-      calendar.email = email;
-      calendar.phone = phone;
-      calendar.datetime = datetime;
-      calendar.describe = describe;
-      console.log(calendar)
-      const res = await axios.post(url, {
-        data: calendar
-      }, 
-        {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem(AUTH_TOKEN),
-        },
+      return;
+    calendar.username = username;
+    calendar.email = email;
+    calendar.phone = phone;
+    calendar.datetime = datetime;
+    calendar.describe = describe;
+    calendar.iduser = idStore;
+    if (idCalendarStore === undefined) {
+      const url = `${API}/calendars`;
+      try {
+        const res = await axios.post(
+          url,
+          {
+            data: calendar,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
+            },
+          }
+        );
+        if (res) {
+          storeCalendar(res);
+          message.success("Đặt lịch thành công!");
+          setCalendar(infoCalendar);
+        }
+      } catch (error) {
+        setError(error)
       }
-      );
-      console.log(res);
-      if (res) {
-        message.success("Đặt lịch thành công!");
-        setCalendar(infoCalendar);
+    } else {
+      const url = `${API}/calendars/${idCalendarStore}`;
+      try {
+        const res = await axios.put(
+          url,
+          {
+            data: calendar,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Basic` + localStorage.getItem(AUTH_TOKEN),
+              // 'Content-Type': 'application/json',
+              // 'Authorization': 'Bearer '+ localStorage.getItem(AUTH_TOKEN)
+            },
+          }
+        );
+        if (res) {
+          storeCalendar(res);
+          message.success("Cập nhật thành công!");
+          setCalendar(infoCalendar);
+        }
+      } catch (error) {
+        setError(error)
       }
-    } catch (error) {
-      console.log("err", error);
-      toast.error(error.message, {
-        hideProgressBar: true,
-      });
     }
   };
   return (
@@ -281,7 +343,8 @@ function Calendar(props) {
                       onChange={handleChangePhone}
                       onBlur={handleBlurPhone}
                       onInput={handleInputPhone}
-                      placeholder="0123456789"
+                      value={phone}
+                      placeholder="0XXXXXXXXX"
                     />
                     <p className="error">{messagePhone.phone}</p>
                   </FormGroup>
@@ -295,6 +358,7 @@ function Calendar(props) {
                       onChange={handleChangeDatetime}
                       onBlur={handleBlurDatetime}
                       onInput={handleInputDatetime}
+                      value={datetime}
                     />
                     <p className="error">{messageDatetime.datetime}</p>
                   </FormGroup>
@@ -309,19 +373,39 @@ function Calendar(props) {
                   onChange={handleChangeDescribe}
                   onBlur={handleBlurDescribe}
                   onInput={handleInputDescribe}
+                  value={describe}
                   placeholder="Chào Bác Sỹ ! Tôi có vài câu hỏi về [Về Sức Khỏe/răng]. Vui lòng liên hệ tôi sớm nhất. Xin Cảm ơn!"
                 />
                 <p className="error">{messageDescribe.describe}</p>
               </FormGroup>
-              <div className="btn-calendar">
-                <Button
-                  type="primary"
-                  onClick={handleCalendarClick}
-                  className=""
-                >
-                  Đặt Lịch Hẹn
-                </Button>
-              </div>
+              {idCalendarStore ? (
+                <div className="btn-calendar">
+                  <Button
+                    type="primary"
+                    onClick={handleCalendarClick}
+                    className=""
+                  >
+                    Cập nhật
+                  </Button>
+                  <Button
+                    type="primary"
+                    onClick={handleCalendarClickDelete}
+                    className=""
+                  >
+                    Xóa lịch hẹn
+                  </Button>
+                </div>
+              ) : (
+                <div className="btn-calendar">
+                  <Button
+                    type="primary"
+                    onClick={handleCalendarClick}
+                    className=""
+                  >
+                    Đặt Lịch Hẹn
+                  </Button>
+                </div>
+              )}
             </div>
           </Col>
         </Row>

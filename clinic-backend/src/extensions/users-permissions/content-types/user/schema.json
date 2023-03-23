@@ -63,15 +63,11 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "img": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "calendars": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar.calendar",
+      "mappedBy": "users_permissions_users"
     }
   }
 }
