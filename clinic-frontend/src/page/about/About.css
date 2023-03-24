@@ -1,4 +1,75 @@
 .imgs-doctor{
-    width: 100px;
-    height: 200px;
+    width: 250px;
+    height: 300px;
+}
+.wrapper{
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    margin-top: 50px;
+}
+.wrapper-row{
+    position: absolute;
+}
+.text-doctor{
+    color: blueviolet;
+}
+.text-old{
+    color: blueviolet;
+}
+.text-speci{
+    color: blueviolet;
+}
+.text-certi{
+    color: blueviolet;
+}
+.text-exper{
+    color: blueviolet;
+}
+.text-old-old{
+    font-size: 20px;
+}
+.text-speci-speci{
+    font-size: 20px;
+}
+.accordion{
+    width: 500px;
+}
+.btn-doctor-datlich{
+    margin-top: 15px;
+    background-color: blueviolet;
+    color: #ffff;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+.doctor-seach{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.text-seach-doctor-h5{
+    color: blueviolet;
+    font-size: 25px;
+    margin-right: 20px;
+}
+.item{
+    background: #f0ebe1;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+}
+.tile{
+    color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.content{
+    color: blueviolet;
+    max-height: 0;
+    overflow: hidden;
+    transition:  all 0.5s cubic-bezier(0,1,0,1);
+    transition: 0.5s;
 }

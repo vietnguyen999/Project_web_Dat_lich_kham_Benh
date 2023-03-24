@@ -31,6 +31,9 @@
     },
     "experience": {
       "type": "text"
+    },
+    "certificate": {
+      "type": "richtext"
     }
   }
 }
