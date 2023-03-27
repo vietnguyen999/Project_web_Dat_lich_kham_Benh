@@ -10,14 +10,14 @@ export default function About() {
     "http://localhost:1337/api/doctor-informations?populate=*"
   );
   
-  if (loading) return <p>loading...</p>;
-  if (error) return <p>Eror...</p>;
+  // if (loading) return <p>loading...</p>;
+  // if (error) return <p>Eror...</p>;
   //  console.log(data.data[0].attributes.Name.toLowerCase().includes(""));
   return (
     <div>
       <Useinput />
 
-      {data.data.map((doctor) => (
+      {/* {data.data.map((doctor) => (
         <div className="wrapper">
           <Row className="wrapper-row">
             <Col>
@@ -63,8 +63,8 @@ export default function About() {
               <button className="btn-doctor-datlich">Đặt Lịch Khám</button>
             </Col>
           </Row>
-        </div>
-     ))}
+        </div> */}
+     {/* ))} */}
     </div>
   );
 }
