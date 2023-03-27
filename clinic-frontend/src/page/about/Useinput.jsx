@@ -10,10 +10,14 @@ export default function Useinput() {
     "http://localhost:1337/api/doctor-informations?populate=*"
   );
   const [query, setQuery] = useState("");
+  const [noelement, setNoelement]= useState(2);
+  const loadMore = () => {
+    setNoelement(noelement+noelement)
+  }
   // console.log(data.data);
   if (loading) return <p>loading...</p>;
   if (error) return <p>Eror...</p>;
-
+    const slice=data.data.slice(0,noelement);//ẩn dữ liệu data
   return (
     <div>
       <div className="doctor-seach">
@@ -25,7 +29,7 @@ export default function Useinput() {
         />
       </div>
       <div>
-        {data.data
+        {slice
           .filter((doctor) =>
             doctor.attributes.Name.toLowerCase().includes(query)
           )
@@ -79,6 +83,11 @@ export default function Useinput() {
               </Row>
             </div>
           ))}
+      </div>
+      <div className="btn-xemthem">
+      <button  className="btn-xemthem-btn" onClick={() => loadMore()}>
+            Xem thêm
+      </button>
       </div>
     </div>
   );
