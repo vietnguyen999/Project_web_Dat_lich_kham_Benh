@@ -2,15 +2,19 @@
     width: 250px;
     height: 300px;
 }
-.wrapper{
+.wrapper-container
+{
+   margin-top: 30px;
+    position: relative;
+}
+.wrapper-container .wrapper{
     display: flex;
     height: 80vh;
     width: 100vw;
-    justify-content: center;
-    margin-top: 50px;
+    justify-content: center;  
 }
-.wrapper-row{
-    position: absolute;
+.wrapper-col{
+    position: relative;
 }
 .text-doctor{
     color: blueviolet;
@@ -35,7 +39,9 @@
 }
 .accordion{
     width: 500px;
+    position: relative;
 }
+
 .btn-doctor-datlich{
     margin-top: 15px;
     background-color: blueviolet;
@@ -90,4 +96,12 @@
       font-size: 18px;
        border: 0.5px solid black;
         border-radius: 25px;
+}
+@media only screen and (max-width: 800px){
+   .wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 0 auto;
+   }
 }

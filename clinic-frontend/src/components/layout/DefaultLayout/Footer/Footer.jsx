@@ -6,62 +6,49 @@ import { SiZalo } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <section className="section footer">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-md-4 section-footer-cool-left">
-            <h4 className="section-footer-cool-left-h4">THÔNG TIN LIÊN HỆ</h4>
-            <p className="section-footer-cool-left-p">NHA KHOA TRỒNG RĂNG</p>
-            <p className="section-footer-cool-left-p">Trụ sở chính</p>
-            <p className="section-footer-cool-left-p"> Điện thoại:</p>
+    <div className="footer">
+      <div className="container-footer">
+        <div className="footer-row">
+          <div className="footer-col">
+            <h4 className="footer-col-h">THÔNG TIN LIÊN HỆ</h4>
+            <ul className="footer-col-ul">
+              <li className="footer-col-li">NHA KHOA VIET NGUYEN</li>
+              <li className="footer-col-li">TRỤ SỞ CHÍNH</li>
+              <li className="footer-col-li">ĐIỆN THOẠI</li>
+              <li className="footer-col-li">OUR serviser </li>
+            </ul>
           </div>
-          <div class=" time-work col-md-4 section-footer-cool-center">
-            <h4 className="section-footer-cool-center-h4">
-              THỜI GIAN LÀM VIỆC
-            </h4>
-            <p className="section-footer-cool-center-p">
-              {" "}
-              Thứ 2-7: 8:00 – 20:00
-            </p>
-            <p className="section-footer-cool-center-p">
-              Chủ nhật: 8:00 – 17:00
-            </p>
-            <p className="section-footer-cool-center-p">Không nghỉ trưa</p>
-            <a href="#er">
-              <span className="section-footer-cool-center-icon">
-                <FaFacebook />
-              </span>
-            </a>
-            <a href="#rf">
-              <span className="section-footer-cool-center-icon">
-                <BsInstagram />{" "}
-              </span>
-            </a>
-            <a href="#ew">
-              <samp className="section-footer-cool-center-icon">
-                <SiZalo />
-              </samp>
-            </a>
+          <div className="footer-col">
+            <h4 className="footer-col-h"> THỜI GIAN LÀM VIỆC</h4>
+            <ul className="footer-col-ul">
+              <li className="footer-col-li"> Thứ 2-7: 8:00 – 20:00</li>
+              <li className="footer-col-li">  Chủ nhật: 8:00 – 17:00</li>
+              <li className="footer-col-li"><FaFacebook /></li>
+              <li className="footer-col-li">  <BsInstagram /> </li>
+              <li className="footer-col-li">   <SiZalo /> </li>
+            </ul>
           </div>
-          <div class="col-md-4 section-footer-cool-right">
-            <h4 className="section-footer-cool-right-h4">
-              CÁC CHÍNH SÁCH – HỖ TRỢ
-            </h4>
-            <p className="section-footer-cool-right-p"> Chính sách bảo mật</p>
-            <p className="section-footer-cool-right-p">
-              {" "}
-              Chính sách thanh toán
-            </p>
-            <p className="section-footer-cool-right-p">Chính sách bảo hành</p>
-            <p className="section-footer-cool-right-p">
-              {" "}
-              Chính sách góp ý – khiếu nại
-            </p>
-            <p className="section-footer-cool-right-p">Trồng răng trả góp</p>
-            <p className="section-footer-cool-right-p"> Niềng răng trả góp</p>
+          <div className="footer-col">
+            <h4 className="footer-col-h"> CÁC CHÍNH SÁCH – HỖ TRỢ</h4>
+            <ul className="footer-col-ul">
+              <li className="footer-col-li"> Chính sách thanh toán</li>
+              <li className="footer-col-li"> Chính sách góp ý – khiếu nại</li>
+              <li className="footer-col-li">Trồng răng trả góp</li>
+              <li className="footer-col-li">Niềng răng trả góp </li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4 className="footer-col-h">VỂ CHÚNG TÔI</h4>
+            <ul className="footer-col-ul">
+              <li className="footer-col-li">UY TÍN-CHẤT LƯỢNG HÀNG ĐẦU</li>
+              <li className="footer-col-li">NHIỀU ƯU ĐẢI HẤP DẪN</li>
+              <li className="footer-col-li">BÁC SĨ TẬN TÌNH</li>
+              <li className="footer-col-li">NHÂN VIÊN TƯ VẤN 24/7 </li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    
   );
 }

@@ -10,14 +10,14 @@ export default function Useinput() {
     "http://localhost:1337/api/doctor-informations?populate=*"
   );
   const [query, setQuery] = useState("");
-  const [noelement, setNoelement]= useState(2);
+  const [noelement, setNoelement] = useState(2);
   const loadMore = () => {
-    setNoelement(noelement+noelement)
-  }
+    setNoelement(noelement + noelement);
+  };
   // console.log(data.data);
   if (loading) return <p>loading...</p>;
   if (error) return <p>Eror...</p>;
-    const slice=data.data.slice(0,noelement);//ẩn dữ liệu data
+  const slice = data.data.slice(0, noelement); //ẩn dữ liệu data
   return (
     <div>
       <div className="doctor-seach">
@@ -28,22 +28,23 @@ export default function Useinput() {
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
-      <div>
+      <div className="wrapper-container">
         {slice
           .filter((doctor) =>
             doctor.attributes.Name.toLowerCase().includes(query)
           )
           .map((doctor) => (
+           
             <div className="wrapper">
               <Row className="wrapper-row">
-                <Col>
+                <Col className="wrapper-col">
                   <img
                     src={`http://localhost:1337${doctor.attributes.imgs.data[0].attributes.url}`}
                     className="imgs-doctor"
                     alt=""
                   />
                 </Col>
-                <Col>
+                <Col className="wrapper-col">
                   <div className="imgs-name">
                     <h3 className="text-doctor">
                       Bác Sĩ {doctor.attributes.Name}
@@ -60,6 +61,7 @@ export default function Useinput() {
                       {doctor.attributes.specialized}
                     </p>
                   </div>
+                  <div className="accor">
                   <Accordion>
                     <Accordion.Item eventKey="0">
                       <Accordion.Header>
@@ -78,6 +80,7 @@ export default function Useinput() {
                       </Accordion.Body>
                     </Accordion.Item>
                   </Accordion>
+                  </div>
                   <button className="btn-doctor-datlich">Đặt Lịch Khám</button>
                 </Col>
               </Row>
@@ -85,10 +88,11 @@ export default function Useinput() {
           ))}
       </div>
       <div className="btn-xemthem">
-      <button  className="btn-xemthem-btn" onClick={() => loadMore()}>
-            Xem thêm
-      </button>
+        <button className="btn-xemthem-btn" onClick={() => loadMore()}>
+          Xem thêm
+        </button>
       </div>
+   
     </div>
   );
 }
