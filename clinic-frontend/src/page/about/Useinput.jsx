@@ -2,8 +2,9 @@ import React from "react";
 import "./About.css";
 import useFetch from "../../hooks/useFectch";
 import { useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import Calendar from "../calendar/Calendar";
 import Accordion from "react-bootstrap/Accordion";
+import bacsi2023 from "../../img/bac-si-2023.jpg"
 
 export default function Useinput() {
   const { loading, error, data } = useFetch(
@@ -11,6 +12,10 @@ export default function Useinput() {
   );
   const [query, setQuery] = useState("");
   const [noelement, setNoelement] = useState(2);
+  const [show, setShow] = useState(false);
+  const handleShow = () => {
+    setShow(true);
+  };
   const loadMore = () => {
     setNoelement(noelement + noelement);
   };
@@ -18,8 +23,12 @@ export default function Useinput() {
   if (loading) return <p>loading...</p>;
   if (error) return <p>Eror...</p>;
   const slice = data.data.slice(0, noelement); //ẩn dữ liệu data
+
   return (
     <div>
+      <div className="doctor-header-imgs">
+        <img src={bacsi2023} alt="" className="doctor-header-imgs-is"/>
+      </div>
       <div className="doctor-seach">
         <h5 className="text-seach-doctor-h5">Tìm Kiến Bác Sĩ</h5>
         <input
@@ -34,17 +43,16 @@ export default function Useinput() {
             doctor.attributes.Name.toLowerCase().includes(query)
           )
           .map((doctor) => (
-           
             <div className="wrapper">
-              <Row className="wrapper-row">
-                <Col className="wrapper-col">
+              <div className="wrapper-row">
+                <ul className="wrapper-col">
                   <img
                     src={`http://localhost:1337${doctor.attributes.imgs.data[0].attributes.url}`}
                     className="imgs-doctor"
                     alt=""
                   />
-                </Col>
-                <Col className="wrapper-col">
+                </ul>
+                <ul className="wrapper-col">
                   <div className="imgs-name">
                     <h3 className="text-doctor">
                       Bác Sĩ {doctor.attributes.Name}
@@ -62,28 +70,32 @@ export default function Useinput() {
                     </p>
                   </div>
                   <div className="accor">
-                  <Accordion>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>
-                        <h5 className="text-exper">Chứng Chỉ</h5>
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <div>{doctor.attributes.experience}</div>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                      <Accordion.Header>
-                        <h5 className="text-certi">Kinh Nghiện</h5>
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <div>{doctor.attributes.certificate}</div>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
+                    <Accordion>
+                      <Accordion.Item eventKey="0">
+                        <Accordion.Header>
+                          <h5 className="text-exper">Chứng Chỉ</h5>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <div>{doctor.attributes.experience}</div>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                      <Accordion.Item eventKey="1">
+                        <Accordion.Header>
+                          <h5 className="text-certi">Kinh Nghiện</h5>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <div>{doctor.attributes.certificate}</div>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </Accordion>
                   </div>
-                  <button className="btn-doctor-datlich">Đặt Lịch Khám</button>
-                </Col>
-              </Row>
+                  <button onClick={handleShow} className="btn-doctor-datlich">
+                Đặt Lịch Khám
+              </button>
+                </ul>
+               
+              </div>
+             
             </div>
           ))}
       </div>
@@ -92,7 +104,7 @@ export default function Useinput() {
           Xem thêm
         </button>
       </div>
-   
+      <Calendar show={show} handleClose={() => setShow(false)} />
     </div>
   );
 }
