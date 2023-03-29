@@ -1,4 +1,4 @@
-import { Modal, Col, Row } from "react-bootstrap";
+import { Modal, Col, Row, Container } from "react-bootstrap";
 import { message, Alert } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -43,13 +43,14 @@ function Calendar(props) {
     timeCalendar = "",
     describeCalendar = "";
   // statusCalendar;
-  const [listCalendar, setListCalendar] = useState([])
+  const [listCalendar, setListCalendar] = useState([]);
   useEffect(() => {
-    const url = `${API}/calendars`
-    axios.get(url).then(({ data }) => setListCalendar(data.data))
-    .catch((error) => setError(error));
-  },[])
-  console.log(listCalendar)
+    const url = `${API}/calendars`;
+    axios
+      .get(url)
+      .then(({ data }) => setListCalendar(data.data))
+      .catch((error) => setError(error));
+  }, []);
   if (idCalendarStore !== undefined) {
     userCalendar = usernameCalendarStore;
     emailCalendar = emailCalendarStore;
@@ -58,6 +59,15 @@ function Calendar(props) {
     timeCalendar = timeCalendarStore;
     describeCalendar = describeCalendarStore;
     // statusCalendar = statusCalendarStore;
+  } else if (idCalendarStore === undefined && listCalendar.length > 0) {
+   listCalendar.map(calendarIdUser => {
+    userCalendar = calendarIdUser.attributes.username;
+    emailCalendar = calendarIdUser.attributes.email;
+    phoneCalendar = calendarIdUser.attributes.phone;
+    dateCalendar = calendarIdUser.attributes.date;
+    timeCalendar = calendarIdUser.attributes.time;
+    describeCalendar = calendarIdUser.attributes.describe;
+   })
   }
 
   const { isDesktopView } = useScreenSize();
@@ -77,12 +87,13 @@ function Calendar(props) {
   const [error, setError] = useState("");
 
   const [calendar, setCalendar] = useState(infoCalendar);
-  console.log(username);
-  console.log(email);
-  console.log(phone);
-  console.log(date);
-  console.log(time);
-  console.log(describe);
+
+  console.log(username)
+  console.log(email)
+  console.log(phone)
+  console.log(date)
+  console.log(time)
+  console.log(describe)
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
