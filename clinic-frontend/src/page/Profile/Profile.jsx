@@ -8,6 +8,7 @@ import { API } from "../../constant";// AUTH_TOKEN
 import { Alert, message } from "antd";
 import { Row } from "react-bootstrap";
 import { toast } from "react-toastify";
+import "./Profile.css"
 
 const info = { username: "", email: "" };
 function Profile() {
@@ -71,14 +72,13 @@ function Profile() {
       const {data} = await axios.put(
         url,
         user ,
-        // {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
-        //   },
-        // }
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
+          },
+        }
       );
-      console.log(data.user.username);
       if (data) {
         storeUser(data);
         message.success("Cập nhật thành công!");
@@ -92,48 +92,53 @@ function Profile() {
     }
   };
   return (
-    <Row>
-      {error ? (
-        <Alert
-          className="alert_error"
-          message={error}
-          type="error"
-          closable
-          afterClose={() => setError("")}
-        />
-      ) : null}
-      <FormGroup>
-        <Label>Họ tên</Label>
-        <Input
-          type="text"
-          name="username"
-          onChange={handleChangeUsername}
-          onBlur={handleBlurUsername}
-          onInput={handleInputUsername}
-          value={username}
-          // placeholder="Nguyễn Văn A"
-        />
-        <p className="error">{messageUsername.username}</p>
-      </FormGroup>
-      <FormGroup>
-        <Label>Email</Label>
-        <Input
-          type="email"
-          name="email"
-          onChange={handleChangeEmail}
-          onBlur={handleBlurEmail}
-          onInput={handleInputEmail}
-          value={email}
-          // placeholder="Nguyễn Văn A"
-        />
-        <p className="error">{messageEmail.email}</p>
-      </FormGroup>
-      <div className="btn-calendar">
-        <Button type="primary" onClick={handleUpdateUserClick} className="">
-          Cập nhật
-        </Button>
-      </div>
-    </Row>
+    <>
+      <Row>
+        <h2>Thông tin cá nhân</h2>
+      </Row>
+      <Row className="form-edit-info">
+        {error ? (
+          <Alert
+            className="alert_error"
+            message={error}
+            type="error"
+            closable
+            afterClose={() => setError("")}
+          />
+        ) : null}
+        <FormGroup>
+          <Label>Họ tên</Label>
+          <Input
+            type="text"
+            name="username"
+            onChange={handleChangeUsername}
+            onBlur={handleBlurUsername}
+            onInput={handleInputUsername}
+            value={username}
+            // placeholder="Nguyễn Văn A"
+          />
+          <p className="error">{messageUsername.username}</p>
+        </FormGroup>
+        <FormGroup>
+          <Label>Email</Label>
+          <Input
+            type="email"
+            name="email"
+            onChange={handleChangeEmail}
+            onBlur={handleBlurEmail}
+            onInput={handleInputEmail}
+            value={email}
+            // placeholder="Nguyễn Văn A"
+          />
+          <p className="error">{messageEmail.email}</p>
+        </FormGroup>
+        <div className="btn-calendar">
+          <Button type="primary" onClick={handleUpdateUserClick} className="">
+            Cập nhật
+          </Button>
+        </div>
+      </Row>
+    </>
   );
 }
 

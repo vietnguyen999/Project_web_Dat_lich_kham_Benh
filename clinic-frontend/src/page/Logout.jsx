@@ -6,6 +6,7 @@ function Logout() {
 
     useEffect(() => {
         localStorage.setItem("user", "");
+        localStorage.setItem("calendar", "");
         navigate("/signIn")
     }, [navigate])
 

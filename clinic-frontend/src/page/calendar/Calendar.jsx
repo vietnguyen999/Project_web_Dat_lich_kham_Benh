@@ -16,52 +16,99 @@ const infoCalendar = {
   username: "",
   email: "",
   phone: "",
-  datetime: "",
+  date: "",
+  time: "",
   describe: "",
   iduser: "",
+  status: "",
 };
 function Calendar(props) {
-  const { usernameStore, emailStore, idStore } = useUserData();
+  let dateNow = new Date().toLocaleDateString() + "";
   const {
     idCalendarStore,
     usernameCalendarStore,
     emailCalendarStore,
     phoneCalendarStore,
-    datetimeCalendarStore,
+    dateCalendarStore,
+    timeCalendarStore,
     describeCalendarStore,
+    // statusCalendarStore,
   } = useCalendarData();
-  let userCalendar,
-    emailCalendar,
-    phoneCalendar,
-    datetimeCalendar,
-    describeCalendar;
-  if (idCalendarStore === undefined) {
-    userCalendar = usernameStore;
-    emailCalendar = emailStore;
-    phoneCalendar = "";
-    datetimeCalendar = "";
+  const { usernameStore, emailStore, idStore } = useUserData();
+  const [listCalendar, setListCalendar] = useState([]);
+  useEffect(() => {
+    const url = `${API}/calendars`;
+    axios
+      .get(url)
+      .then(({ data }) => setListCalendar(data.data))
+      .catch((error) => setError(error));
+  }, []);
+  let listCalendarIdUser = [];
+  listCalendar.map((calendar) => {
+    if (
+      calendar.attributes.iduser === idStore &&
+      calendar.attributes.status === true
+    ) {
+      listCalendarIdUser.push(calendar);
+    }
+    return listCalendarIdUser;
+  });
+
+  let userCalendar = usernameStore,
+    emailCalendar = emailStore,
+    phoneCalendar = "",
+    dateCalendar = "",
+    timeCalendar = "",
     describeCalendar = "";
-  } else {
+  // statusCalendar;
+  if (listCalendarIdUser.length > 0) {
+    listCalendarIdUser.map((calendarIdUSer) => (
+      userCalendar = calendarIdUSer.attributes.username,
+      emailCalendar = calendarIdUSer.attributes.email,
+      phoneCalendar = calendarIdUSer.attributes.phone,
+      dateCalendar = calendarIdUSer.attributes.date,
+      timeCalendar = calendarIdUSer.attributes.time,
+      describeCalendar = calendarIdUSer.attributes.describe
+    ));
+  } else if (idCalendarStore !== undefined) {
     userCalendar = usernameCalendarStore;
     emailCalendar = emailCalendarStore;
     phoneCalendar = phoneCalendarStore;
-    datetimeCalendar = datetimeCalendarStore;
+    dateCalendar = dateCalendarStore;
+    timeCalendar = timeCalendarStore;
     describeCalendar = describeCalendarStore;
+    // statusCalendar = statusCalendarStore;
   }
+  console.log(userCalendar);
+  console.log(emailCalendar);
+  console.log(phoneCalendar);
+  console.log(dateCalendar);
+  console.log(timeCalendar);
+  console.log(describeCalendar);
+
   const { isDesktopView } = useScreenSize();
+
   const [username, setUsername] = useState(userCalendar);
   const [email, setEmail] = useState(emailCalendar);
   const [phone, setPhone] = useState(phoneCalendar);
-  const [datetime, setDatetime] = useState(datetimeCalendar);
+  const [date, setDate] = useState(dateCalendar);
+  const [time, setTime] = useState(timeCalendar);
   const [describe, setDescribe] = useState(describeCalendar);
+  const [status, setStatus] = useState(true);
   const [messageEmail, setMessageEmail] = useState("");
   const [messageUsername, setMessageUsername] = useState("");
   const [messagePhone, setMessagePhone] = useState("");
-  const [messageDatetime, setMessageDatetime] = useState("");
+  const [messageDate, setmessageDate] = useState("");
   const [messageDescribe, setMessageDescribe] = useState("");
   const [error, setError] = useState("");
 
   const [calendar, setCalendar] = useState(infoCalendar);
+  console.log(username);
+  console.log(email);
+  console.log(phone);
+  console.log(date);
+  console.log(time);
+  console.log(describe);
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -72,8 +119,11 @@ function Calendar(props) {
   const handleChangePhone = (e) => {
     setPhone(e.target.value);
   };
-  const handleChangeDatetime = (e) => {
-    setDatetime(e.target.value);
+  const handleChangeDate = (e) => {
+    setDate(e.target.value);
+  };
+  const handelChangeTime = (e) => {
+    setTime(e.target.value);
   };
   const handleChangeDescribe = (e) => {
     setDescribe(e.target.value);
@@ -134,18 +184,18 @@ function Calendar(props) {
     return true;
   };
 
-  const handleBlurDatetime = () => {
+  const handleBlurDate = () => {
     const error = {};
-    if (isEmpty(datetime)) {
-      error.datetime = "Vui lòng nhập ngày hẹn.";
+    if (isEmpty(date)) {
+      error.date = "Vui lòng nhập ngày hẹn.";
     }
-    setMessageDatetime(error);
+    setmessageDate(error);
     if (Object.keys(error).length > 0) return false;
     return true;
   };
-  const handleInputDatetime = () => {
+  const handleInputDate = () => {
     const error = {};
-    setDatetime("");
+    setDate("");
     if (Object.keys(error).length > 0) return false;
     return true;
   };
@@ -173,7 +223,8 @@ function Calendar(props) {
     setUsername("");
     setEmail("");
     setPhone("");
-    setDatetime("");
+    setDate("");
+    setTime("");
     setDescribe("");
   };
 
@@ -181,22 +232,29 @@ function Calendar(props) {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
     const isValidPhone = handleBlurPhone();
-    const isValidDatetime = handleBlurDatetime();
+    const isValidDate = handleBlurDate();
     const isValidDescribe = handleBlurDescribe();
     if (
       !isValidEmail &&
       !isValidUsername &&
       !isValidPhone &&
-      !isValidDatetime &&
+      !isValidDate &&
       !isValidDescribe
     )
       return;
     calendar.username = username;
     calendar.email = email;
     calendar.phone = phone;
-    calendar.datetime = datetime;
+    calendar.date = date;
+    calendar.time = time;
     calendar.describe = describe;
     calendar.iduser = idStore;
+    if (dateNow < date) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
+    calendar.status = status;
     if (idCalendarStore === undefined) {
       const url = `${API}/calendars`;
       try {
@@ -218,7 +276,7 @@ function Calendar(props) {
           setCalendar(infoCalendar);
         }
       } catch (error) {
-        setError(error)
+        setError(error);
       }
     } else {
       const url = `${API}/calendars/${idCalendarStore}`;
@@ -243,7 +301,7 @@ function Calendar(props) {
           setCalendar(infoCalendar);
         }
       } catch (error) {
-        setError(error)
+        setError(error);
       }
     }
   };
@@ -333,7 +391,7 @@ function Calendar(props) {
                 <p className="error">{messageEmail.email}</p>
               </FormGroup>
               <Row>
-                <Col md={6} lg={6} sm={12} xs={12}>
+                <Col md={5} lg={5} sm={12} xs={12}>
                   <FormGroup>
                     <Label>Số điện thoại</Label>
                     <Input
@@ -349,18 +407,43 @@ function Calendar(props) {
                     <p className="error">{messagePhone.phone}</p>
                   </FormGroup>
                 </Col>
-                <Col md={6} lg={6} sm={12} xs={12}>
+                <Col md={4} lg={4} sm={12} xs={12}>
                   <FormGroup>
                     <Label>Lịch hẹn</Label>
                     <Input
-                      type="datetime-local"
-                      name="datetime"
-                      onChange={handleChangeDatetime}
-                      onBlur={handleBlurDatetime}
-                      onInput={handleInputDatetime}
-                      value={datetime}
+                      type="date"
+                      name="date"
+                      onChange={handleChangeDate}
+                      onBlur={handleBlurDate}
+                      onInput={handleInputDate}
+                      value={date}
                     />
-                    <p className="error">{messageDatetime.datetime}</p>
+                    <p className="error">{messageDate.date}</p>
+                  </FormGroup>
+                </Col>
+                <Col md={3} lg={3} sm={12} xs={12}>
+                  <FormGroup>
+                    <Label>Giờ hẹn</Label>
+                    <Input
+                      value={time}
+                      onChange={handelChangeTime}
+                      type="select"
+                      name="time"
+                    >
+                      <option>07:00</option>
+                      <option>08:00</option>
+                      <option>09:00</option>
+                      <option>10:00</option>
+                      <option>11:00</option>
+                      <option>13:00</option>
+                      <option>14:00</option>
+                      <option>15:00</option>
+                      <option>16:00</option>
+                      <option>17:00</option>
+                      <option>19:00</option>
+                      <option>20:00</option>
+                      <option>21:00</option>
+                    </Input>
                   </FormGroup>
                 </Col>
               </Row>
@@ -378,7 +461,7 @@ function Calendar(props) {
                 />
                 <p className="error">{messageDescribe.describe}</p>
               </FormGroup>
-              {idCalendarStore ? (
+              {idCalendarStore || listCalendarIdUser.length > 0 ? (
                 <div className="btn-calendar">
                   <Button
                     type="primary"

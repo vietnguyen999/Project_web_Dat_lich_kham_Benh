@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.calendar-id-user {
+    display: flex;
+    align-items: center;
+}
+
+.calendar-id-user div {
+    text-align: center;
+    border: 1px solid #2866b1;
+    padding: 10px;
+}

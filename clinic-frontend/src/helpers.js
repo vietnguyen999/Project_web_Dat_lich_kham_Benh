@@ -1,20 +1,21 @@
 export const storeUser = (data) => {
   localStorage.setItem('user', JSON.stringify({
-      usernameStore: data.user.username,
-      emailStore: data.user.email,
-      idStore: data.user.id,
-      passwordStore: data.user.password,
+      usernameStore:data.username ||  data.user.username,
+      emailStore:data.email || data.user.email,
+      idStore:data.id || data.user.id,
       jwt: data.jwt
   }))
 }
 
 export const storeCalendar = (data) => {
+  console.log(data)
   localStorage.setItem('calendar', JSON.stringify({
       idCalendarStore: data.data.data.id,
       usernameCalendarStore: data.data.data.attributes.username,
       emailCalendarStore: data.data.data.attributes.email,
       phoneCalendarStore: data.data.data.attributes.phone,
-      datetimeCalendarStore: data.data.data.attributes.datetime,
+      dateCalendarStore: data.data.data.attributes.date,
+      timeCalendarStore: data.data.data.attributes.time,
       describeCalendarStore: data.data.data.attributes.describe,
       jwt: data.jwt
   }))

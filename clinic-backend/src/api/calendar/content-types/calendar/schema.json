@@ -21,8 +21,11 @@
     "phone": {
       "type": "string"
     },
-    "datetime": {
-      "type": "datetime"
+    "date": {
+      "type": "date"
+    },
+    "iduser": {
+      "type": "integer"
     },
     "describe": {
       "type": "text"
@@ -33,8 +36,11 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "calendars"
     },
-    "iduser": {
-      "type": "integer"
+    "time": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean"
     }
   }
 }

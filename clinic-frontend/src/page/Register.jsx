@@ -123,6 +123,7 @@ function Register() {
       user.email = email;
       user.password = pass;
       const { data } = await axios.post(url, user);
+      console.log(data)
       if (data.jwt) {
         storeUser(data);
         message.success(`Welcome to Social Cards ${data.user.username}!`);
