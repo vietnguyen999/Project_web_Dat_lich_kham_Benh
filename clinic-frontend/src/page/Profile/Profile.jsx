@@ -75,7 +75,7 @@ function Profile() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
+            Authorization: "Basic " + localStorage.getItem(),//AUTH_TOKEN
           },
         }
       );
