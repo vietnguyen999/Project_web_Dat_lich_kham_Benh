@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+.info:focus {
+    color: black;
+}
+
+.navbar-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    background-color: white;
+    border-bottom: 1px solid #2866b1;
+}
+
 .help {
     width: 20%;
 }
@@ -13,7 +27,7 @@
 }
 
 .onli:hover {
-    background-color: #6083ad;
+    background-color: rgb(69, 56, 246);transition: 0.3s;
     color: white;
 }
 
@@ -59,6 +73,7 @@
 button#dropdown-basic:active {
     background: no-repeat;
     border: none;
+    color: black;
 }
 
 .calendar-days button {
@@ -72,7 +87,7 @@ button#dropdown-basic:active {
 }
 
 .calendar-days button:hover {
-    background-color: #2866b1;
+    background-color: rgb(69, 56, 246);transition: 2s;
     color: white;
     border: 1px px solid #2866b1;
 }

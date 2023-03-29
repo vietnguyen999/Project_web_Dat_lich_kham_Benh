@@ -18,14 +18,23 @@
     "email": {
       "type": "email"
     },
+    "phone": {
+      "type": "string"
+    },
     "datetime": {
       "type": "datetime"
     },
     "describe": {
-      "type": "richtext"
+      "type": "text"
     },
-    "phone": {
-      "type": "string"
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "calendars"
+    },
+    "iduser": {
+      "type": "integer"
     }
   }
 }

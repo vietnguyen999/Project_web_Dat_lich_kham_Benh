@@ -1,6 +1,5 @@
 .container {
-    height: 350px;
-    margin-top: 100px;
+    padding: 40px 0;
 }
 .imgs_left_img{
     width: 120px;
@@ -21,12 +20,14 @@
 }
 .part-news{
     background: rgb(246, 246, 250);
+    padding: 15px 0;
 }
 .part-news-imgs-1{
-    width: 600px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    /* height: 500px; */
     padding-left: 10px;
-    border-radius: 50%  30px 5px 5px;
+    border-radius: 50% 30px 5px 5px;
 }
 .part-news-text{
     padding-top: 30px;
@@ -38,7 +39,7 @@
 .part-news-text-h4{
     padding: 10px;
     font-weight: bold;
-    color: rgb(80, 30, 124);
+    color: #2866b1;
     font-size: 28px;
 }
 .part-news-text-p{
@@ -56,7 +57,7 @@
 .part-servie-h1{
     text-align: center;
     padding-top: 20px;
-    color: rgb(134, 72, 220);
+    color: #2866b1;
 }
 
 .part-service-left{
@@ -91,12 +92,12 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(121, 113, 236);
+    background-color: rgb(40 102 177);
     border: none;
     color: white;
     width: 150px;
     height: 40px;
-    border: 1px solid #b1154a;
+    border: 1px solid #2866b1;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
@@ -104,13 +105,13 @@
     margin-top: 70px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(69, 56, 246);
+    background-color: #2866b1;
     font-size: 22px;
     border: none;
     color: white;
     width: 250px;
     height: 60px;
-    border: 1px solid #b1154a;
+    border: 1px solid #2866b1;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     margin-left: 30px;
@@ -122,13 +123,12 @@
 }
 .part-service-left-btn:hover {
     cursor: pointer;
-    background-color: rgb(214, 24, 201) ;
-    transition: 0.3s;
+    background-color: rgb(69, 56, 246);transition: 2s;
 }
  .section-datlich{
     margin-top: 20px;
     background: white;
-    height: 550px;
+    /* height: 550px; */
     border-radius: 140px 5px;
  }
  .section-datlich-left{
@@ -140,14 +140,14 @@
     font-size: 47px ;
     margin-top: 10px;
     margin-left: 10px;
-    color: blueviolet;
+    color: #2866b1;
     font-weight:700
 }
 .section-datlich-left-p{
     margin-top: 50px;
     margin-left: 10px;
     font-size: 18px;
-    color: blueviolet;
+    color: #2866b1;
 }
 .section-datlich-left-btn
 {
@@ -164,27 +164,26 @@
 .section-datlich-right-btn{
     background-color: white;
     border:1in;
-    color: blueviolet;
+    color: #2866b1;
 }
 .section-datlich-left-btn-icon{
     padding-right: 20px;
 }
 .section-datlich-left-btn-dl:hover{
-    background-color:cadetblue;transition: 1s;
+    background-color:rgb(69, 56, 246);transition: 2s;
 }
 .section-datlich-right{
     margin-left: 20px;
 }
 .section-datlich-right-img{
-    width: 600px;
-    height: auto;
+    width: 100%;
+    height: 100%;
     border-radius: 10px 5px;
 }
 .section-datlich-right-h1{
-    font-size: 60px;
     margin-top: 10px;
     margin-left: 50px;
-    color: blueviolet;
+    color: #2866b1;
 }
 .section-information{
     margin-top: 5px;

@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+.alert_error {
+    opacity: 1;
+    z-index: 50;
+    position: absolute;
+}
+
 .calendar-day-register textarea {
     border: 1px solid #2866b1;
 }
@@ -45,6 +51,7 @@
 .btn-calendar button {
     background-color: #2866b1;
     color: white;
+    margin: 0 10px;
 }
 
 .btn-calendar {

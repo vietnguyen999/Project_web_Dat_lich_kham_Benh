@@ -162,7 +162,10 @@ export default function Home() {
               những lời khuyên chuẩn xác và phù hợp nhất với tình trạng mỗi cá
               nhân
             </p>
-            <button onClick={handleShow} className="section-datlich-left-btn-dl">
+            <button
+              onClick={handleShow}
+              className="section-datlich-left-btn-dl"
+            >
               <span className="section-datlich-left-btn-icon">
                 <AiOutlineCalendar />
               </span>
