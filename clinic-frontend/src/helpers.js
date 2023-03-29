@@ -8,7 +8,6 @@ export const storeUser = (data) => {
 }
 
 export const storeCalendar = (data) => {
-  console.log(data)
   localStorage.setItem('calendar', JSON.stringify({
       idCalendarStore: data.data.data.id,
       usernameCalendarStore: data.data.data.attributes.username,

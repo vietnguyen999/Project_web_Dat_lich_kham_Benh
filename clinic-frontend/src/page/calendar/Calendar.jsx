@@ -22,6 +22,7 @@ const infoCalendar = {
   iduser: "",
   status: "",
 };
+
 function Calendar(props) {
   let dateNow = new Date().toLocaleDateString() + "";
   const {
@@ -35,25 +36,6 @@ function Calendar(props) {
     // statusCalendarStore,
   } = useCalendarData();
   const { usernameStore, emailStore, idStore } = useUserData();
-  const [listCalendar, setListCalendar] = useState([]);
-  useEffect(() => {
-    const url = `${API}/calendars`;
-    axios
-      .get(url)
-      .then(({ data }) => setListCalendar(data.data))
-      .catch((error) => setError(error));
-  }, []);
-  let listCalendarIdUser = [];
-  listCalendar.map((calendar) => {
-    if (
-      calendar.attributes.iduser === idStore &&
-      calendar.attributes.status === true
-    ) {
-      listCalendarIdUser.push(calendar);
-    }
-    return listCalendarIdUser;
-  });
-
   let userCalendar = usernameStore,
     emailCalendar = emailStore,
     phoneCalendar = "",
@@ -61,16 +43,14 @@ function Calendar(props) {
     timeCalendar = "",
     describeCalendar = "";
   // statusCalendar;
-  if (listCalendarIdUser.length > 0) {
-    listCalendarIdUser.map((calendarIdUSer) => (
-      userCalendar = calendarIdUSer.attributes.username,
-      emailCalendar = calendarIdUSer.attributes.email,
-      phoneCalendar = calendarIdUSer.attributes.phone,
-      dateCalendar = calendarIdUSer.attributes.date,
-      timeCalendar = calendarIdUSer.attributes.time,
-      describeCalendar = calendarIdUSer.attributes.describe
-    ));
-  } else if (idCalendarStore !== undefined) {
+  const [listCalendar, setListCalendar] = useState([])
+  useEffect(() => {
+    const url = `${API}/calendars`
+    axios.get(url).then(({ data }) => setListCalendar(data.data))
+    .catch((error) => setError(error));
+  },[])
+  console.log(listCalendar)
+  if (idCalendarStore !== undefined) {
     userCalendar = usernameCalendarStore;
     emailCalendar = emailCalendarStore;
     phoneCalendar = phoneCalendarStore;
@@ -79,12 +59,6 @@ function Calendar(props) {
     describeCalendar = describeCalendarStore;
     // statusCalendar = statusCalendarStore;
   }
-  console.log(userCalendar);
-  console.log(emailCalendar);
-  console.log(phoneCalendar);
-  console.log(dateCalendar);
-  console.log(timeCalendar);
-  console.log(describeCalendar);
 
   const { isDesktopView } = useScreenSize();
 
@@ -461,7 +435,7 @@ function Calendar(props) {
                 />
                 <p className="error">{messageDescribe.describe}</p>
               </FormGroup>
-              {idCalendarStore || listCalendarIdUser.length > 0 ? (
+              {idCalendarStore ? (
                 <div className="btn-calendar">
                   <Button
                     type="primary"
