@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {useUserData} from "../../../../helpers";
+import { useUserData } from "../../../../helpers";
 import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AiOutlineCalendar } from "react-icons/ai";
 import "./Nabar.css";
 import Calendar from "../../../../page/calendar/Calendar";
-import logo1 from "../../../../img/logoviet.png"
+import logo1 from "../../../../img/logoviet.png";
 import "./Navbar.css";
 function Nabar() {
-  const {usernameStore, idStore} = useUserData()
+  const { usernameStore, idStore } = useUserData();
   // const { user, setUser } = useAuthContext();
+  const [message, setMessage] = useState(false);
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(true);
   };
   return (
     // variant={"dark"}
-    <div className="navbar-header" >
+    <div className="navbar-header">
       <Navbar expand="lg">
         <Container fluid>
           <Navbar.Brand href="/">
@@ -62,7 +63,8 @@ function Nabar() {
                     className="info"
                     variant="success"
                     id="dropdown-basic"
-                  >{usernameStore}
+                  >
+                    {usernameStore}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>
@@ -76,18 +78,29 @@ function Nabar() {
                       </Nav.Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                      <Nav.Link className="navbare" as={Link} to={"/logout"} >
+                      <Nav.Link className="navbare" as={Link} to={"/logout"}>
                         Logout
                       </Nav.Link>
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <div className="calendar-days">
-                  <button onClick={handleShow}>
+                <div  className="calendar-days">
+                  <button
+                    onClick={handleShow}
+                    // onMouseOver={() => {
+                    //   console.log('nguyenchibao')
+                    // }}
+                    // onMouseOver={() => setMessage(!message)}
+                  >
                     <span>
                       <AiOutlineCalendar />
                     </span>
                   </button>
+                  {/* {message && (
+                    <div className="">
+                      <span>Đặt lịch hẹn</span>
+                    </div>
+                  )} */}
                   <Calendar show={show} handleClose={() => setShow(false)} />
                 </div>
               </>
@@ -113,7 +126,6 @@ function Nabar() {
         </Container>
       </Navbar>
     </div>
-    
   );
 }
 

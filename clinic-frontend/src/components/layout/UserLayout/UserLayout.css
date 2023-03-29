@@ -3,8 +3,19 @@
     padding: 0;
 }
 
+.show-info {
+    padding: 5px 30px;
+}
+
+.list-skill {
+    padding: 5px 15px;
+}
+
 .row-info {
     min-height: 280px;
+    background-color: #efeff1;
+    padding: 20px 0;
+    color: #2866b1;
 }
 
 .navbar-info {

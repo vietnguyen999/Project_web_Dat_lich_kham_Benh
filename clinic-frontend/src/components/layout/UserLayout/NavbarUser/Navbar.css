@@ -14,7 +14,9 @@
 }
 .list-skill a {
     width: 65%;
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 1px solid gray;
+    /* text-align: center; */
+    padding: 10px 0 5px 35px;
+    border-bottom: 1px solid #2866b1;
+    font-size: 1rem;
+    font-style: inherit;
 }
