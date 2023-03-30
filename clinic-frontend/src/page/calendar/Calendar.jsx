@@ -1,4 +1,4 @@
-import { Modal, Col, Row, Container } from "react-bootstrap";
+import { Modal, Col, Row } from "react-bootstrap";
 import { message, Alert } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -24,7 +24,29 @@ const infoCalendar = {
 };
 
 function Calendar(props) {
+  const { usernameStore, emailStore, idStore } = useUserData();
+  const [id, setID] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [describe, setDescribe] = useState("");
+  const [status, setStatus] = useState(true);
+  const [calendar, setCalendar] = useState(infoCalendar);
+
+  const [messageEmail, setMessageEmail] = useState("");
+  const [messageUsername, setMessageUsername] = useState("");
+  const [messagePhone, setMessagePhone] = useState("");
+  const [messageDate, setmessageDate] = useState("");
+  const [messageDescribe, setMessageDescribe] = useState("");
+  const [error, setError] = useState("");
+
+  const { isDesktopView } = useScreenSize();
+  const [listCalendar, setListCalendar] = useState([]);
+
   let dateNow = new Date().toLocaleDateString() + "";
+
   const {
     idCalendarStore,
     usernameCalendarStore,
@@ -35,15 +57,8 @@ function Calendar(props) {
     describeCalendarStore,
     // statusCalendarStore,
   } = useCalendarData();
-  const { usernameStore, emailStore, idStore } = useUserData();
-  let userCalendar = usernameStore,
-    emailCalendar = emailStore,
-    phoneCalendar = "",
-    dateCalendar = "",
-    timeCalendar = "",
-    describeCalendar = "";
   // statusCalendar;
-  const [listCalendar, setListCalendar] = useState([]);
+
   useEffect(() => {
     const url = `${API}/calendars`;
     axios
@@ -51,49 +66,49 @@ function Calendar(props) {
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
   }, []);
-  if (idCalendarStore !== undefined) {
-    userCalendar = usernameCalendarStore;
-    emailCalendar = emailCalendarStore;
-    phoneCalendar = phoneCalendarStore;
-    dateCalendar = dateCalendarStore;
-    timeCalendar = timeCalendarStore;
-    describeCalendar = describeCalendarStore;
-    // statusCalendar = statusCalendarStore;
-  } else if (idCalendarStore === undefined && listCalendar.length > 0) {
-   listCalendar.map(calendarIdUser => {
-    userCalendar = calendarIdUser.attributes.username;
-    emailCalendar = calendarIdUser.attributes.email;
-    phoneCalendar = calendarIdUser.attributes.phone;
-    dateCalendar = calendarIdUser.attributes.date;
-    timeCalendar = calendarIdUser.attributes.time;
-    describeCalendar = calendarIdUser.attributes.describe;
-   })
-  }
 
-  const { isDesktopView } = useScreenSize();
-
-  const [username, setUsername] = useState(userCalendar);
-  const [email, setEmail] = useState(emailCalendar);
-  const [phone, setPhone] = useState(phoneCalendar);
-  const [date, setDate] = useState(dateCalendar);
-  const [time, setTime] = useState(timeCalendar);
-  const [describe, setDescribe] = useState(describeCalendar);
-  const [status, setStatus] = useState(true);
-  const [messageEmail, setMessageEmail] = useState("");
-  const [messageUsername, setMessageUsername] = useState("");
-  const [messagePhone, setMessagePhone] = useState("");
-  const [messageDate, setmessageDate] = useState("");
-  const [messageDescribe, setMessageDescribe] = useState("");
-  const [error, setError] = useState("");
-
-  const [calendar, setCalendar] = useState(infoCalendar);
-
-  console.log(username)
-  console.log(email)
-  console.log(phone)
-  console.log(date)
-  console.log(time)
-  console.log(describe)
+  useEffect(() => {
+    if (idCalendarStore !== undefined) {
+      setID(idCalendarStore);
+      setUsername(usernameCalendarStore);
+      setEmail(emailCalendarStore);
+      setPhone(phoneCalendarStore);
+      setDate(dateCalendarStore);
+      setTime(timeCalendarStore);
+      setDescribe(describeCalendarStore);
+      // statusCalendar = statusCalendarStore;
+    } else if (idCalendarStore === undefined && listCalendar.length > 0) {
+      listCalendar.map((calendarIdUser) => {
+        setID(calendarIdUser.id);
+        setUsername(calendarIdUser.attributes.username);
+        setEmail(calendarIdUser.attributes.email);
+        setPhone(calendarIdUser.attributes.phone);
+        setDate(calendarIdUser.attributes.date);
+        setTime(calendarIdUser.attributes.time);
+        setDescribe(calendarIdUser.attributes.describe);
+      });
+    } else {
+      setID("");
+      setUsername(usernameStore);
+      setEmail(emailStore);
+      setPhone("");
+      setDate("");
+      setTime("");
+      setDescribe("");
+    }
+  }, [
+    listCalendar,
+    calendar,
+    idCalendarStore,
+    usernameCalendarStore,
+    emailCalendarStore,
+    phoneCalendarStore,
+    dateCalendarStore,
+    timeCalendarStore,
+    describeCalendarStore,
+    usernameStore,
+    emailStore,
+  ]);
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -202,18 +217,21 @@ function Calendar(props) {
   };
 
   const handleCalendarClickDelete = () => {
-    const url = `${API}/calendars/${idCalendarStore}`;
+    const url = `${API}/calendars/${id}`;
     localStorage.setItem("calendar", "");
     axios.delete(url);
+
+    setID("");
     setUsername("");
     setEmail("");
     setPhone("");
     setDate("");
     setTime("");
     setDescribe("");
+    setCalendar("");
   };
 
-  const handleCalendarClick = async () => {
+  const handleCalendarClickAcc = async () => {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
     const isValidPhone = handleBlurPhone();
@@ -240,56 +258,82 @@ function Calendar(props) {
       setStatus(false);
     }
     calendar.status = status;
-    if (idCalendarStore === undefined) {
-      const url = `${API}/calendars`;
-      try {
-        const res = await axios.post(
-          url,
-          {
-            data: calendar,
+    const url = `${API}/calendars`;
+    try {
+      const res = await axios.post(
+        url,
+        {
+          data: calendar,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
           },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
-            },
-          }
-        );
-        if (res) {
-          storeCalendar(res);
-          message.success("Đặt lịch thành công!");
-          setCalendar(infoCalendar);
         }
-      } catch (error) {
-        setError(error);
+      );
+      if (res) {
+        storeCalendar(res);
+        message.success("Đặt lịch thành công!");
+        setCalendar(calendar);
       }
-    } else {
-      const url = `${API}/calendars/${idCalendarStore}`;
-      try {
-        const res = await axios.put(
-          url,
-          {
-            data: calendar,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Basic` + localStorage.getItem(AUTH_TOKEN),
-              // 'Content-Type': 'application/json',
-              // 'Authorization': 'Bearer '+ localStorage.getItem(AUTH_TOKEN)
-            },
-          }
-        );
-        if (res) {
-          storeCalendar(res);
-          message.success("Cập nhật thành công!");
-          setCalendar(infoCalendar);
-        }
-      } catch (error) {
-        setError(error);
-      }
+    } catch (error) {
+      setError(error);
     }
   };
+  const handleCalendarClickUpdate = async () => {
+    const isValidEmail = handleBlurEmail();
+    const isValidUsername = handleBlurUsername();
+    const isValidPhone = handleBlurPhone();
+    const isValidDate = handleBlurDate();
+    const isValidDescribe = handleBlurDescribe();
+    if (
+      !isValidEmail &&
+      !isValidUsername &&
+      !isValidPhone &&
+      !isValidDate &&
+      !isValidDescribe
+    )
+      return;
+    calendar.username = username;
+    calendar.email = email;
+    calendar.phone = phone;
+    calendar.date = date;
+    calendar.time = time;
+    calendar.describe = describe;
+    calendar.iduser = idStore;
+    if (dateNow < date) {
+      setStatus(true);
+    } else {
+      setStatus(false);
+    }
+    calendar.status = status;
+    const url = `${API}/calendars/${id}`;
+    try {
+      const res = await axios.put(
+        url,
+        {
+          data: calendar,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic` + localStorage.getItem(AUTH_TOKEN),
+            // 'Content-Type': 'application/json',
+            // 'Authorization': 'Bearer '+ localStorage.getItem(AUTH_TOKEN)
+          },
+        }
+      );
+      if (res) {
+        storeCalendar(res);
+        message.success("Cập nhật thành công!");
+        setCalendar(infoCalendar);
+      }
+    } catch (error) {
+      setError(error);
+    }
+  };
+
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
@@ -446,11 +490,11 @@ function Calendar(props) {
                 />
                 <p className="error">{messageDescribe.describe}</p>
               </FormGroup>
-              {idCalendarStore ? (
+              {idCalendarStore || listCalendar.length > 0 ? (
                 <div className="btn-calendar">
                   <Button
                     type="primary"
-                    onClick={handleCalendarClick}
+                    onClick={handleCalendarClickUpdate}
                     className=""
                   >
                     Cập nhật
@@ -467,7 +511,7 @@ function Calendar(props) {
                 <div className="btn-calendar">
                   <Button
                     type="primary"
-                    onClick={handleCalendarClick}
+                    onClick={handleCalendarClickAcc}
                     className=""
                   >
                     Đặt Lịch Hẹn
