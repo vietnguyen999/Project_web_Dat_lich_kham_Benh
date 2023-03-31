@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFectch";
 import { useState } from "react";
 import Calendar from "../calendar/Calendar";
 import Accordion from "react-bootstrap/Accordion";
-import bacsi2023 from "../../img/bac-si-2023.jpg"
+import bacsi2023 from "../../img/bac-si-2023.jpg";
 
 export default function Useinput() {
   const { loading, error, data } = useFetch(
@@ -13,7 +13,8 @@ export default function Useinput() {
   const [query, setQuery] = useState("");
   const [noelement, setNoelement] = useState(2);
   const [show, setShow] = useState(false);
-  const handleShow = () => {
+  const handleShow = () => { 
+    
     setShow(true);
   };
   const loadMore = () => {
@@ -27,7 +28,7 @@ export default function Useinput() {
   return (
     <div>
       <div className="doctor-header-imgs">
-        <img src={bacsi2023} alt="" className="doctor-header-imgs-is"/>
+        <img src={bacsi2023} alt="" className="doctor-header-imgs-is" />
       </div>
       <div className="doctor-seach">
         <h5 className="text-seach-doctor-h5">Tìm Kiến Bác Sĩ</h5>
@@ -90,12 +91,10 @@ export default function Useinput() {
                     </Accordion>
                   </div>
                   <button onClick={handleShow} className="btn-doctor-datlich">
-                Đặt Lịch Khám
-              </button>
+                    Đặt Lịch Khám
+                  </button>
                 </ul>
-               
               </div>
-             
             </div>
           ))}
       </div>

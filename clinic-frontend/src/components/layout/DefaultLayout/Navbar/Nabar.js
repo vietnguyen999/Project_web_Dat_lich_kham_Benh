@@ -10,9 +10,8 @@ import Calendar from "../../../../page/calendar/Calendar";
 import logo1 from "../../../../img/logoviet.png";
 import "./Navbar.css";
 function Nabar() {
-  const { usernameStore, idStore } = useUserData();
+  const { usernameStore } = useUserData();
   // const { user, setUser } = useAuthContext();
- // const [message, setMessage] = useState(false);
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(true);
@@ -84,8 +83,10 @@ function Nabar() {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <div className="calendar-days">
-                  <button onClick={handleShow}>
+                <div  className="calendar-days">
+                  <button
+                    onClick={handleShow}
+                  >
                     <span>
                       <AiOutlineCalendar />
                     </span>
