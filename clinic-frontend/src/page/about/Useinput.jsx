@@ -5,6 +5,7 @@ import { useState } from "react";
 import Calendar from "../calendar/Calendar";
 import Accordion from "react-bootstrap/Accordion";
 import bacsi2023 from "../../img/bac-si-2023.jpg";
+import { storeUserNameDoctor } from "../../helpers";
 
 export default function Useinput() {
   const { loading, error, data } = useFetch(
@@ -13,10 +14,9 @@ export default function Useinput() {
   const [query, setQuery] = useState("");
   const [noelement, setNoelement] = useState(2);
   const [show, setShow] = useState(false);
-  const handleShow = () => { 
-    
-    setShow(true);
-  };
+  // const handleShow = () => { 
+  //   setShow(true);
+  // };
   const loadMore = () => {
     setNoelement(noelement + noelement);
   };
@@ -90,7 +90,10 @@ export default function Useinput() {
                       </Accordion.Item>
                     </Accordion>
                   </div>
-                  <button onClick={handleShow} className="btn-doctor-datlich">
+                  <button onClick={() => {
+                    storeUserNameDoctor(doctor.attributes.Name)
+                    setShow(true)
+                  }} className="btn-doctor-datlich">
                     Đặt Lịch Khám
                   </button>
                 </ul>

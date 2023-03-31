@@ -20,6 +20,12 @@ export const storeCalendar = (data) => {
   }))
 }
 
+export const storeUserNameDoctor = (data) => {
+  localStorage.setItem('usernameDoctor', JSON.stringify({
+      usernameDoctorStore: data,
+  }))
+}
+
 export function useUserData() {
   const stringifyUser = localStorage.getItem('user') || '""';
   return JSON.parse(stringifyUser || {})
@@ -28,4 +34,9 @@ export function useUserData() {
 export function useCalendarData() {
   const stringifyCalendar = localStorage.getItem('calendar') || '""';
   return JSON.parse(stringifyCalendar || {})
+}
+
+export function useDoctorData() {
+  const stringifyDoctor = localStorage.getItem('usernameDoctor') || '""';
+  return JSON.parse(stringifyDoctor || {})
 }

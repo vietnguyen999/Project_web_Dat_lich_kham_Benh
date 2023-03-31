@@ -8,7 +8,12 @@ import "./Calendar.css";
 import { API, AUTH_TOKEN } from "../../constant";
 import { Link } from "react-router-dom";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
-import { useUserData, useCalendarData, storeCalendar } from "../../helpers";
+import {
+  useCalendarData,
+  storeCalendar,
+  useUserData,
+  useDoctorData,
+} from "../../helpers";
 import isEmpty from "validator/lib/isEmpty";
 import isEmail from "validator/lib/isEmail";
 
@@ -31,6 +36,7 @@ function Calendar(props) {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  // const [userNameDoctor, setUserNameDoctor] = useState("");
   const [describe, setDescribe] = useState("");
   const [status, setStatus] = useState(true);
   const [calendar, setCalendar] = useState(infoCalendar);
@@ -44,6 +50,7 @@ function Calendar(props) {
 
   const { isDesktopView } = useScreenSize();
   const [listCalendar, setListCalendar] = useState([]);
+ // const [listDoctor, setListDoctor] = useState([])
 
   let dateNow = new Date().toLocaleDateString() + "";
 
@@ -58,15 +65,20 @@ function Calendar(props) {
     // statusCalendarStore,
   } = useCalendarData();
   // statusCalendar;
-
-  useEffect(() =>   {
-    console.log("sfsdfdsf")
+  const { usernameDoctorStore } = useDoctorData();
+  useEffect(() => {
     const url = `${API}/calendars`;
     axios
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
   }, [idCalendarStore]);
+
+    // useEffect(() => {
+    //   const url =  `${API}/calendars`;
+    //   axios.get(url).then(({data}) => setListDoctor(data.data)).catch((error) =>setError(error));
+      
+    // },[]);
 
   useEffect(() => {
     if (idCalendarStore !== undefined) {
@@ -95,7 +107,6 @@ function Calendar(props) {
     // id,
   ]);
 
- 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -206,7 +217,7 @@ function Calendar(props) {
     const url = `${API}/calendars/${id}`;
     localStorage.setItem("calendar", "");
     axios.delete(url);
-    
+
     setID("");
     setUsername("");
     setEmail("");
@@ -223,7 +234,7 @@ function Calendar(props) {
     const isValidPhone = handleBlurPhone();
     const isValidDate = handleBlurDate();
     const isValidDescribe = handleBlurDescribe();
-    const objCalendar = {}
+    const objCalendar = {};
     if (
       !isValidEmail &&
       !isValidUsername &&
@@ -232,20 +243,20 @@ function Calendar(props) {
       !isValidDescribe
     )
       return;
-      objCalendar.username = username;
-      objCalendar.email = email;
-      objCalendar.phone = phone;
-      objCalendar.date = date;
-      objCalendar.time = time;
-      objCalendar.describe = describe;
-      objCalendar.iduser = idStore;
+    objCalendar.username = username;
+    objCalendar.email = email;
+    objCalendar.phone = phone;
+    objCalendar.date = date;
+    objCalendar.time = time;
+    objCalendar.describe = describe;
+    objCalendar.iduser = idStore;
     if (dateNow < date) {
       setStatus(true);
     } else {
       setStatus(false);
     }
     objCalendar.status = status;
-    console.log(objCalendar)
+   // console.log(objCalendar);
     const url = `${API}/calendars`;
     try {
       const res = await axios.post(
@@ -261,10 +272,10 @@ function Calendar(props) {
         }
       );
       if (res) {
-        console.log("có dô",);
+        console.log("có dô");
         storeCalendar(res);
         message.success("Đặt lịch thành công!");
-        setCalendar(objCalendar)
+        setCalendar(objCalendar);
       }
     } catch (error) {
       setError(error);
@@ -325,7 +336,7 @@ function Calendar(props) {
 
   useEffect(() => {
     console.log(calendar);
-  },[calendar])
+  }, [calendar]);
 
   return (
     <Modal show={props.show} onHide={props.handleClose}>
@@ -469,6 +480,20 @@ function Calendar(props) {
                   </FormGroup>
                 </Col>
               </Row>
+              <FormGroup>
+                <Label>Bác sĩ</Label>
+                <Input
+                  value={usernameDoctorStore}
+                  // onChange={handelChangeTime}
+                  type="select"
+                  name="usernameDoctor"
+                >
+                  <option>Việt</option>
+                  <option>Đức</option>
+                  <option>Nguyễn</option>
+                  <option>{usernameDoctorStore}</option>
+                </Input>
+              </FormGroup>
               <FormGroup>
                 <Label>Mô tả</Label>
                 <Input

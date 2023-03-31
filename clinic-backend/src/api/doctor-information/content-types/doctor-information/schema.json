@@ -34,6 +34,12 @@
     },
     "certificate": {
       "type": "richtext"
+    },
+    "calendars": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar.calendar",
+      "inversedBy": "doctor_informations"
     }
   }
 }

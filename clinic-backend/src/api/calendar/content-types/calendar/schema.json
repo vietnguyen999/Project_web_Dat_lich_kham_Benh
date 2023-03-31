@@ -41,6 +41,15 @@
     },
     "status": {
       "type": "boolean"
+    },
+    "doctor_informations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::doctor-information.doctor-information",
+      "mappedBy": "calendars"
+    },
+    "NameDoctor": {
+      "type": "text"
     }
   }
 }
