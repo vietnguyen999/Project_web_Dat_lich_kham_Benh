@@ -26,8 +26,8 @@ const infoCalendar = {
 function Calendar(props) {
   const { usernameStore, emailStore, idStore } = useUserData();
   const [id, setID] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(usernameStore);
+  const [email, setEmail] = useState(emailStore);
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -59,13 +59,14 @@ function Calendar(props) {
   } = useCalendarData();
   // statusCalendar;
 
-  useEffect(() => {
+  useEffect(() =>   {
+    console.log("sfsdfdsf")
     const url = `${API}/calendars`;
     axios
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
-  }, []);
+  }, [idCalendarStore]);
 
   useEffect(() => {
     if (idCalendarStore !== undefined) {
@@ -78,6 +79,7 @@ function Calendar(props) {
       setDescribe(describeCalendarStore);
       // statusCalendar = statusCalendarStore;
     } else if (idCalendarStore === undefined && listCalendar.length > 0) {
+      // eslint-disable-next-line array-callback-return
       listCalendar.map((calendarIdUser) => {
         setID(calendarIdUser.id);
         setUsername(calendarIdUser.attributes.username);
@@ -87,27 +89,10 @@ function Calendar(props) {
         setTime(calendarIdUser.attributes.time);
         setDescribe(calendarIdUser.attributes.describe);
       });
-    } else {
-      setID("");
-      setUsername(usernameStore);
-      setEmail(emailStore);
-      setPhone("");
-      setDate("");
-      setTime("");
-      setDescribe("");
     }
   }, [
     listCalendar,
-    calendar,
-    idCalendarStore,
-    usernameCalendarStore,
-    emailCalendarStore,
-    phoneCalendarStore,
-    dateCalendarStore,
-    timeCalendarStore,
-    describeCalendarStore,
-    usernameStore,
-    emailStore,
+    // id,
   ]);
 
  
@@ -221,7 +206,7 @@ function Calendar(props) {
     const url = `${API}/calendars/${id}`;
     localStorage.setItem("calendar", "");
     axios.delete(url);
-
+    
     setID("");
     setUsername("");
     setEmail("");
@@ -229,7 +214,7 @@ function Calendar(props) {
     setDate("");
     setTime("");
     setDescribe("");
-    setCalendar("");
+    setCalendar({});
   };
 
   const handleCalendarClickAcc = async () => {
@@ -238,6 +223,7 @@ function Calendar(props) {
     const isValidPhone = handleBlurPhone();
     const isValidDate = handleBlurDate();
     const isValidDescribe = handleBlurDescribe();
+    const objCalendar = {}
     if (
       !isValidEmail &&
       !isValidUsername &&
@@ -246,25 +232,26 @@ function Calendar(props) {
       !isValidDescribe
     )
       return;
-    calendar.username = username;
-    calendar.email = email;
-    calendar.phone = phone;
-    calendar.date = date;
-    calendar.time = time;
-    calendar.describe = describe;
-    calendar.iduser = idStore;
+      objCalendar.username = username;
+      objCalendar.email = email;
+      objCalendar.phone = phone;
+      objCalendar.date = date;
+      objCalendar.time = time;
+      objCalendar.describe = describe;
+      objCalendar.iduser = idStore;
     if (dateNow < date) {
       setStatus(true);
     } else {
       setStatus(false);
     }
-    calendar.status = status;
+    objCalendar.status = status;
+    console.log(objCalendar)
     const url = `${API}/calendars`;
     try {
       const res = await axios.post(
         url,
         {
-          data: calendar,
+          data: objCalendar,
         },
         {
           headers: {
@@ -274,9 +261,10 @@ function Calendar(props) {
         }
       );
       if (res) {
+        console.log("có dô",);
         storeCalendar(res);
         message.success("Đặt lịch thành công!");
-        setCalendar(calendar);
+        setCalendar(objCalendar)
       }
     } catch (error) {
       setError(error);
@@ -334,6 +322,10 @@ function Calendar(props) {
       setError(error);
     }
   };
+
+  useEffect(() => {
+    console.log(calendar);
+  },[calendar])
 
   return (
     <Modal show={props.show} onHide={props.handleClose}>
@@ -491,7 +483,7 @@ function Calendar(props) {
                 />
                 <p className="error">{messageDescribe.describe}</p>
               </FormGroup>
-              {idCalendarStore || listCalendar.length > 0 ? (
+              {id ? (
                 <div className="btn-calendar">
                   <Button
                     type="primary"
