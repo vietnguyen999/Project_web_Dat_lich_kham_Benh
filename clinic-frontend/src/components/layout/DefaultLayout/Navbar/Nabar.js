@@ -12,7 +12,7 @@ import "./Navbar.css";
 function Nabar() {
   const { usernameStore, idStore } = useUserData();
   // const { user, setUser } = useAuthContext();
-  const [message, setMessage] = useState(false);
+ // const [message, setMessage] = useState(false);
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(true);
@@ -84,23 +84,12 @@ function Nabar() {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <div  className="calendar-days">
-                  <button
-                    onClick={handleShow}
-                    // onMouseOver={() => {
-                    //   console.log('nguyenchibao')
-                    // }}
-                    // onMouseOver={() => setMessage(!message)}
-                  >
+                <div className="calendar-days">
+                  <button onClick={handleShow}>
                     <span>
                       <AiOutlineCalendar />
                     </span>
                   </button>
-                  {/* {message && (
-                    <div className="">
-                      <span>Đặt lịch hẹn</span>
-                    </div>
-                  )} */}
                   <Calendar show={show} handleClose={() => setShow(false)} />
                 </div>
               </>

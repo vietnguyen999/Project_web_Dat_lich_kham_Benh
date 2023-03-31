@@ -49,7 +49,7 @@ function Calendar(props) {
     axios.get(url).then(({ data }) => setListCalendar(data.data))
     .catch((error) => setError(error));
   },[])
-  console.log(listCalendar)
+  //console.log(listCalendar)
   if (idCalendarStore !== undefined) {
     userCalendar = usernameCalendarStore;
     emailCalendar = emailCalendarStore;
@@ -59,6 +59,11 @@ function Calendar(props) {
     describeCalendar = describeCalendarStore;
     // statusCalendar = statusCalendarStore;
   }
+
+  // useEffect(()=>{
+  //   console.log(props)
+  // },[props])
+
 
   const { isDesktopView } = useScreenSize();
 
@@ -77,13 +82,14 @@ function Calendar(props) {
   const [error, setError] = useState("");
 
   const [calendar, setCalendar] = useState(infoCalendar);
-  console.log(username);
-  console.log(email);
-  console.log(phone);
-  console.log(date);
-  console.log(time);
-  console.log(describe);
+  // console.log(username);
+  // console.log(email);
+  // console.log(phone);
+  // console.log(date);
+  // console.log(time);
+  // console.log(describe);
 
+ 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -279,6 +285,8 @@ function Calendar(props) {
       }
     }
   };
+
+
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
@@ -456,7 +464,7 @@ function Calendar(props) {
                 <div className="btn-calendar">
                   <Button
                     type="primary"
-                    onClick={handleCalendarClick}
+                   onClick={handleCalendarClick}
                     className=""
                   >
                     Đặt Lịch Hẹn
