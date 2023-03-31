@@ -106,7 +106,10 @@ export default function Useinput() {
           Xem thêm
         </button>
       </div>
-      <Calendar show={show} handleClose={() => setShow(false)} />
+      <Calendar show={show} handleClose={() => {
+        localStorage.setItem("usernameDoctor", "");
+        setShow(false)
+      } } />
     </div>
   );
 }

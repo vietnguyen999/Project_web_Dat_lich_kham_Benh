@@ -48,7 +48,7 @@
       "target": "api::doctor-information.doctor-information",
       "mappedBy": "calendars"
     },
-    "NameDoctor": {
+    "namedoctor": {
       "type": "text"
     }
   }

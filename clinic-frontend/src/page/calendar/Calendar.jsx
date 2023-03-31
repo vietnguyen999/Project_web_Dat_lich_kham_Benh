@@ -25,6 +25,7 @@ const infoCalendar = {
   time: "",
   describe: "",
   iduser: "",
+  namedoctor: "",
   status: "",
 };
 
@@ -36,7 +37,7 @@ function Calendar(props) {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  // const [userNameDoctor, setUserNameDoctor] = useState("");
+  const [nameDoctor, setNameDoctor] = useState("");
   const [describe, setDescribe] = useState("");
   const [status, setStatus] = useState(true);
   const [calendar, setCalendar] = useState(infoCalendar);
@@ -50,7 +51,7 @@ function Calendar(props) {
 
   const { isDesktopView } = useScreenSize();
   const [listCalendar, setListCalendar] = useState([]);
- // const [listDoctor, setListDoctor] = useState([])
+  const [listDoctor, setListDoctor] = useState([])
 
   let dateNow = new Date().toLocaleDateString() + "";
 
@@ -61,6 +62,7 @@ function Calendar(props) {
     phoneCalendarStore,
     dateCalendarStore,
     timeCalendarStore,
+    nameDoctorCalendarStore,
     describeCalendarStore,
     // statusCalendarStore,
   } = useCalendarData();
@@ -74,11 +76,13 @@ function Calendar(props) {
       .catch((error) => setError(error));
   }, [idCalendarStore]);
 
-    // useEffect(() => {
-    //   const url =  `${API}/calendars`;
-    //   axios.get(url).then(({data}) => setListDoctor(data.data)).catch((error) =>setError(error));
-      
-    // },[]);
+  useEffect(() => {
+    const url = `${API}/doctor-informations`;
+    axios
+      .get(url)
+      .then(({ data }) => setListDoctor(data.data))
+      .catch((error) => setError(error));
+  }, []);
 
   useEffect(() => {
     if (idCalendarStore !== undefined) {
@@ -88,6 +92,7 @@ function Calendar(props) {
       setPhone(phoneCalendarStore);
       setDate(dateCalendarStore);
       setTime(timeCalendarStore);
+      setNameDoctor(nameDoctorCalendarStore)
       setDescribe(describeCalendarStore);
       // statusCalendar = statusCalendarStore;
     } else if (idCalendarStore === undefined && listCalendar.length > 0) {
@@ -99,6 +104,7 @@ function Calendar(props) {
         setPhone(calendarIdUser.attributes.phone);
         setDate(calendarIdUser.attributes.date);
         setTime(calendarIdUser.attributes.time);
+        setNameDoctor(calendarIdUser.attributes.namedoctor)
         setDescribe(calendarIdUser.attributes.describe);
       });
     }
@@ -106,6 +112,13 @@ function Calendar(props) {
     listCalendar,
     // id,
   ]);
+
+  useEffect(() => {
+    if(usernameDoctorStore !== undefined) {
+      console.log("sdfdsfdsfdsf")
+      setNameDoctor(usernameDoctorStore)
+    }
+  }, [usernameDoctorStore])
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -125,6 +138,9 @@ function Calendar(props) {
   const handleChangeDescribe = (e) => {
     setDescribe(e.target.value);
   };
+  const handelChangeUserNameDoctor = (e) => {
+    setNameDoctor(e.target.value)
+  }
 
   const handleBlurUsername = () => {
     const error = {};
@@ -228,6 +244,10 @@ function Calendar(props) {
     setCalendar({});
   };
 
+  useEffect(() => {
+    console.log(listDoctor)
+  }, [listDoctor])
+
   const handleCalendarClickAcc = async () => {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
@@ -248,6 +268,7 @@ function Calendar(props) {
     objCalendar.phone = phone;
     objCalendar.date = date;
     objCalendar.time = time;
+    objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
     if (dateNow < date) {
@@ -256,7 +277,7 @@ function Calendar(props) {
       setStatus(false);
     }
     objCalendar.status = status;
-   // console.log(objCalendar);
+    // console.log(objCalendar);
     const url = `${API}/calendars`;
     try {
       const res = await axios.post(
@@ -362,6 +383,7 @@ function Calendar(props) {
               <div className="list-waiting">
                 <div className="waiting-item">
                   <ul>
+                    <li>{nameDoctor}</li>
                     <li>
                       Lịch hẹn chỉ có hiệu lực khi Quý khách được xác nhận chính
                       thức từ Bệnh viện thông qua điện thoại hoặc email.
@@ -483,15 +505,16 @@ function Calendar(props) {
               <FormGroup>
                 <Label>Bác sĩ</Label>
                 <Input
-                  value={usernameDoctorStore}
-                  // onChange={handelChangeTime}
+                  value={nameDoctor}
+                  onChange={handelChangeUserNameDoctor}
                   type="select"
                   name="usernameDoctor"
                 >
-                  <option>Việt</option>
-                  <option>Đức</option>
-                  <option>Nguyễn</option>
-                  <option>{usernameDoctorStore}</option>
+                  {listDoctor.map((doctor) => {
+                    return (
+                      <option key={ doctor.id }>{doctor.attributes.Name}</option>
+                    )
+                  })}
                 </Input>
               </FormGroup>
               <FormGroup>

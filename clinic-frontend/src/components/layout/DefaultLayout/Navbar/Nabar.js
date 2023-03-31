@@ -91,7 +91,9 @@ function Nabar() {
                       <AiOutlineCalendar />
                     </span>
                   </button>
-                  <Calendar show={show} handleClose={() => setShow(false)} />
+                  <Calendar show={show} handleClose={() => {
+                    setShow(false)
+                  }  }/>
                 </div>
               </>
             ) : (

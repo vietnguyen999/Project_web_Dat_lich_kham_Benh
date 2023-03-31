@@ -15,6 +15,7 @@ export const storeCalendar = (data) => {
       phoneCalendarStore: data.data.data.attributes.phone,
       dateCalendarStore: data.data.data.attributes.date,
       timeCalendarStore: data.data.data.attributes.time,
+      nameDoctorCalendarStore: data.data.data.attributes.namedoctor,
       describeCalendarStore: data.data.data.attributes.describe,
       jwt: data.jwt
   }))
