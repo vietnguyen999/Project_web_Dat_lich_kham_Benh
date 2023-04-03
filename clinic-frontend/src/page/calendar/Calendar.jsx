@@ -59,14 +59,14 @@ function Calendar(props) {
   } = useCalendarData();
   // statusCalendar;
 
-  useEffect(() =>   {
-    console.log("sfsdfdsf")
+  useEffect(() => {
+    console.log("sfsdfdsf");
     const url = `${API}/calendars`;
     axios
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
-  }, [idCalendarStore]);
+  }, [calendar]);
 
   useEffect(() => {
     if (idCalendarStore !== undefined) {
@@ -81,13 +81,16 @@ function Calendar(props) {
     } else if (idCalendarStore === undefined && listCalendar.length > 0) {
       // eslint-disable-next-line array-callback-return
       listCalendar.map((calendarIdUser) => {
-        setID(calendarIdUser.id);
-        setUsername(calendarIdUser.attributes.username);
-        setEmail(calendarIdUser.attributes.email);
-        setPhone(calendarIdUser.attributes.phone);
-        setDate(calendarIdUser.attributes.date);
-        setTime(calendarIdUser.attributes.time);
-        setDescribe(calendarIdUser.attributes.describe);
+        if (calendarIdUser.attributes.iduser === idStore && calendarIdUser.attributes.status === true) {
+          setID(calendarIdUser.id);
+          setUsername(calendarIdUser.attributes.username);
+          setEmail(calendarIdUser.attributes.email);
+          setPhone(calendarIdUser.attributes.phone);
+          setDate(calendarIdUser.attributes.date);
+          setTime(calendarIdUser.attributes.time);
+          setDescribe(calendarIdUser.attributes.describe);
+        }
+        
       });
     }
   }, [
@@ -205,7 +208,7 @@ function Calendar(props) {
     const url = `${API}/calendars/${id}`;
     localStorage.setItem("calendar", "");
     axios.delete(url);
-    
+
     setID("");
     setUsername("");
     setEmail("");
@@ -213,7 +216,6 @@ function Calendar(props) {
     setDate("");
     setTime("");
     setDescribe("");
-    setCalendar({});
   };
 
   const handleCalendarClickAcc = async () => {
@@ -222,7 +224,7 @@ function Calendar(props) {
     const isValidPhone = handleBlurPhone();
     const isValidDate = handleBlurDate();
     const isValidDescribe = handleBlurDescribe();
-    const objCalendar = {}
+    const objCalendar = {};
     if (
       !isValidEmail &&
       !isValidUsername &&
@@ -231,20 +233,20 @@ function Calendar(props) {
       !isValidDescribe
     )
       return;
-      objCalendar.username = username;
-      objCalendar.email = email;
-      objCalendar.phone = phone;
-      objCalendar.date = date;
-      objCalendar.time = time;
-      objCalendar.describe = describe;
-      objCalendar.iduser = idStore;
+    objCalendar.username = username;
+    objCalendar.email = email;
+    objCalendar.phone = phone;
+    objCalendar.date = date;
+    objCalendar.time = time;
+    objCalendar.describe = describe;
+    objCalendar.iduser = idStore;
     if (dateNow < date) {
       setStatus(true);
     } else {
       setStatus(false);
     }
     objCalendar.status = status;
-    console.log(objCalendar)
+    console.log(objCalendar);
     const url = `${API}/calendars`;
     try {
       const res = await axios.post(
@@ -260,10 +262,10 @@ function Calendar(props) {
         }
       );
       if (res) {
-        console.log("có dô",);
+        console.log("có dô");
         storeCalendar(res);
         message.success("Đặt lịch thành công!");
-        setCalendar(objCalendar)
+        setCalendar(objCalendar);
       }
     } catch (error) {
       setError(error);
@@ -275,6 +277,7 @@ function Calendar(props) {
     const isValidPhone = handleBlurPhone();
     const isValidDate = handleBlurDate();
     const isValidDescribe = handleBlurDescribe();
+    const objCalendar = {};
     if (
       !isValidEmail &&
       !isValidUsername &&
@@ -283,13 +286,14 @@ function Calendar(props) {
       !isValidDescribe
     )
       return;
-    calendar.username = username;
-    calendar.email = email;
-    calendar.phone = phone;
-    calendar.date = date;
-    calendar.time = time;
-    calendar.describe = describe;
-    calendar.iduser = idStore;
+
+    objCalendar.username = username;
+    objCalendar.email = email;
+    objCalendar.phone = phone;
+    objCalendar.date = date;
+    objCalendar.time = time;
+    objCalendar.describe = describe;
+    objCalendar.iduser = idStore;
     if (dateNow < date) {
       setStatus(true);
     } else {
@@ -301,7 +305,7 @@ function Calendar(props) {
       const res = await axios.put(
         url,
         {
-          data: calendar,
+          data: objCalendar,
         },
         {
           headers: {
@@ -315,16 +319,12 @@ function Calendar(props) {
       if (res) {
         storeCalendar(res);
         message.success("Cập nhật thành công!");
-        setCalendar(infoCalendar);
+        setCalendar(objCalendar);
       }
     } catch (error) {
       setError(error);
     }
   };
-
-  useEffect(() => {
-    console.log(calendar);
-  },[calendar])
 
   return (
     <Modal show={props.show} onHide={props.handleClose}>
