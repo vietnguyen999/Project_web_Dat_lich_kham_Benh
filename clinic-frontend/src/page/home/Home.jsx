@@ -18,9 +18,12 @@ import imgs11 from "../../img/imgs12.png";
 import imgs12 from "../../img/imgs13.png";
 import imgs13 from "../../img/imgs14.png";
 import imgs14 from "../../img/imgs15.png";
+import { useUserData } from "../../helpers";
+import { Button, Nav } from "react-bootstrap";
 
 export default function Home() {
   const [show, setShow] = useState(false);
+  const { emailStore } = useUserData();
   const handleShow = () => {
     setShow(true);
   };
@@ -80,7 +83,7 @@ export default function Home() {
           </div>
           <div className="col part-news-text">
             <img src={imgs6} alt="..." className="part-news-text-img" />
-            <h4 className="part-news-text-h4">NHA KHOA  </h4>
+            <h4 className="part-news-text-h4">NHA KHOA </h4>
             <p className="part-news-text-p">
               NHA KHOA với SỨ MỆNH: “Kiến tạo hệ sinh thái Nha Khoa cực kỳ đơn
               giản. Phụng sự con người nhanh nhất trên mọi miền đất nước”
@@ -109,12 +112,11 @@ export default function Home() {
               <img src={imgs7} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Răng Sứ Thẩm Mỹ</p>
               <Link
-                  to="/rangsu"
-                  className="section-rangsu-right-dichvu-h5-link">
-                  {" "}
-              <button className=" part-service-left-btn"> 
-                  xem thêm
-              </button>
+                to="/rangsu"
+                className="section-rangsu-right-dichvu-h5-link"
+              >
+                {" "}
+                <button className=" part-service-left-btn">xem thêm</button>
               </Link>
             </div>
           </div>
@@ -124,13 +126,9 @@ export default function Home() {
               <p className=" part-service-left-text-p">
                 Chỉnh sữa - Niềng Răng
               </p>
-              <Link
-                  to="/blog"
-                  className="section-rangsu-right-dichvu-h5-link">
-                  {" "}
-              <button className="part-service-left-btn">
-                  xem thêm
-              </button>
+              <Link to="/blog" className="section-rangsu-right-dichvu-h5-link">
+                {" "}
+                <button className="part-service-left-btn">xem thêm</button>
               </Link>
             </div>
           </div>
@@ -138,13 +136,9 @@ export default function Home() {
             <div className="part-service-left">
               <img src={imgs9} alt="..." className=" part-service-left-imgs" />
               <p className=" part-service-left-text-p">Trồng Răng IPMLANT</p>
-              <Link
-                  to="/news"
-                  className="section-rangsu-right-dichvu-h5-link">
-                  {" "}
-              <button className=" part-service-left-btn">
-                  xem thêm
-              </button>
+              <Link to="/news" className="section-rangsu-right-dichvu-h5-link">
+                {" "}
+                <button className=" part-service-left-btn">xem thêm</button>
               </Link>
             </div>
           </div>
@@ -162,19 +156,33 @@ export default function Home() {
               những lời khuyên chuẩn xác và phù hợp nhất với tình trạng mỗi cá
               nhân
             </p>
-            <button
-              onClick={handleShow}
-              className="section-datlich-left-btn-dl"
-            >
-              <span className="section-datlich-left-btn-icon">
-                <AiOutlineCalendar />
-              </span>
-              Đặt lịch
-            </button>
-            <Calendar show={show} handleClose={() => setShow(false)} />
-            <button className=" section-datlich-left-btn-dl section-datlich-right-btn ">
-              Tư vấn
-            </button>
+            <div className="section-datlich">
+              {emailStore ? (
+                <button
+                  onClick={handleShow}
+                  className="section-datlich-left-btn-dl"
+                >
+                  <span className="section-datlich-left-btn-icon">
+                    <AiOutlineCalendar />
+                  </span>
+                  Đặt lịch
+                </button>
+              ) : (
+                <Button className="section-datlich-left-btn-dl">
+                  <Nav.Link className=" text-dl navbare section-login" as={Link} to={"/signIn"}>
+                    <span className="section-datlich-left-btn-icon">
+                      <AiOutlineCalendar />
+                    </span>
+                    Đặt lịch
+                  </Nav.Link>
+                </Button>
+              )}
+
+              <Calendar show={show} handleClose={() => setShow(false)} />
+              <button className=" section-datlich-left-btn-dl section-datlich-right-btn ">
+                Tư vấn
+              </button>
+            </div>
           </div>
         </div>
         <div className="col">

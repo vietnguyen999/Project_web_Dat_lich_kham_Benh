@@ -74,7 +74,7 @@ function Calendar(props) {
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
-  }, [idCalendarStore]);
+  }, [calendar]);
 
   useEffect(() => {
     const url = `${API}/doctor-informations`;
@@ -98,14 +98,19 @@ function Calendar(props) {
     } else if (idCalendarStore === undefined && listCalendar.length > 0) {
       // eslint-disable-next-line array-callback-return
       listCalendar.map((calendarIdUser) => {
-        setID(calendarIdUser.id);
-        setUsername(calendarIdUser.attributes.username);
-        setEmail(calendarIdUser.attributes.email);
-        setPhone(calendarIdUser.attributes.phone);
-        setDate(calendarIdUser.attributes.date);
-        setTime(calendarIdUser.attributes.time);
-        setNameDoctor(calendarIdUser.attributes.namedoctor);
-        setDescribe(calendarIdUser.attributes.describe);
+        if (
+          calendarIdUser.attributes.status === true &&
+          calendarIdUser.attributes.iduser === idStore
+        ) {
+          setID(calendarIdUser.id);
+          setUsername(calendarIdUser.attributes.username);
+          setEmail(calendarIdUser.attributes.email);
+          setPhone(calendarIdUser.attributes.phone);
+          setDate(calendarIdUser.attributes.date);
+          setTime(calendarIdUser.attributes.time);
+          setNameDoctor(calendarIdUser.attributes.namedoctor);
+          setDescribe(calendarIdUser.attributes.describe);
+        }
       });
     }
   }, [
@@ -241,7 +246,6 @@ function Calendar(props) {
     setDate("");
     setTime("");
     setDescribe("");
-    setCalendar({});
   };
 
   useEffect(() => {
@@ -322,7 +326,6 @@ function Calendar(props) {
     objCalendar.phone = phone;
     objCalendar.date = date;
     objCalendar.time = time;
-    objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
     if (dateNow < date) {
@@ -357,10 +360,6 @@ function Calendar(props) {
     }
   };
 
-  useEffect(() => {
-    console.log(calendar);
-  }, [calendar]);
-
   return (
     <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
@@ -385,7 +384,6 @@ function Calendar(props) {
               <div className="list-waiting">
                 <div className="waiting-item">
                   <ul>
-                    <li>{nameDoctor}</li>
                     <li>
                       Lịch hẹn chỉ có hiệu lực khi Quý khách được xác nhận chính
                       thức từ Bệnh viện thông qua điện thoại hoặc email.
