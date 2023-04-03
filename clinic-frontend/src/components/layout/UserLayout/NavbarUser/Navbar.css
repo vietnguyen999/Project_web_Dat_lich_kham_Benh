@@ -10,7 +10,7 @@
 .list-skill div {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .list-skill a {
     width: 65%;

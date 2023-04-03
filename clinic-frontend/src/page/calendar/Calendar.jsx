@@ -8,7 +8,12 @@ import "./Calendar.css";
 import { API, AUTH_TOKEN } from "../../constant";
 import { Link } from "react-router-dom";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
-import { useUserData, useCalendarData, storeCalendar } from "../../helpers";
+import {
+  useCalendarData,
+  storeCalendar,
+  useUserData,
+  useDoctorData,
+} from "../../helpers";
 import isEmpty from "validator/lib/isEmpty";
 import isEmail from "validator/lib/isEmail";
 
@@ -20,6 +25,7 @@ const infoCalendar = {
   time: "",
   describe: "",
   iduser: "",
+  namedoctor: "",
   status: "",
 };
 
@@ -31,6 +37,7 @@ function Calendar(props) {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [nameDoctor, setNameDoctor] = useState("");
   const [describe, setDescribe] = useState("");
   const [status, setStatus] = useState(true);
   const [calendar, setCalendar] = useState(infoCalendar);
@@ -44,6 +51,7 @@ function Calendar(props) {
 
   const { isDesktopView } = useScreenSize();
   const [listCalendar, setListCalendar] = useState([]);
+  const [listDoctor, setListDoctor] = useState([]);
 
   let dateNow = new Date().toLocaleDateString() + "";
 
@@ -54,19 +62,27 @@ function Calendar(props) {
     phoneCalendarStore,
     dateCalendarStore,
     timeCalendarStore,
+    nameDoctorCalendarStore,
     describeCalendarStore,
     // statusCalendarStore,
   } = useCalendarData();
   // statusCalendar;
-
+  const { usernameDoctorStore } = useDoctorData();
   useEffect(() => {
-    console.log("sfsdfdsf");
     const url = `${API}/calendars`;
     axios
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
   }, [calendar]);
+
+  useEffect(() => {
+    const url = `${API}/doctor-informations`;
+    axios
+      .get(url)
+      .then(({ data }) => setListDoctor(data.data))
+      .catch((error) => setError(error));
+  }, []);
 
   useEffect(() => {
     if (idCalendarStore !== undefined) {
@@ -76,27 +92,38 @@ function Calendar(props) {
       setPhone(phoneCalendarStore);
       setDate(dateCalendarStore);
       setTime(timeCalendarStore);
+      setNameDoctor(nameDoctorCalendarStore);
       setDescribe(describeCalendarStore);
       // statusCalendar = statusCalendarStore;
     } else if (idCalendarStore === undefined && listCalendar.length > 0) {
       // eslint-disable-next-line array-callback-return
       listCalendar.map((calendarIdUser) => {
-        if (calendarIdUser.attributes.iduser === idStore && calendarIdUser.attributes.status === true) {
+        if (
+          calendarIdUser.attributes.status === true &&
+          calendarIdUser.attributes.iduser === idStore
+        ) {
           setID(calendarIdUser.id);
           setUsername(calendarIdUser.attributes.username);
           setEmail(calendarIdUser.attributes.email);
           setPhone(calendarIdUser.attributes.phone);
           setDate(calendarIdUser.attributes.date);
           setTime(calendarIdUser.attributes.time);
+          setNameDoctor(calendarIdUser.attributes.namedoctor);
           setDescribe(calendarIdUser.attributes.describe);
         }
-        
       });
     }
   }, [
     listCalendar,
     // id,
   ]);
+
+  useEffect(() => {
+    if (usernameDoctorStore !== undefined) {
+      console.log("sdfdsfdsfdsf");
+      setNameDoctor(usernameDoctorStore);
+    }
+  }, [usernameDoctorStore]);
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -115,6 +142,9 @@ function Calendar(props) {
   };
   const handleChangeDescribe = (e) => {
     setDescribe(e.target.value);
+  };
+  const handelChangeUserNameDoctor = (e) => {
+    setNameDoctor(e.target.value);
   };
 
   const handleBlurUsername = () => {
@@ -218,6 +248,10 @@ function Calendar(props) {
     setDescribe("");
   };
 
+  useEffect(() => {
+    console.log(listDoctor);
+  }, [listDoctor]);
+
   const handleCalendarClickAcc = async () => {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
@@ -238,6 +272,7 @@ function Calendar(props) {
     objCalendar.phone = phone;
     objCalendar.date = date;
     objCalendar.time = time;
+    objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
     if (dateNow < date) {
@@ -246,7 +281,7 @@ function Calendar(props) {
       setStatus(false);
     }
     objCalendar.status = status;
-    console.log(objCalendar);
+    // console.log(objCalendar);
     const url = `${API}/calendars`;
     try {
       const res = await axios.post(
@@ -468,6 +503,21 @@ function Calendar(props) {
                   </FormGroup>
                 </Col>
               </Row>
+              <FormGroup>
+                <Label>Bác sĩ</Label>
+                <Input
+                  value={nameDoctor}
+                  onChange={handelChangeUserNameDoctor}
+                  type="select"
+                  name="usernameDoctor"
+                >
+                  {listDoctor.map((doctor) => {
+                    return (
+                      <option key={doctor.id}>{doctor.attributes.Name}</option>
+                    );
+                  })}
+                </Input>
+              </FormGroup>
               <FormGroup>
                 <Label>Mô tả</Label>
                 <Input

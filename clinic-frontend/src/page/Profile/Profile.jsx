@@ -4,7 +4,7 @@ import isEmail from "validator/lib/isEmail";
 import isEmpty from "validator/lib/isEmpty";
 import { storeUser, useUserData } from "../../helpers";
 import axios from "axios";
-import { API, AUTH_TOKEN } from "../../constant";
+import { API } from "../../constant";// AUTH_TOKEN
 import { Alert, message } from "antd";
 import { Row } from "react-bootstrap";
 import { toast } from "react-toastify";
@@ -75,7 +75,7 @@ function Profile() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Basic " + localStorage.getItem(AUTH_TOKEN),
+            Authorization: "Basic " + localStorage.getItem(),//AUTH_TOKEN
           },
         }
       );

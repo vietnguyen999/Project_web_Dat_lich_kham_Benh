@@ -1,0 +1,126 @@
+.imgs-doctor{
+    width: 250px;
+    height: 300px;
+}
+.doctor-header-imgs-is{
+    width: 100%;
+    height: 500px;
+}
+@media (max-width:900px){
+    .doctor-header-imgs-is{
+        height: 300px;
+    }
+}
+@media (max-width:400px){
+    .doctor-header-imgs-is{
+        height: 200px;
+    }
+}
+.wrapper-container
+{
+   margin-top: 10px;
+    position: relative;
+}
+/* .wrapper-container .wrapper{
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;  
+} */
+.wrapper{
+    padding: 30px;
+    margin-top: 50px;
+}
+.wrapper-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.text-doctor{
+    color: blueviolet;
+}
+.text-old{
+    color: blueviolet;
+}
+.text-speci{
+    color: blueviolet;
+}
+.text-certi{
+    color: blueviolet;
+}
+.text-exper{
+    color: blueviolet;
+}
+.text-old-old{
+    font-size: 20px;
+}
+.text-speci-speci{
+    font-size: 20px;
+}
+.accordion{
+    width: 500px;
+    position: relative;
+}
+
+.btn-doctor-datlich{
+    margin-top: 15px;
+    background-color: blueviolet;
+    color: #ffff;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 0.5px solid black;
+}
+.doctor-seach{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.text-seach-doctor-h5{
+    color: blueviolet;
+    font-size: 25px;
+    margin-right: 20px;
+}
+.item{
+    background: #f0ebe1;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+}
+.tile{
+    color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.content{
+    color: blueviolet;
+    max-height: 0;
+    overflow: hidden;
+    transition:  all 0.5s cubic-bezier(0,1,0,1);
+    transition: 0.5s;
+}
+.btn-xemthem{
+   display: flex;
+   
+}
+.btn-xemthem-btn{
+   
+    text-align: center;
+    width: 20%;
+    height: 40px;
+      margin: 0 auto;
+      color: white;
+      background-color: blueviolet;
+      font-size: 18px;
+       border: 0.5px solid black;
+        border-radius: 25px;
+}
+@media only screen and (max-width: 800px){
+   .wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 0 auto;
+   }
+}

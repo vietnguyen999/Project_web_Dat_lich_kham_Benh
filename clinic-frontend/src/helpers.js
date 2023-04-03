@@ -15,8 +15,15 @@ export const storeCalendar = (data) => {
       phoneCalendarStore: data.data.data.attributes.phone,
       dateCalendarStore: data.data.data.attributes.date,
       timeCalendarStore: data.data.data.attributes.time,
+      nameDoctorCalendarStore: data.data.data.attributes.namedoctor,
       describeCalendarStore: data.data.data.attributes.describe,
       jwt: data.jwt
+  }))
+}
+
+export const storeUserNameDoctor = (data) => {
+  localStorage.setItem('usernameDoctor', JSON.stringify({
+      usernameDoctorStore: data,
   }))
 }
 
@@ -28,4 +35,9 @@ export function useUserData() {
 export function useCalendarData() {
   const stringifyCalendar = localStorage.getItem('calendar') || '""';
   return JSON.parse(stringifyCalendar || {})
+}
+
+export function useDoctorData() {
+  const stringifyDoctor = localStorage.getItem('usernameDoctor') || '""';
+  return JSON.parse(stringifyDoctor || {})
 }

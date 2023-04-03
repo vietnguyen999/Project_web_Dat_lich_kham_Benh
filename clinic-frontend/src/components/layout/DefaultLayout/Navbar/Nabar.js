@@ -71,11 +71,11 @@ function Nabar() {
                         Thông tin cá nhân
                       </Nav.Link>
                     </Dropdown.Item>
-                    <Dropdown.Item>
+                    {/* <Dropdown.Item>
                       <Nav.Link className="navbare" as={Link} to={"/history"}>
                         Lịch hẹn
                       </Nav.Link>
-                    </Dropdown.Item>
+                    </Dropdown.Item> */}
                     <Dropdown.Item>
                       <Nav.Link className="navbare" as={Link} to={"/logout"}>
                         Logout
@@ -91,7 +91,9 @@ function Nabar() {
                       <AiOutlineCalendar />
                     </span>
                   </button>
-                  <Calendar show={show} handleClose={() => setShow(false)} />
+                  <Calendar show={show} handleClose={() => {
+                    setShow(false)
+                  }  }/>
                 </div>
               </>
             ) : (

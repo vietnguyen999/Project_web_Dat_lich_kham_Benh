@@ -19,7 +19,7 @@ function HistoryCalendar() {
   }, []);
   let listCalendarIdUser = [];
   listCalendar.map((calendar) => {
-    if (calendar.attributes.iduser === idStore) {
+    if (calendar.attributes.iduser === idStore ) {
       listCalendarIdUser.push(calendar);
     }
     return listCalendarIdUser;

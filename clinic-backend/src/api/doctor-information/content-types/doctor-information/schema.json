@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctor_informations",
+  "info": {
+    "singularName": "doctor-information",
+    "pluralName": "doctor-informations",
+    "displayName": "doctor-information",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imgs": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Name": {
+      "type": "text"
+    },
+    "old": {
+      "type": "float"
+    },
+    "specialized": {
+      "type": "text"
+    },
+    "experience": {
+      "type": "text"
+    },
+    "certificate": {
+      "type": "richtext"
+    },
+    "calendars": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::calendar.calendar",
+      "inversedBy": "doctor_informations"
+    }
+  }
+}

@@ -1,6 +1,17 @@
 .container {
     padding: 40px 0;
 }
+
+.section-login {
+    display: flex;
+    align-items: center;
+}
+
+.section-datlich {
+    display: flex;
+    align-items: center;
+}
+
 .imgs_left_img{
     width: 120px;
     height: 120px;
@@ -115,6 +126,9 @@
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .section-rangsu-right-dichvu-h5-link-home{
     color: white;
@@ -168,6 +182,9 @@
 }
 .section-datlich-left-btn-icon{
     padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .section-datlich-left-btn-dl:hover{
     background-color:rgb(69, 56, 246);transition: 2s;

@@ -1,60 +1,54 @@
-.footer {
-    padding: 1px 0;
-    background-color: #2866b1;
+.footer{
+    background: #6A5ACD;
+    padding: 70px;
+    margin-top: 50px;
 }
-
-.time-work a {
-    text-decoration: none;
+.container-footer{
+    max-width: 100%;
+    margin: auto;
 }
-
-.section-information-row {
-    padding-top: 50px;
+.footer-row{
+    display: flex;
+    flex-wrap: wrap;
 }
-.col-md-4{
-    text-align: left;
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
 }
-.section-footer-cool-left-h4{
-    color: rgb(230, 235, 240);
-    font-size: 28px;
-    padding-top: 10px;
-    font-family: Arial white Gadget;
-}
-.section-footer-cool-left-p{
+.footer-col .footer-col-h{
     font-size: 18px;
-    color: rgb(230, 235, 240);
-    font-family: Arial white Gadget;
-    padding-top: 5px;
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: 500;
+    position: relative;
 }
-.section-footer-cool-center-h4{
-    font-size: 28px;
-    color: rgb(230, 235, 240);
-    font-family: Arial white Gadget;
-    padding-top: 5px;
+.footer-col .footer-col-h::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background: red;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
 }
-.section-footer-cool-center-p{
-    font-size: 18px;
-    color: rgb(230, 235, 240);
-    font-family: Arial white Gadget;
-    padding-top: 5px;
+.footer-col .footer-col-ul{
+    list-style: none;
 }
-.section-footer-cool-center-icon{
-    font-size: 30px;
-    color: rgb(230, 235, 240);
-    padding-left: 10px;
+.footer-col .footer-col-ul .footer-col-li{
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    padding-top: 3px;
 }
-.section-footer-cool-right-h4{
-    color: rgb(230, 235, 240);
-    font-size: 26px;
-    padding-top: 5px;
-    font-family: Arial white Gadget;
+@media(max-width:767px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
 }
-.section-footer-cool-right-p{
-    font-size: 18px;
-    color: rgb(230, 235, 240);
-    font-family: Arial white Gadget;
-}
-@media only screen and (max-width: 390px){
-    .footer{
-        height: 800px;
+@media(max-width:567px){
+    .footer-col{
+        width: 100%;
     }
 }
