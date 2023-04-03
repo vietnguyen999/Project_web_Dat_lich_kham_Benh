@@ -19,7 +19,7 @@ function HistoryCalendar() {
   }, []);
   let listCalendarIdUser = [];
   listCalendar.map((calendar) => {
-    if (calendar.attributes.iduser === idStore ) {
+    if (calendar.attributes.iduser === idStore) {
       listCalendarIdUser.push(calendar);
     }
     return listCalendarIdUser;
@@ -55,7 +55,7 @@ function HistoryCalendar() {
                       <span>{calendarIdUser.attributes.phone}</span>
                     </div>
                     <div className="datetime">
-                      <span>{calendarIdUser.attributes.datetime}</span>
+                      <span>{calendarIdUser.attributes.time}</span>
                     </div>
                     <div className="describe">
                       <span>{calendarIdUser.attributes.describe}</span>
@@ -65,7 +65,6 @@ function HistoryCalendar() {
                         onClick={() => {
                           const url = `${API}/calendars/${calendarIdUser.id}`;
                           axios.delete(url);
-                          
                         }}
                       >
                         Xóa

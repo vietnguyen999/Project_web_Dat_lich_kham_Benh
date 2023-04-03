@@ -51,7 +51,7 @@ function Calendar(props) {
 
   const { isDesktopView } = useScreenSize();
   const [listCalendar, setListCalendar] = useState([]);
-  const [listDoctor, setListDoctor] = useState([])
+  const [listDoctor, setListDoctor] = useState([]);
 
   let dateNow = new Date().toLocaleDateString() + "";
 
@@ -92,7 +92,7 @@ function Calendar(props) {
       setPhone(phoneCalendarStore);
       setDate(dateCalendarStore);
       setTime(timeCalendarStore);
-      setNameDoctor(nameDoctorCalendarStore)
+      setNameDoctor(nameDoctorCalendarStore);
       setDescribe(describeCalendarStore);
       // statusCalendar = statusCalendarStore;
     } else if (idCalendarStore === undefined && listCalendar.length > 0) {
@@ -104,7 +104,7 @@ function Calendar(props) {
         setPhone(calendarIdUser.attributes.phone);
         setDate(calendarIdUser.attributes.date);
         setTime(calendarIdUser.attributes.time);
-        setNameDoctor(calendarIdUser.attributes.namedoctor)
+        setNameDoctor(calendarIdUser.attributes.namedoctor);
         setDescribe(calendarIdUser.attributes.describe);
       });
     }
@@ -114,11 +114,11 @@ function Calendar(props) {
   ]);
 
   useEffect(() => {
-    if(usernameDoctorStore !== undefined) {
-      console.log("sdfdsfdsfdsf")
-      setNameDoctor(usernameDoctorStore)
+    if (usernameDoctorStore !== undefined) {
+      console.log("sdfdsfdsfdsf");
+      setNameDoctor(usernameDoctorStore);
     }
-  }, [usernameDoctorStore])
+  }, [usernameDoctorStore]);
 
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
@@ -139,8 +139,8 @@ function Calendar(props) {
     setDescribe(e.target.value);
   };
   const handelChangeUserNameDoctor = (e) => {
-    setNameDoctor(e.target.value)
-  }
+    setNameDoctor(e.target.value);
+  };
 
   const handleBlurUsername = () => {
     const error = {};
@@ -245,8 +245,8 @@ function Calendar(props) {
   };
 
   useEffect(() => {
-    console.log(listDoctor)
-  }, [listDoctor])
+    console.log(listDoctor);
+  }, [listDoctor]);
 
   const handleCalendarClickAcc = async () => {
     const isValidEmail = handleBlurEmail();
@@ -308,6 +308,7 @@ function Calendar(props) {
     const isValidPhone = handleBlurPhone();
     const isValidDate = handleBlurDate();
     const isValidDescribe = handleBlurDescribe();
+    const objCalendar = {};
     if (
       !isValidEmail &&
       !isValidUsername &&
@@ -316,13 +317,14 @@ function Calendar(props) {
       !isValidDescribe
     )
       return;
-    calendar.username = username;
-    calendar.email = email;
-    calendar.phone = phone;
-    calendar.date = date;
-    calendar.time = time;
-    calendar.describe = describe;
-    calendar.iduser = idStore;
+    objCalendar.username = username;
+    objCalendar.email = email;
+    objCalendar.phone = phone;
+    objCalendar.date = date;
+    objCalendar.time = time;
+    objCalendar.namedoctor = nameDoctor;
+    objCalendar.describe = describe;
+    objCalendar.iduser = idStore;
     if (dateNow < date) {
       setStatus(true);
     } else {
@@ -334,7 +336,7 @@ function Calendar(props) {
       const res = await axios.put(
         url,
         {
-          data: calendar,
+          data: objCalendar,
         },
         {
           headers: {
@@ -348,7 +350,7 @@ function Calendar(props) {
       if (res) {
         storeCalendar(res);
         message.success("Cập nhật thành công!");
-        setCalendar(infoCalendar);
+        setCalendar(objCalendar);
       }
     } catch (error) {
       setError(error);
@@ -512,8 +514,8 @@ function Calendar(props) {
                 >
                   {listDoctor.map((doctor) => {
                     return (
-                      <option key={ doctor.id }>{doctor.attributes.Name}</option>
-                    )
+                      <option key={doctor.id}>{doctor.attributes.Name}</option>
+                    );
                   })}
                 </Input>
               </FormGroup>
