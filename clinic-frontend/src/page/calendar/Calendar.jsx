@@ -236,16 +236,20 @@ function Calendar(props) {
 
   const handleCalendarClickDelete = () => {
     const url = `${API}/calendars/${id}`;
-    localStorage.setItem("calendar", "");
+    
     axios.delete(url);
-
-    setID("");
-    setUsername("");
-    setEmail("");
-    setPhone("");
-    setDate("");
-    setTime("");
-    setDescribe("");
+    if (axios.delete(url)) {
+      message.success("Xóa thành công!", 3, undefined);
+      localStorage.setItem("calendar", "");
+      setCalendar("");
+      setID("");
+      setUsername("");
+      setEmail("");
+      setPhone("");
+      setDate("");
+      setTime("");
+      setDescribe("");
+    }
   };
 
   useEffect(() => {
@@ -299,7 +303,7 @@ function Calendar(props) {
       if (res) {
         console.log("có dô");
         storeCalendar(res);
-        message.success("Đặt lịch thành công!");
+        message.success("Đặt lịch thành công!", 3, undefined);
         setCalendar(objCalendar);
       }
     } catch (error) {
@@ -327,6 +331,7 @@ function Calendar(props) {
     objCalendar.phone = phone;
     objCalendar.date = date;
     objCalendar.time = time;
+    objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
     if (dateNow < date) {
@@ -353,7 +358,7 @@ function Calendar(props) {
       );
       if (res) {
         storeCalendar(res);
-        message.success("Cập nhật thành công!");
+        message.success("Cập nhập thành công!", 3, undefined);
         setCalendar(objCalendar);
       }
     } catch (error) {
@@ -362,209 +367,222 @@ function Calendar(props) {
   };
 
   return (
-    <Modal show={props.show} onHide={props.handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Đặt Lịch</Modal.Title>
-        {error ? (
-          <Alert
-            className="alert_error"
-            message={error}
-            type="error"
-            closable
-            afterClose={() => setError("")}
-          />
-        ) : null}
-      </Modal.Header>
-      <Modal.Body span={isDesktopView ? 8 : 24} offset={isDesktopView ? 8 : 0}>
-        <Row className="modal-calendar-day">
-          <Col md={5} lg={5} sm={12} xs={12} className="modal-calendar-title">
-            <div className="calendar-title">
-              <div className="waiting">
-                <h2>LƯU Ý</h2>
-              </div>
-              <div className="list-waiting">
-                <div className="waiting-item">
-                  <ul>
-                    <li>
-                      Lịch hẹn chỉ có hiệu lực khi Quý khách được xác nhận chính
-                      thức từ Bệnh viện thông qua điện thoại hoặc email.
-                    </li>
-                    <li>
-                      Quý khách sử dụng dịch vụ đặt hẹn trực tuyến, vui lòng đặt
-                      hẹn ít nhất 24h trước khi đến khám.
-                    </li>
-                    <li>
-                      Quý khách vui lòng cung cấp thông tin chính xác để được hỗ
-                      trợ nhanh nhất.
-                    </li>
-                    <li>
-                      Trường hợp khẩn cấp hay có triệu chứng nguy hiểm, vui lòng
-                      liên hệ trực tiếp cơ sở y tế để kịp thời xử lý.
-                    </li>
-                  </ul>
-                  <div className="hotline">
-                    <Link className="hotline-link">
-                      {" "}
-                      <span>
-                        <BsFillTelephoneInboundFill />
-                      </span>{" "}
-                      HOTLINE: 0123456789
-                    </Link>
+    <>
+      {error ? (
+        <Alert
+          className="alert_error"
+          message={error}
+          type="error"
+          closable
+          afterClose={() => setError("")}
+        />
+      ) : null}
+      <Modal show={props.show} onHide={props.handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Đặt Lịch</Modal.Title>
+        </Modal.Header>
+        <Modal.Body
+          span={isDesktopView ? 8 : 24}
+          offset={isDesktopView ? 8 : 0}
+        >
+          <Row className="modal-calendar-day">
+            <Col md={5} lg={5} sm={12} xs={12} className="modal-calendar-title">
+              <div className="calendar-title">
+                <div className="waiting">
+                  <h2>LƯU Ý</h2>
+                </div>
+                <div className="list-waiting">
+                  <div className="waiting-item">
+                    <ul>
+                      <li>
+                        Lịch hẹn chỉ có hiệu lực khi Quý khách được xác nhận
+                        chính thức từ Bệnh viện thông qua điện thoại hoặc email.
+                      </li>
+                      <li>
+                        Quý khách sử dụng dịch vụ đặt hẹn trực tuyến, vui lòng
+                        đặt hẹn ít nhất 24h trước khi đến khám.
+                      </li>
+                      <li>
+                        Quý khách vui lòng cung cấp thông tin chính xác để được
+                        hỗ trợ nhanh nhất.
+                      </li>
+                      <li>
+                        Trường hợp khẩn cấp hay có triệu chứng nguy hiểm, vui
+                        lòng liên hệ trực tiếp cơ sở y tế để kịp thời xử lý.
+                      </li>
+                    </ul>
+                    <div className="hotline">
+                      <Link className="hotline-link">
+                        {" "}
+                        <span>
+                          <BsFillTelephoneInboundFill />
+                        </span>{" "}
+                        HOTLINE: 0123456789
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Col>
-          <Col md={7} lg={7} sm={12} xs={12} className="calendar-day-register">
-            <div className="calendar-days-form">
-              <div className="calendar-days-form-title">
-                <h2>ĐẶT LỊCH KHÁM</h2>
-              </div>
-              <FormGroup>
-                <Label>Họ tên</Label>
-                <Input
-                  type="text"
-                  name="username"
-                  onChange={handleChangeUsername}
-                  onBlur={handleBlurUsername}
-                  onInput={handleInputUsername}
-                  value={username}
-                  // placeholder="Nguyễn Văn A"
-                />
-                <p className="error">{messageUsername.username}</p>
-              </FormGroup>
-              <FormGroup>
-                <Label>Email</Label>
-                <Input
-                  type="email"
-                  name="email"
-                  onChange={handleChangeEmail}
-                  onBlur={handleBlurEmail}
-                  onInput={handleInputEmail}
-                  value={email}
-                  // placeholder="acb@gmail.com"
-                />
-                <p className="error">{messageEmail.email}</p>
-              </FormGroup>
-              <Row>
-                <Col md={5} lg={5} sm={12} xs={12}>
-                  <FormGroup>
-                    <Label>Số điện thoại</Label>
-                    <Input
-                      type=""
-                      maxLength={10}
-                      name="phone"
-                      onChange={handleChangePhone}
-                      onBlur={handleBlurPhone}
-                      onInput={handleInputPhone}
-                      value={phone}
-                      placeholder="0XXXXXXXXX"
-                    />
-                    <p className="error">{messagePhone.phone}</p>
-                  </FormGroup>
-                </Col>
-                <Col md={4} lg={4} sm={12} xs={12}>
-                  <FormGroup>
-                    <Label>Lịch hẹn</Label>
-                    <Input
-                      type="date"
-                      name="date"
-                      onChange={handleChangeDate}
-                      onBlur={handleBlurDate}
-                      onInput={handleInputDate}
-                      value={date}
-                    />
-                    <p className="error">{messageDate.date}</p>
-                  </FormGroup>
-                </Col>
-                <Col md={3} lg={3} sm={12} xs={12}>
-                  <FormGroup>
-                    <Label>Giờ hẹn</Label>
-                    <Input
-                      value={time}
-                      onChange={handelChangeTime}
-                      type="select"
-                      name="time"
+            </Col>
+            <Col
+              md={7}
+              lg={7}
+              sm={12}
+              xs={12}
+              className="calendar-day-register"
+            >
+              <div className="calendar-days-form">
+                <div className="calendar-days-form-title">
+                  <h2>ĐẶT LỊCH KHÁM</h2>
+                </div>
+                <FormGroup>
+                  <Label>Họ tên</Label>
+                  <Input
+                    type="text"
+                    name="username"
+                    onChange={handleChangeUsername}
+                    onBlur={handleBlurUsername}
+                    onInput={handleInputUsername}
+                    value={username}
+                    // placeholder="Nguyễn Văn A"
+                  />
+                  <p className="error">{messageUsername.username}</p>
+                </FormGroup>
+                <FormGroup>
+                  <Label>Email</Label>
+                  <Input
+                    type="email"
+                    name="email"
+                    onChange={handleChangeEmail}
+                    onBlur={handleBlurEmail}
+                    onInput={handleInputEmail}
+                    value={email}
+                    // placeholder="acb@gmail.com"
+                  />
+                  <p className="error">{messageEmail.email}</p>
+                </FormGroup>
+                <Row>
+                  <Col md={5} lg={5} sm={12} xs={12}>
+                    <FormGroup>
+                      <Label>Số điện thoại</Label>
+                      <Input
+                        type=""
+                        maxLength={10}
+                        name="phone"
+                        onChange={handleChangePhone}
+                        onBlur={handleBlurPhone}
+                        onInput={handleInputPhone}
+                        value={phone}
+                        placeholder="0XXXXXXXXX"
+                      />
+                      <p className="error">{messagePhone.phone}</p>
+                    </FormGroup>
+                  </Col>
+                  <Col md={4} lg={4} sm={12} xs={12}>
+                    <FormGroup>
+                      <Label>Lịch hẹn</Label>
+                      <Input
+                        type="date"
+                        name="date"
+                        onChange={handleChangeDate}
+                        onBlur={handleBlurDate}
+                        onInput={handleInputDate}
+                        value={date}
+                      />
+                      <p className="error">{messageDate.date}</p>
+                    </FormGroup>
+                  </Col>
+                  <Col md={3} lg={3} sm={12} xs={12}>
+                    <FormGroup>
+                      <Label>Giờ hẹn</Label>
+                      <Input
+                        value={time}
+                        onChange={handelChangeTime}
+                        type="select"
+                        name="time"
+                      >
+                        <option>07:00</option>
+                        <option>08:00</option>
+                        <option>09:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                        <option>21:00</option>
+                      </Input>
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <FormGroup>
+                  <Label>Bác sĩ</Label>
+                  <Input
+                    value={nameDoctor}
+                    onChange={handelChangeUserNameDoctor}
+                    type="select"
+                    name="usernameDoctor"
+                  >
+                    {listDoctor.map((doctor) => {
+                      return (
+                        <option key={doctor.id}>
+                          {doctor.attributes.Name}
+                        </option>
+                      );
+                    })}
+                  </Input>
+                </FormGroup>
+                <FormGroup>
+                  <Label>Mô tả</Label>
+                  <Input
+                    type="textarea"
+                    rows={4}
+                    name="describe"
+                    onChange={handleChangeDescribe}
+                    onBlur={handleBlurDescribe}
+                    onInput={handleInputDescribe}
+                    value={describe}
+                    placeholder="Chào Bác Sỹ ! Tôi có vài câu hỏi về [Về Sức Khỏe/răng]. Vui lòng liên hệ tôi sớm nhất. Xin Cảm ơn!"
+                  />
+                  <p className="error">{messageDescribe.describe}</p>
+                </FormGroup>
+                {id ? (
+                  <div className="btn-calendar">
+                    <Button
+                      type="primary"
+                      onClick={handleCalendarClickUpdate}
+                      className=""
                     >
-                      <option>07:00</option>
-                      <option>08:00</option>
-                      <option>09:00</option>
-                      <option>10:00</option>
-                      <option>11:00</option>
-                      <option>13:00</option>
-                      <option>14:00</option>
-                      <option>15:00</option>
-                      <option>16:00</option>
-                      <option>17:00</option>
-                      <option>19:00</option>
-                      <option>20:00</option>
-                      <option>21:00</option>
-                    </Input>
-                  </FormGroup>
-                </Col>
-              </Row>
-              <FormGroup>
-                <Label>Bác sĩ</Label>
-                <Input
-                  value={nameDoctor}
-                  onChange={handelChangeUserNameDoctor}
-                  type="select"
-                  name="usernameDoctor"
-                >
-                  {listDoctor.map((doctor) => {
-                    return (
-                      <option key={doctor.id}>{doctor.attributes.Name}</option>
-                    );
-                  })}
-                </Input>
-              </FormGroup>
-              <FormGroup>
-                <Label>Mô tả</Label>
-                <Input
-                  type="textarea"
-                  rows={4}
-                  name="describe"
-                  onChange={handleChangeDescribe}
-                  onBlur={handleBlurDescribe}
-                  onInput={handleInputDescribe}
-                  value={describe}
-                  placeholder="Chào Bác Sỹ ! Tôi có vài câu hỏi về [Về Sức Khỏe/răng]. Vui lòng liên hệ tôi sớm nhất. Xin Cảm ơn!"
-                />
-                <p className="error">{messageDescribe.describe}</p>
-              </FormGroup>
-              {id ? (
-                <div className="btn-calendar">
-                  <Button
-                    type="primary"
-                    onClick={handleCalendarClickUpdate}
-                    className=""
-                  >
-                    Cập nhật
-                  </Button>
-                  <Button
-                    type="primary"
-                    onClick={handleCalendarClickDelete}
-                    className=""
-                  >
-                    Xóa lịch hẹn
-                  </Button>
-                </div>
-              ) : (
-                <div className="btn-calendar">
-                  <Button
-                    type="primary"
-                    onClick={handleCalendarClickAcc}
-                    className=""
-                  >
-                    Đặt Lịch Hẹn
-                  </Button>
-                </div>
-              )}
-            </div>
-          </Col>
-        </Row>
-      </Modal.Body>
-    </Modal>
+                      Cập nhật
+                    </Button>
+                    <Button
+                      type="primary"
+                      onClick={handleCalendarClickDelete}
+                      className=""
+                    >
+                      Xóa lịch hẹn
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="btn-calendar">
+                    <Button
+                      type="primary"
+                      onClick={handleCalendarClickAcc}
+                      className=""
+                    >
+                      Đặt Lịch Hẹn
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }
 
