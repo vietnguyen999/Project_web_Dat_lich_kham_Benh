@@ -19,6 +19,12 @@ function Nabar() {
   return (
     // variant={"dark"}
     <div className="navbar-header">
+      <Calendar
+        show={show}
+        handleClose={() => {
+          setShow(false);
+        }}
+      />
       <Navbar expand="lg">
         <Container fluid>
           <Navbar.Brand href="/">
@@ -83,17 +89,12 @@ function Nabar() {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                <div  className="calendar-days">
-                  <button
-                    onClick={handleShow}
-                  >
+                <div className="calendar-days">
+                  <button onClick={handleShow}>
                     <span>
                       <AiOutlineCalendar />
                     </span>
                   </button>
-                  <Calendar show={show} handleClose={() => {
-                    setShow(false)
-                  }  }/>
                 </div>
               </>
             ) : (
