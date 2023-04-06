@@ -77,11 +77,11 @@ function Nabar() {
                         Thông tin cá nhân
                       </Nav.Link>
                     </Dropdown.Item>
-                    {/* <Dropdown.Item>
+                    <Dropdown.Item>
                       <Nav.Link className="navbare" as={Link} to={"/history"}>
                         Lịch hẹn
                       </Nav.Link>
-                    </Dropdown.Item> */}
+                    </Dropdown.Item>
                     <Dropdown.Item>
                       <Nav.Link className="navbare" as={Link} to={"/logout"}>
                         Logout
