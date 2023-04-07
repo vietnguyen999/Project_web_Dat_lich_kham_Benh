@@ -99,11 +99,13 @@ function Nabar() {
               </>
             ) : (
               <>
+               <Nav.Link className="navbare" as={Link} to={"/signIn"}>
                 <Button variant="outline-success" className="onli">
-                  <Nav.Link className="navbare" as={Link} to={"/signIn"}>
+                 
                     Login
+                    </Button>
                   </Nav.Link>
-                </Button>
+               
                 {/* <div className="calendar-days">
                   <button>
                     <Nav.Link as={Link} to={"/signIn"}>

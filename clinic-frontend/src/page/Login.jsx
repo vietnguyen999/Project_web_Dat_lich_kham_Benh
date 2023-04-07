@@ -127,8 +127,8 @@ function Login() {
           Đăng Nhập
         </Button>
         <div className="login-create-now">
-          <h6>
-            Bạn chưa có tài khoản <Link to="/signUp">Tạo ngay</Link>
+          <h6 className="login-create-now-h6">
+            Bạn chưa có tài khoản <Link to="/signUp"><p className="login-create-now-p">Tạo ngay</p></Link>
           </h6>
         </div>
       </Col>

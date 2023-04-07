@@ -2,7 +2,8 @@
 {
   width: 100%;
   min-height: 50vh;
-  background-color: #f2f3f5;
+  /* background-color: #f2f3f5; */
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +11,7 @@
 }
 .login{
   padding: 30px 45px;
-  background-color: #fff;
+  background-color: #6600FF	;
   width: 100%;
   max-width: 450px;
   border-radius: 30px;
@@ -18,14 +19,14 @@
 .login-title-h2{
   font-size: 28px;
   font-weight: bold;
-  color: #515ee9;
+  color: #fff;
   text-align: center;
  width: 350px;
   
 }
 .login-label{
   font-size: 16px;
-  color: #515ee9;
+  color: #fff;
   font-weight: 500;
   margin-bottom: 10px;
   display: inline-block;
@@ -64,8 +65,15 @@
   margin-bottom: 25px;
 }
 .login-create-now{
-  display: flex;
   width: 400px;
+}
+.login-create-now-h6
+{
+  display: flex;
+}
+.login-create-now-p{
+  color: red;
+  margin-left: 10px;
 }
 .login-error{
   width: 300px;
