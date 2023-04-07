@@ -3,13 +3,46 @@
     padding: 0;
 }
 
+
 .calendar-id-user {
     display: flex;
     align-items: center;
+      margin-top: 20px;
+      border:1px solid #2866b1;
 }
 
-.calendar-id-user div {
+/* .calendar-id-user div {
     text-align: center;
     border: 1px solid #2866b1;
     padding: 10px;
+} */
+
+.title-infor-row{
+   display: flex;
+}
+.title-infor-row-col{
+    font-weight: 500;
+    margin-left: 20px;
+}
+.information-span-div{
+    margin-left: 20px;
+}
+.information-span-div-p{
+    margin-left: 40px;
+}
+.information-span-chua{
+    margin-left: 50px;
+}
+.delete-calendar{
+    margin-left: 115px;
+}
+.btn-xemchitiet{
+ font-size: 14px;
+ font-weight: 500;
+ border:1px solid #2866b1;
+}
+.information-span-da{
+    color: red;
+    margin-left: 50px;
+    font-weight: 550;
 }

@@ -11,11 +11,11 @@ function Navbar(children) {
             Thông tin cá nhân
           </Nav.Link>
         </div>
-        {/* <div className="history">
+        <div className="history">
           <Nav.Link className="navbare" as={Link} to={"/history"}>
             Lịch sử đặt lịch
           </Nav.Link>
-        </div> */}
+        </div>
       </div>
     </div>
   );
