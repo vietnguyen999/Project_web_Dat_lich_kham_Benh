@@ -85,7 +85,7 @@ function Calendar(props) {
   }, []);
 
   useEffect(() => {
-    if (idCalendarStore !== undefined) {
+    if (idCalendarStore !== undefined && props.id === undefined) {
       setID(idCalendarStore);
       setUsername(usernameCalendarStore);
       setEmail(emailCalendarStore);
@@ -95,13 +95,33 @@ function Calendar(props) {
       setNameDoctor(nameDoctorCalendarStore);
       setDescribe(describeCalendarStore);
       // statusCalendar = statusCalendarStore;
-    } else if (idCalendarStore === undefined && listCalendar.length > 0) {
+    } else if (
+      idCalendarStore === undefined &&
+      listCalendar.length > 0 &&
+      props.id === undefined
+    ) {
       // eslint-disable-next-line array-callback-return
       listCalendar.map((calendarIdUser) => {
+        console.log(calendarIdUser.id === props.id);
         if (
           calendarIdUser.attributes.status === true &&
-          calendarIdUser.attributes.iduser === idStore
+          calendarIdUser.attributes.iduser === idStore &&
+          props.id === undefined
         ) {
+          setID(calendarIdUser.id);
+          setUsername(calendarIdUser.attributes.username);
+          setEmail(calendarIdUser.attributes.email);
+          setPhone(calendarIdUser.attributes.phone);
+          setDate(calendarIdUser.attributes.date);
+          setTime(calendarIdUser.attributes.time);
+          setNameDoctor(calendarIdUser.attributes.namedoctor);
+          setDescribe(calendarIdUser.attributes.describe);
+        }
+      });
+    } else if (props.id !== undefined) {
+      // eslint-disable-next-line array-callback-return
+      listCalendar.map((calendarIdUser) => {
+        if (calendarIdUser.id === props.id) {
           setID(calendarIdUser.id);
           setUsername(calendarIdUser.attributes.username);
           setEmail(calendarIdUser.attributes.email);
@@ -115,12 +135,12 @@ function Calendar(props) {
     }
   }, [
     listCalendar,
+    props.id,
     // id,
   ]);
 
   useEffect(() => {
     if (usernameDoctorStore !== undefined) {
-      console.log("sdfdsfdsfdsf");
       setNameDoctor(usernameDoctorStore);
     }
   }, [usernameDoctorStore]);
@@ -135,7 +155,7 @@ function Calendar(props) {
     setPhone(e.target.value);
   };
   const handleChangeDate = (e) => {
-    setDate(e.target.value);
+      setDate(e.target.value);
   };
   const handelChangeTime = (e) => {
     setTime(e.target.value);
@@ -203,10 +223,13 @@ function Calendar(props) {
   };
 
   const handleBlurDate = () => {
+    console.log(dateNow > date)
     const error = {};
     if (isEmpty(date)) {
       error.date = "Vui lòng nhập ngày hẹn.";
-    }
+    }  else if(date <= dateNow) {
+      error.date = "Ngày hẹn phải trước một ngày.";
+    } 
     setmessageDate(error);
     if (Object.keys(error).length > 0) return false;
     return true;
@@ -236,7 +259,7 @@ function Calendar(props) {
 
   const handleCalendarClickDelete = () => {
     const url = `${API}/calendars/${id}`;
-    
+
     axios.delete(url);
     if (axios.delete(url)) {
       message.success("Xóa thành công!", 3, undefined);
@@ -251,10 +274,6 @@ function Calendar(props) {
       setDescribe("");
     }
   };
-
-  useEffect(() => {
-    console.log(listDoctor);
-  }, [listDoctor]);
 
   const handleCalendarClickAcc = async () => {
     const isValidEmail = handleBlurEmail();
@@ -279,6 +298,7 @@ function Calendar(props) {
     objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
+    console.log(dateNow < date)
     if (dateNow < date) {
       setStatus(true);
     } else {
@@ -501,7 +521,6 @@ function Calendar(props) {
                         type="select"
                         name="time"
                       >
-                        <option>07:00</option>
                         <option>08:00</option>
                         <option>09:00</option>
                         <option>10:00</option>
@@ -511,9 +530,9 @@ function Calendar(props) {
                         <option>15:00</option>
                         <option>16:00</option>
                         <option>17:00</option>
+                        <option>16:00</option>
                         <option>19:00</option>
                         <option>20:00</option>
-                        <option>21:00</option>
                       </Input>
                     </FormGroup>
                   </Col>

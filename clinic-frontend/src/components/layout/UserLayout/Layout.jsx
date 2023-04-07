@@ -10,10 +10,10 @@ function LayoutDefault({ children }) {
       <div className="user-info">
         <div className="container-info" >
           <Row className="row-info">
-            <Col md={4} lg={4} sm={12} xs={12} className="navbar-info">
+            <Col md={3} lg={3} sm={12} xs={12} className="navbar-info">
               <Navbar />
             </Col>
-            <Col md={8} lg={8} sm={12} xs={12} className="show-info">
+            <Col md={9} lg={9} sm={12} xs={12} className="show-info">
               {children}
             </Col>
           </Row>
