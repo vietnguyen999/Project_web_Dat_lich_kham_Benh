@@ -155,7 +155,7 @@ function Register() {
           </div>
 
           <FormGroup>
-            <label className="login-label">Full Name</label>
+            <label className="login-label">Họ Tên</label>
             <Input
               className="login-input"
               type="text"
@@ -181,7 +181,7 @@ function Register() {
             <p className="login-error">{messageEmail.email}</p>
           </FormGroup>
           <FormGroup>
-            <label className="login-label">Passwork</label>
+            <label className="login-label">Mật Khẩu</label>
             <Input
               className="login-input"
               type="password"
@@ -194,7 +194,7 @@ function Register() {
             <p className="login-error">{messagePasswprd.pass}</p>
           </FormGroup>
           <FormGroup>
-            <label className="login-label">Enter the Passwork</label>
+            <label className="login-label">Nhập Lại Mật Khẩu</label>
             <Input
               className="login-input"
               type="password"

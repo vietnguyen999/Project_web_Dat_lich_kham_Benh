@@ -36,19 +36,19 @@
     flex-wrap: wrap;
 }
 .text-doctor{
-    color: blueviolet;
+    color:#2866b1;
 }
 .text-old{
-    color: blueviolet;
+    color:#2866b1;
 }
 .text-speci{
-    color: blueviolet;
+    color:#2866b1;
 }
 .text-certi{
-    color: blueviolet;
+    color:#2866b1;
 }
 .text-exper{
-    color: blueviolet;
+    color:#2866b1;
 }
 .text-old-old{
     font-size: 20px;
@@ -63,7 +63,7 @@
 
 .btn-doctor-datlich{
     margin-top: 15px;
-    background-color: blueviolet;
+    background-color:#2866b1;
     color: #ffff;
     width: 150px;
     height: 40px;
@@ -77,7 +77,7 @@
     margin-top: 50px;
 }
 .text-seach-doctor-h5{
-    color: blueviolet;
+    color:#2866b1;
     font-size: 25px;
     margin-right: 20px;
 }
@@ -87,14 +87,14 @@
     padding: 10px 20px;
 }
 .tile{
-    color: blueviolet;
+    color:#2866b1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 .content{
-    color: blueviolet;
+    color:#2866b1;
     max-height: 0;
     overflow: hidden;
     transition:  all 0.5s cubic-bezier(0,1,0,1);
@@ -111,7 +111,7 @@
     height: 40px;
       margin: 0 auto;
       color: white;
-      background-color: blueviolet;
+      background-color:#2866b1;
       font-size: 18px;
        border: 0.5px solid black;
         border-radius: 25px;

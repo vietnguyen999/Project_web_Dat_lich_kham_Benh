@@ -115,7 +115,7 @@ function Login() {
             <p className="login-error">{messageEmail.email}</p>
           </FormGroup>
           <FormGroup>
-            <label className="login-label">Password</label>
+            <label className="login-label">Mật khẩu</label>
             <Input
               className="login-input"
               type="password"
