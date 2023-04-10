@@ -48,12 +48,14 @@ function HistoryCalendar() {
             afterClose={() => setError("")}
           />
         ) : null}
-        <div className="title-info">
-          <div className="title-infor-row">
-            <div className="title-infor-row-col">Tên tài khoản</div>
-            <div className="title-infor-row-col">Giờ đặt lịch</div>
-            <div className="title-infor-row-col">Ngày đặt lịch</div>
-            <div className="title-infor-row-col">Bác sĩ khám </div>
+        <div className="title-calendar">
+          <div className="title-info">
+            <div className="title-infor-row-col username">Họ tên</div>
+            <div className="title-infor-row-col time">Giờ</div>
+            <div className="title-infor-row-col date">Ngày</div>
+            <div className="title-infor-row-col namedoctor">Bác sĩ khám </div>
+            <div className="title-infor-row-col status"></div>
+            <div className="title-infor-row-col default-calendar"></div>
           </div>
         </div>
         <div className="list-calendar">
@@ -87,14 +89,14 @@ function HistoryCalendar() {
                     {/* <div className="describe">
                       <span>{calendarIdUser.attributes.describe}</span>
                     </div> */}
-                    <div className="describe  information-span-div ">
+                    <div className="status  information-span-div ">
                       {calendarIdUser.attributes.status ? (
                         <span className="information-span-chua">Chưa khám</span>
                       ) : (
                         <span className="information-span-da">Đã khám</span>
                       )}
                     </div>
-                    <div className="delete-calendar">
+                    <div className="default-calendar">
                       <Button onClick={() => handleShow(calendarIdUser.id)} className="btn-xemchitiet">
                         Xem chi tiết
                       </Button>

@@ -3,12 +3,44 @@
     padding: 0;
 }
 
+.title-info {
+    display: flex;
+    align-items: center;
+      margin-top: 20px;
+      padding: 5px;
+}
+
+.default-calendar {
+    width: 22%;
+    text-align: center;
+}
 
 .calendar-id-user {
     display: flex;
     align-items: center;
       margin-top: 20px;
       border:1px solid #2866b1;
+      padding: 5px;
+}
+
+.status {
+    width: 16%;
+}
+
+.namedoctor {
+    width: 20%;
+}
+
+.date {
+    width: 15%;
+}
+
+.time {
+    width: 7%;
+}
+
+.username {
+    width: 20%;
 }
 
 /* .calendar-id-user div {
@@ -22,20 +54,20 @@
 }
 .title-infor-row-col{
     font-weight: 500;
-    margin-left: 20px;
+    text-align: center;
 }
 .information-span-div{
-    margin-left: 20px;
+    text-align: center;
 }
-.information-span-div-p{
+/* .information-span-div-p{
     margin-left: 40px;
-}
+} */
 .information-span-chua{
     margin-left: 50px;
 }
-.delete-calendar{
+/* .delete-calendar{
     margin-left: 100px;
-}
+} */
 .btn-xemchitiet{
  font-size: 14px;
  font-weight: 500;
