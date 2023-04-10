@@ -100,7 +100,7 @@ function Nabar() {
             ) : (
               <>
                <Nav.Link className="navbare" as={Link} to={"/signIn"}>
-                <Button variant="outline-success" className="onli">
+                <Button className="onli">
                  
                     Login
                     </Button>

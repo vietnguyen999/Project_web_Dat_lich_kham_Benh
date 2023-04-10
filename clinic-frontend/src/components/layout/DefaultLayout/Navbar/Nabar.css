@@ -31,9 +31,14 @@
     color: white;
 }
 
+.onli:active {
+    background-color: rgb(69, 56, 246);
+    color: white;
+}
+
 .onli {
     background-color: #2866b1;
-    color: black;
+    color: white;
 }
 
 .dropdown-item {

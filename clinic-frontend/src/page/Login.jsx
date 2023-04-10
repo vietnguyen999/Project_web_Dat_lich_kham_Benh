@@ -28,6 +28,7 @@ function Login() {
   };
 
   const handleBlurEmail = () => {
+    const error = {};
     if (isEmpty(email)) {
       error.email = "Vui lòng nhập Email";
     } else if (!isEmail(email)) {
@@ -76,61 +77,72 @@ function Login() {
         navigate("/");
       }
     } catch (error) {
-      toast.error(error.message, {
-        hideProgressBar: true,
-      });
+      // toast.error(error.message, {
+      //   hideProgressBar: true,
+      // });
+      message.error(
+        "Đăng nhập không thành công. Tên đăng nhập hoặc mật khẩu sai."
+      );
     }
   };
   return (
-    <Row className="login">
-      <Col sm={4} className="login-form">
-        {error ? (
-          <Alert
-            className="alert_error"
-            message={error}
-            type="error"
-            closable
-            afterClose={() => setError("")}
-          />
-        ) : null}
-        <div className="login-title">
-          <h2>Đăng Nhập</h2>
-        </div>
-        <FormGroup>
-          <Input
-            type="email"
-            name="identifier"
-            onChange={handleChangeEmail}
-            onBlur={handleBlurEmail}
-            onInput={handleInputEmail}
-            placeholder="Nhập email"
-          />
-          <p className="error">{messageEmail.email}</p>
-        </FormGroup>
-        <FormGroup>
-          <Input
-            type="password"
-            name="password"
-            onChange={handleChangePassword}
-            onBlur={handleBlurPassword}
-            onInput={handleInputPassword}
-            placeholder="Nhập mật khẩu"
-          />
-          <p className="error">{messagePasswprd.pass}</p>
-        </FormGroup>
-        <Button onClick={handleClick} color="primary">
-          Đăng Nhập
-        </Button>
-        <div className="login-create-now">
-          <h6 className="login-create-now-h6">
-            Bạn chưa có tài khoản{" "}
-            <Link to="/signUp">
-              <p className="login-create-now-p">Tạo ngay</p>
-            </Link>
-          </h6>
-        </div>
-      </Col>
-    </Row>
+    <div className="login-body">
+      <Row className="login">
+        <Col sm={12} className="login-form">
+          {error ? (
+            <Alert
+              className="alert_error"
+              message={error}
+              type="error"
+              closable
+              afterClose={() => setError("")}
+            />
+          ) : null}
+          <div className="login-title">
+            <h2 className="login-title-h2">Đăng Nhập</h2>
+          </div>
+          <FormGroup>
+            <label className="login-label">Email</label>
+            <Input
+              className="login-input"
+              type="email"
+              name="identifier"
+              onChange={handleChangeEmail}
+              onBlur={handleBlurEmail}
+              onInput={handleInputEmail}
+              placeholder="Nhập email"
+            />
+            <p className="login-error">{messageEmail.email}</p>
+          </FormGroup>
+          <FormGroup>
+            <label className="login-label">Password</label>
+            <Input
+              className="login-input"
+              type="password"
+              name="password"
+              onChange={handleChangePassword}
+              onBlur={handleBlurPassword}
+              onInput={handleInputPassword}
+              placeholder="Nhập mật khẩu"
+            />
+            <p className="login-error">{messagePasswprd.pass}</p>
+          </FormGroup>
+          <div className="login-btn">
+            <Button onClick={handleClick} color="primary" className="btn-login">
+              Đăng Nhập
+            </Button>
+          </div>
+          <div className="login-create-now">
+            <h6 className="login-create-now-h6">
+              Bạn chưa có tài khoản{" "}
+              <Link to="/signUp">
+                <p className="login-create-now-p">Tạo ngay</p>
+              </Link>
+            </h6>
+          </div>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

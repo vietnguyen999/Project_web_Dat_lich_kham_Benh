@@ -7,7 +7,7 @@ import "./Header.css"
 
 function Header() {
   return (
-    <div>
+    <div  className="layout-login-header">
       <Navbar expand="lg">
         <Container fluid>
           <Navbar.Brand href="/">
