@@ -89,7 +89,7 @@ function HistoryCalendar() {
                       {calendarIdUser.attributes.status ? (<span>Chưa khám</span>) : (<span>Đã khám</span>)}
                       
                     </div>
-                    <div className="delete-calendar">
+                    <div className="default-calendar">
                       <Button onClick={() => handleShow(calendarIdUser.id)}>
                         Xem chi tiết
                       </Button>

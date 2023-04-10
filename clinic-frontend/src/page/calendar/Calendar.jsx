@@ -54,6 +54,7 @@ function Calendar(props) {
   const [listDoctor, setListDoctor] = useState([]);
 
   let dateNow = new Date().toLocaleDateString() + "";
+  const [checkStatus, setCheckStatus] = useState(false);
 
   const {
     idCalendarStore,
@@ -85,6 +86,22 @@ function Calendar(props) {
   }, []);
 
   useEffect(() => {
+    listCalendar.map((calendarIdUser) => {
+      if (
+        calendarIdUser.attributes.status === true &&
+        calendarIdUser.attributes.iduser === idStore
+      ) {
+        if(props.id === calendarIdUser.id) {
+          setCheckStatus(false)
+        } else {
+          setCheckStatus(true)
+        }
+        
+      }
+    });
+  },[props.id]);
+
+  useEffect(() => {
     if (idCalendarStore !== undefined && props.id === undefined) {
       setID(idCalendarStore);
       setUsername(usernameCalendarStore);
@@ -102,7 +119,6 @@ function Calendar(props) {
     ) {
       // eslint-disable-next-line array-callback-return
       listCalendar.map((calendarIdUser) => {
-        console.log(calendarIdUser.id === props.id);
         if (
           calendarIdUser.attributes.status === true &&
           calendarIdUser.attributes.iduser === idStore &&
@@ -155,7 +171,7 @@ function Calendar(props) {
     setPhone(e.target.value);
   };
   const handleChangeDate = (e) => {
-      setDate(e.target.value);
+    setDate(e.target.value);
   };
   const handelChangeTime = (e) => {
     setTime(e.target.value);
@@ -223,13 +239,13 @@ function Calendar(props) {
   };
 
   const handleBlurDate = () => {
-    console.log(dateNow > date)
+    console.log(dateNow > date);
     const error = {};
     if (isEmpty(date)) {
       error.date = "Vui lòng nhập ngày hẹn.";
-    }  else if(date <= dateNow) {
+    } else if (date <= dateNow) {
       error.date = "Ngày hẹn phải trước một ngày.";
-    } 
+    }
     setmessageDate(error);
     if (Object.keys(error).length > 0) return false;
     return true;
@@ -298,7 +314,7 @@ function Calendar(props) {
     objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
-    console.log(dateNow < date)
+    console.log(dateNow < date);
     if (dateNow < date) {
       setStatus(true);
     } else {
@@ -568,7 +584,7 @@ function Calendar(props) {
                   />
                   <p className="error">{messageDescribe.describe}</p>
                 </FormGroup>
-                {id ? (
+                {props.id !== undefined && checkStatus ? null : id ? (
                   <div className="btn-calendar">
                     <Button
                       type="primary"
