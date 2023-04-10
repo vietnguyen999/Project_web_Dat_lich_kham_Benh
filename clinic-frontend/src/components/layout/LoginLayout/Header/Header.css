@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.layout-login-header {
+    border-bottom: 1px solid #2866b1 ;
+}
+
 .navbar-help {
     justify-content: end;
 }

@@ -403,6 +403,7 @@ function Calendar(props) {
 
   return (
     <>
+    {console.log(error)}
       {error ? (
         <Alert
           className="alert_error"

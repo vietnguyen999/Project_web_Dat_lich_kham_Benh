@@ -123,7 +123,7 @@ function Register() {
       user.email = email;
       user.password = pass;
       const { data } = await axios.post(url, user);
-      console.log(data)
+      console.log(data);
       if (data.jwt) {
         storeUser(data);
         message.success(`Welcome to Social Cards ${data.user.username}!`);
@@ -139,79 +139,84 @@ function Register() {
   };
   return (
     <div className="login-body">
-    <Row className="login">
-      {error ? (
-        <Alert
-          className="alert_error"
-          message={error}
-          type="error"
-          closable
-          afterClose={() => setError("")}
-        />
-      ) : null}
-      <Col sm={4} className="login-form">
-        <div className="login-title">
-          <h1 className="login-title-h2" >Đăng Ký</h1>
-        </div>
+      <Row className="login">
+        {error ? (
+          <Alert
+            className="alert_error"
+            message={error}
+            type="error"
+            closable
+            afterClose={() => setError("")}
+          />
+        ) : null}
+        <Col sm={12} className="login-form">
+          <div className="login-title">
+            <h1 className="login-title-h2">Đăng Ký</h1>
+          </div>
 
-        <FormGroup>
-        <label className="login-label">Full Name</label>
-          <Input
-          className="login-input"
-            type="text"
-            name="username"
-            onChange={handleChangeUserName}
-            onBlur={handleBlurUserName}
-            onInput={handleInputUserName}
-            placeholder="Nhập họ tên"
-          />
-          <p className="login-error">{messageUserName.username}</p>
-        </FormGroup>
-        <FormGroup>
-        <label className="login-label">Email</label>
-          <Input
-          className="login-input"
-            type="email"
-            name="email"
-            onChange={handleChangeEmail}
-            onBlur={handleBlurEmail}
-            onInput={handleInputEmail}
-            placeholder="Nhập email"
-          />
-          <p className="login-error">{messageEmail.email}</p>
-        </FormGroup>
-        <FormGroup>
-        <label className="login-label">Passwork</label>
-          <Input
-          className="login-input"
-            type="password"
-            name="password"
-            onChange={handleChangePassword}
-            onBlur={handleBlurPassword}
-            onInput={handleInputPassword}
-            placeholder="Nhập mật khẩu"
-          />
-          <p className="login-error">{messagePasswprd.pass}</p>
-        </FormGroup>
-        <FormGroup>
-        <label className="login-label">Enter the Passwork</label>
-          <Input
-          className="login-input"
-            type="password"
-            name="rpassword"
-            onChange={handleChangeRPassword}
-            onBlur={handleBlurRPassword}
-            onInput={handleInputRPassword}
-            placeholder="Nhập lại mật khẩu"
-          />
-          <p className="login-error">{messageRPassword.rpass}</p>
-        </FormGroup>
-
-        <Button onClick={handleSignUp} color="primary"  className="login-btn">
-          Đăng Ký
-        </Button>
-      </Col>
-    </Row>
+          <FormGroup>
+            <label className="login-label">Full Name</label>
+            <Input
+              className="login-input"
+              type="text"
+              name="username"
+              onChange={handleChangeUserName}
+              onBlur={handleBlurUserName}
+              onInput={handleInputUserName}
+              placeholder="Nhập họ tên"
+            />
+            <p className="login-error">{messageUserName.username}</p>
+          </FormGroup>
+          <FormGroup>
+            <label className="login-label">Email</label>
+            <Input
+              className="login-input"
+              type="email"
+              name="email"
+              onChange={handleChangeEmail}
+              onBlur={handleBlurEmail}
+              onInput={handleInputEmail}
+              placeholder="Nhập email"
+            />
+            <p className="login-error">{messageEmail.email}</p>
+          </FormGroup>
+          <FormGroup>
+            <label className="login-label">Passwork</label>
+            <Input
+              className="login-input"
+              type="password"
+              name="password"
+              onChange={handleChangePassword}
+              onBlur={handleBlurPassword}
+              onInput={handleInputPassword}
+              placeholder="Nhập mật khẩu"
+            />
+            <p className="login-error">{messagePasswprd.pass}</p>
+          </FormGroup>
+          <FormGroup>
+            <label className="login-label">Enter the Passwork</label>
+            <Input
+              className="login-input"
+              type="password"
+              name="rpassword"
+              onChange={handleChangeRPassword}
+              onBlur={handleBlurRPassword}
+              onInput={handleInputRPassword}
+              placeholder="Nhập lại mật khẩu"
+            />
+            <p className="login-error">{messageRPassword.rpass}</p>
+          </FormGroup>
+          <div className="login-btn">
+            <Button
+              onClick={handleSignUp}
+              color="primary"
+              className="btn-login"
+            >
+              Đăng Ký
+            </Button>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 }
