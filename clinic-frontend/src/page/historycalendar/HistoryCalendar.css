@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
 }
-
+.error{
+    font-size: 14px;
+    width: 150px;
+    color: red;
+}
 .title-info {
     display: flex;
     align-items: center;

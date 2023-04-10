@@ -207,7 +207,7 @@ function Register() {
           <p className="login-error">{messageRPassword.rpass}</p>
         </FormGroup>
 
-        <Button onClick={handleSignUp} color="primary"  className="login-btn">
+        <Button onClick={handleSignUp} color="primary"  className="login-btn" >
           Đăng Ký
         </Button>
       </Col>
