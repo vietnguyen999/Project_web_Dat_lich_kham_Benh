@@ -64,7 +64,7 @@ function HistoryCalendar() {
                 return (
                   <div key={calendarIdUser.id} className="calendar-id-user">
                     <div className="username  information-span-div">
-                      <span className="information-span-div-p">{calendarIdUser.attributes.username}</span>
+                      <span>{calendarIdUser.attributes.username}</span>
                     </div>
                     {/* <div className="email">
                       <span>{calendarIdUser.attributes.email}</span>
