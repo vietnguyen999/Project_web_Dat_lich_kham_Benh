@@ -361,7 +361,6 @@ function Calendar(props) {
       !isValidDescribe
     )
       return;
-
     objCalendar.username = username;
     objCalendar.email = email;
     objCalendar.phone = phone;

@@ -48,49 +48,56 @@ function HistoryCalendar() {
             afterClose={() => setError("")}
           />
         ) : null}
-        <div className="title-info">
-          <Row>
-            <div className="title">Họ tên</div>
-            <div className="title">Họ tên</div>
-            <div className="title">Họ tên</div>
-            <div className="title">Họ tên</div>
-            <div className="title">Họ tên</div>
-            <div className="title">Họ tên</div>
-            <div className="title">Họ tên</div>
-          </Row>
+        <div className="title-calendar">
+          <div className="title-info">
+            <div className="title-infor-row-col username">Họ tên</div>
+            <div className="title-infor-row-col time">Giờ</div>
+            <div className="title-infor-row-col date">Ngày</div>
+            <div className="title-infor-row-col namedoctor">Bác sĩ khám </div>
+            <div className="title-infor-row-col status"></div>
+            <div className="title-infor-row-col default-calendar"></div>
+          </div>
         </div>
         <div className="list-calendar">
           {listCalendarIdUser
             ? listCalendarIdUser.map((calendarIdUser) => {
                 return (
                   <div key={calendarIdUser.id} className="calendar-id-user">
-                    <div className="username">
+                    <div className="username  information-span-div">
                       <span>{calendarIdUser.attributes.username}</span>
                     </div>
-                    <div className="email">
+                    {/* <div className="email">
                       <span>{calendarIdUser.attributes.email}</span>
+                    </div> */}
+                    {/* <div className="phone information-span-div">
+                      <span  className="information-span">{calendarIdUser.attributes.phone}</span>
+                    </div> */}
+                    <div className="time information-span-div">
+                      <span className="information-span-div-p">{calendarIdUser.attributes.time}</span>
                     </div>
-                    <div className="phone">
-                      <span>{calendarIdUser.attributes.phone}</span>
+                    <div className="date  information-span-div ">
+                      <span  className="information-span-div-p">
+                        {calendarIdUser.attributes.date}
+                      </span>
                     </div>
-                    <div className="date">
-                      <span>{calendarIdUser.attributes.date}</span>
+
+                    <div className="namedoctor  information-span-div">
+                      <span  className="information-span-div-p">
+                        {calendarIdUser.attributes.namedoctor}
+                      </span>
                     </div>
-                    <div className="time">
-                      <span>{calendarIdUser.attributes.time}</span>
-                    </div>
-                    <div className="namedoctor">
-                      <span>{calendarIdUser.attributes.namedoctor}</span>
-                    </div>
-                    <div className="describe">
+                    {/* <div className="describe">
                       <span>{calendarIdUser.attributes.describe}</span>
-                    </div>
-                    <div className="describe">
-                      {calendarIdUser.attributes.status ? (<span>Chưa khám</span>) : (<span>Đã khám</span>)}
-                      
+                    </div> */}
+                    <div className="status  information-span-div ">
+                      {calendarIdUser.attributes.status ? (
+                        <span className="information-span-chua">Chưa khám</span>
+                      ) : (
+                        <span className="information-span-da">Đã khám</span>
+                      )}
                     </div>
                     <div className="default-calendar">
-                      <Button onClick={() => handleShow(calendarIdUser.id)}>
+                      <Button onClick={() => handleShow(calendarIdUser.id)} className="btn-xemchitiet">
                         Xem chi tiết
                       </Button>
                     </div>
@@ -100,9 +107,9 @@ function HistoryCalendar() {
             : null}
           <Calendar
             show={show}
-            id = {id}
+            id={id}
             handleClose={() => {
-              setId(undefined)
+              setId(undefined);
               setShow(false);
             }}
           />

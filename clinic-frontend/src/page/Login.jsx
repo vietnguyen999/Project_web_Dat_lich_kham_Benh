@@ -82,6 +82,7 @@ function Login() {
     }
   };
   return (
+    <div className="login-body">
     <Row className="login">
       <Col sm={4} className="login-form">
         {error ? (
@@ -94,10 +95,12 @@ function Login() {
           />
         ) : null}
         <div className="login-title">
-          <h2>Đăng Nhập</h2>
+          <h2 className="login-title-h2">Đăng Nhập</h2>
         </div>
         <FormGroup>
+          <label className="login-label">Email</label>
           <Input
+          className="login-input"
             type="email"
             name="identifier"
             onChange={handleChangeEmail}
@@ -108,7 +111,9 @@ function Login() {
           <p className="error">{messageEmail.email}</p>
         </FormGroup>
         <FormGroup>
+        <label className="login-label">password</label>
           <Input
+           className="login-input"
             type="password"
             name="password"
             onChange={handleChangePassword}
@@ -118,16 +123,17 @@ function Login() {
           />
           <p className="error">{messagePasswprd.pass}</p>
         </FormGroup>
-        <Button onClick={handleClick} color="primary">
+        <Button onClick={handleClick} color="primary" className="login-btn">
           Đăng Nhập
         </Button>
         <div className="login-create-now">
-          <h6>
-            Bạn chưa có tài khoản <Link to="/signUp">Tạo ngay</Link>
+          <h6 className="login-create-now-h6">
+            Bạn chưa có tài khoản <Link to="/signUp"><p className="login-create-now-p">Tạo ngay</p></Link>
           </h6>
         </div>
       </Col>
     </Row>
+    </div>
   );
 }
 

@@ -138,6 +138,7 @@ function Register() {
     }
   };
   return (
+    <div className="login-body">
     <Row className="login">
       {error ? (
         <Alert
@@ -150,11 +151,13 @@ function Register() {
       ) : null}
       <Col sm={4} className="login-form">
         <div className="login-title">
-          <h1>Đăng Ký</h1>
+          <h1 className="login-title-h2" >Đăng Ký</h1>
         </div>
 
         <FormGroup>
+        <label className="login-label">Full Name</label>
           <Input
+          className="login-input"
             type="text"
             name="username"
             onChange={handleChangeUserName}
@@ -162,10 +165,12 @@ function Register() {
             onInput={handleInputUserName}
             placeholder="Nhập họ tên"
           />
-          <p className="error">{messageUserName.username}</p>
+          <p className="login-error">{messageUserName.username}</p>
         </FormGroup>
         <FormGroup>
+        <label className="login-label">Email</label>
           <Input
+          className="login-input"
             type="email"
             name="email"
             onChange={handleChangeEmail}
@@ -173,10 +178,12 @@ function Register() {
             onInput={handleInputEmail}
             placeholder="Nhập email"
           />
-          <p className="error">{messageEmail.email}</p>
+          <p className="login-error">{messageEmail.email}</p>
         </FormGroup>
         <FormGroup>
+        <label className="login-label">Passwork</label>
           <Input
+          className="login-input"
             type="password"
             name="password"
             onChange={handleChangePassword}
@@ -184,10 +191,12 @@ function Register() {
             onInput={handleInputPassword}
             placeholder="Nhập mật khẩu"
           />
-          <p className="error">{messagePasswprd.pass}</p>
+          <p className="login-error">{messagePasswprd.pass}</p>
         </FormGroup>
         <FormGroup>
+        <label className="login-label">Enter the Passwork</label>
           <Input
+          className="login-input"
             type="password"
             name="rpassword"
             onChange={handleChangeRPassword}
@@ -195,14 +204,15 @@ function Register() {
             onInput={handleInputRPassword}
             placeholder="Nhập lại mật khẩu"
           />
-          <p className="error">{messageRPassword.rpass}</p>
+          <p className="login-error">{messageRPassword.rpass}</p>
         </FormGroup>
 
-        <Button onClick={handleSignUp} color="primary">
+        <Button onClick={handleSignUp} color="primary"  className="login-btn">
           Đăng Ký
         </Button>
       </Col>
     </Row>
+    </div>
   );
 }
 
