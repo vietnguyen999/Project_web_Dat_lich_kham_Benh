@@ -7,9 +7,9 @@ import imgs23 from "../../img/imgs23.png";
 export default function Blog() {
   return (
     <div>
-      <div className="header-rangsu">
-        <p className="header-rangsu-p">
-          Trang chủ <span className="header-rangsu-dau">-</span>CHỈNH NHA
+      <div className="header-chinhnhaniengrang">
+        <p className="header-chinhnhaniengrang-p">
+          Trang chủ <span className="header-chinhnhaniengrang-dau">-</span>CHỈNH NHA
         </p>
       </div>
       <Row className="section-rangsu">

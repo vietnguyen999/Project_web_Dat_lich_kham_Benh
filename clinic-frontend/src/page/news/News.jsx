@@ -7,9 +7,9 @@ import imgs25 from "../../img/imgs25.png";
 export default function News() {
   return (
     <div>
-      <div className="header-rangsu">
-        <p className="header-rangsu-p">
-          Trang chủ <span className="header-rangsu-dau">-</span>Trồng Răng
+      <div className="header-trongrang">
+        <p className="header-trongrang-p">
+          Trang chủ <span className="header-trongrang-dau">-</span>Trồng Răng
           IMPLANT
         </p>
       </div>

@@ -241,7 +241,7 @@ export default function Bocsu() {
             <Col
               className=" section-rangsu-left-tin-left"
               as={Link}
-              to={"/bocsu"}
+              to={"/matdansu"}
               xs={12}
               md={6}
             >
