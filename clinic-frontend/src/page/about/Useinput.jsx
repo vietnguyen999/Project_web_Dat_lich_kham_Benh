@@ -78,7 +78,7 @@ export default function Useinput() {
                           <h5 className="text-exper">Chứng Chỉ</h5>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <div>{doctor.attributes.experience}</div>
+                          <div>{doctor.attributes.certificate}</div>
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
@@ -86,7 +86,7 @@ export default function Useinput() {
                           <h5 className="text-certi">Kinh Nghiện</h5>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <div>{doctor.attributes.certificate}</div>
+                          <div>{doctor.attributes.experience}</div>
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
