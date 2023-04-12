@@ -1,7 +1,7 @@
 .header-rangsu{
     width: 100%;
     height: 25px;
-    background-color: cornflowerblue;
+    background-color: #2866b1;
 }
 .header-rangsu-p{
     color: white;
@@ -20,7 +20,7 @@
     padding-top: 10px;
 }
 .section-rangsu-left-h2{
-    color: darkslateblue;
+    color: #2866b1;
     font-size: 40px;
     font-weight: 600;
 }
@@ -53,7 +53,7 @@
     padding-top: 30px;
     padding-left: 10px;
     font-size: 22px;
-    color: darkmagenta;
+    color: #2866b1;
     font-weight: 700;
 }
 .section-rangsu-left-tin-left-p{
@@ -75,7 +75,7 @@
 }
 .section-rangsu-right-h4{
     font-size: 22px;
-    color: darkmagenta;
+    color: #2866b1;
     font-weight: 700;
 }
 .section-rangsu-right-dichvu{
@@ -97,7 +97,7 @@
     color: black;
 }
 .section-rangsu-right-dichvu-h5:hover{
-    color: blueviolet;
+    color: #2866b1;
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
     border-left: 1.6px solid blue;

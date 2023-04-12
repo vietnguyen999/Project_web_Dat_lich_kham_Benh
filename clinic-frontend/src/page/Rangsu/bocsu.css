@@ -1,7 +1,7 @@
 .header-bocsu{
     width: 100%;
     height: 25px;
-    background-color: cornflowerblue;
+    background-color: #2866b1;
 }
 .header-bocsu-p{
     color: white;
@@ -20,7 +20,7 @@
     padding-top: 10px;
 }
 .section-bocsu-left-h2{
-    color: darkslateblue;
+    color:#2866b1;
     font-size: 36px;
     font-weight: 600;
 }
@@ -69,7 +69,7 @@
 .section-bocsu-left-text-icon-fa{
     padding-left: 5px;
     font-size: 32px;
-    color: blue;
+    color: #2866b1;
 }
 .section-bocsu-left-btn{
     display: flex;
@@ -82,7 +82,7 @@
     height: 60px;
     font-size: 20px;
     border-radius: 10px;
-    background-color: blueviolet;
+    background-color: #2866b1;
     color: wheat;    
 }
 .section-bocsu-left-text-btn:hover{
@@ -96,7 +96,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: 600;
-    color: blue;
+    color: #2866b1;
 }
 .section-bocsu-right{
     padding-top: 70px;
@@ -104,7 +104,7 @@
 }
 .section-bocsu-right-h4{
     font-size: 22px;
-    color: darkmagenta;
+    color: #2866b1;
     font-weight: 700;
 }
 .section-bocsu-right-dichvu{
@@ -122,10 +122,10 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .section-bocsu-right-dichvu-h5:hover{
-    color: blueviolet;
+    color: #2866b1;
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
-    border-left: 1.6px solid blue;
+    border-left: 1.6px solid#2866b1;
 }
 @media only screen and (max-width: 390px){
     .section-bocsu-left-tin-left{

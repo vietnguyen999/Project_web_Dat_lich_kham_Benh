@@ -1,4 +1,5 @@
 import React from "react";
+import "./Contact.css";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import imgs26 from "../../img/imgs26.jpg";
@@ -10,9 +11,9 @@ import imgs31 from "../../img/imgs32.jpg";
 export default function Contact() {
   return (
     <div>
-      <div className="header-rangsu">
-        <p className="header-rangsu-p">
-          Trang chủ <span className="header-rangsu-dau">-</span>Răng Sứ
+      <div className="header-nhakhoa">
+        <p className="header-nhakhoa-p">
+          Trang chủ <span className="header-nhakhoa-dau">-</span>Răng Sứ
         </p>
       </div>
       <Row className="section-rangsu">

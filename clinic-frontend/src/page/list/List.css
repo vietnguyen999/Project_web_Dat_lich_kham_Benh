@@ -1,7 +1,7 @@
 .header-banggia{
     width: 100%;
     height: 25px;
-    background-color: cornflowerblue;
+    background-color: #2866b1;
 }
 .header-banggia-p{
     color: white;
@@ -19,8 +19,8 @@
     padding-top: 30px;
 }
 .section-banggia-left-h5{
-    color: rgb(7, 4, 26);
-    font-size: 18px;
+    color: #2866b1;
+    font-size: 24px;
     font-weight: 600;
     text-align: center;
     padding-top: 20px;
@@ -36,7 +36,7 @@
 }
 .section-banggia-right-h4{
     font-size: 22px;
-    color: darkmagenta;
+    color: #2866b1;
     font-weight: 700;
 }
 .section-banggia-right-dichvu{
@@ -53,7 +53,7 @@
     border-left: 1.6px solid black;
 }
 .section-right-banggia-h5:hover{
-    color: blueviolet;
+    color: #2866b1;
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
     border-left: 1.6px solid blue;
