@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import { API } from "../../constant";
-import { useUserData } from "../../helpers";
+import { useCalendarData, useUserData } from "../../helpers";
 import "./HistoryCalendar.css";
 import Calendar from "../calendar/Calendar";
 
@@ -13,20 +13,59 @@ function HistoryCalendar() {
   const { idStore } = useUserData();
   const [id, setId] = useState(undefined);
   const [show, setShow] = useState(false);
-  const url = `${API}/calendars`;
+  const [listCalendarIdUser, setListCalendarIdUser] = useState([]);
+  const {
+    idCalendarStore,
+    usernameCalendarStore,
+    emailCalendarStore,
+    phoneCalendarStore,
+    dateCalendarStore,
+    timeCalendarStore,
+    nameDoctorCalendarStore,
+    describeCalendarStore,
+    statusCalendarStore,
+  } = useCalendarData();
+
   useEffect(() => {
+    const url = `${API}/calendars`;
     axios
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
-  }, []);
-  let listCalendarIdUser = [];
-  listCalendar.map((calendar) => {
-    if (calendar.attributes.iduser === idStore) {
-      listCalendarIdUser.push(calendar);
-    }
-    return listCalendarIdUser;
-  });
+  }, [
+    idCalendarStore,
+    usernameCalendarStore,
+    emailCalendarStore,
+    phoneCalendarStore,
+    dateCalendarStore,
+    timeCalendarStore,
+    nameDoctorCalendarStore,
+    describeCalendarStore,
+    statusCalendarStore,
+  ]);
+
+  useEffect(() => {
+    let list = [];
+    listCalendar.map((calendar) => {
+      if (calendar.attributes.iduser === idStore) {
+        list.push(calendar);
+      }
+    });
+
+    let sortedListCalendar = list.sort(
+      (a, b) =>
+        Date.parse(
+          new Date(a.attributes.date.split("/").reverse().join("-"))
+        ) -
+        Date.parse(
+          new Date(b.attributes.date.split("/").reverse().join("-"))
+        )
+    );
+    setListCalendarIdUser(sortedListCalendar)
+    // listCalendarIdUser.sort(function (a, b) {
+    //   return a.attributes.date - b.attributes.date;
+    // });
+  }, [listCalendar]);
 
   const handleShow = (idCalendar) => {
     setShow(true);
@@ -73,16 +112,18 @@ function HistoryCalendar() {
                       <span  className="information-span">{calendarIdUser.attributes.phone}</span>
                     </div> */}
                     <div className="time information-span-div">
-                      <span className="information-span-div-p">{calendarIdUser.attributes.time}</span>
+                      <span className="information-span-div-p">
+                        {calendarIdUser.attributes.time}
+                      </span>
                     </div>
                     <div className="date  information-span-div ">
-                      <span  className="information-span-div-p">
+                      <span className="information-span-div-p">
                         {calendarIdUser.attributes.date}
                       </span>
                     </div>
 
                     <div className="namedoctor  information-span-div">
-                      <span  className="information-span-div-p">
+                      <span className="information-span-div-p">
                         {calendarIdUser.attributes.namedoctor}
                       </span>
                     </div>
@@ -97,7 +138,10 @@ function HistoryCalendar() {
                       )}
                     </div>
                     <div className="default-calendar">
-                      <Button onClick={() => handleShow(calendarIdUser.id)} className="btn-xemchitiet">
+                      <Button
+                        onClick={() => handleShow(calendarIdUser.id)}
+                        className="btn-xemchitiet"
+                      >
                         Xem chi tiết
                       </Button>
                     </div>

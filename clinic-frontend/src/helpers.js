@@ -17,6 +17,7 @@ export const storeCalendar = (data) => {
       timeCalendarStore: data.data.data.attributes.time,
       nameDoctorCalendarStore: data.data.data.attributes.namedoctor,
       describeCalendarStore: data.data.data.attributes.describe,
+      statusCalendarStore: data.data.data.attributes.status,
       jwt: data.jwt
   }))
 }

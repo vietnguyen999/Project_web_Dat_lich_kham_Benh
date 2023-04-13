@@ -30,6 +30,7 @@ const infoCalendar = {
 };
 
 function Calendar(props) {
+
   const { usernameStore, emailStore, idStore } = useUserData();
   const [id, setID] = useState("");
   const [username, setUsername] = useState(usernameStore);
@@ -53,7 +54,8 @@ function Calendar(props) {
   const [listCalendar, setListCalendar] = useState([]);
   const [listDoctor, setListDoctor] = useState([]);
 
-  let dateNow = new Date().toLocaleDateString() + "";
+  // let dateNow = new Date().toLocaleDateString() + "";
+  let dateNow = new Date().toJSON().slice(0, 10);
   const [checkStatus, setCheckStatus] = useState(false);
 
   const {
@@ -75,7 +77,17 @@ function Calendar(props) {
       .get(url)
       .then(({ data }) => setListCalendar(data.data))
       .catch((error) => setError(error));
-  }, [calendar]);
+  }, [
+    calendar,
+    idCalendarStore,
+    usernameCalendarStore,
+    emailCalendarStore,
+    phoneCalendarStore,
+    dateCalendarStore,
+    timeCalendarStore,
+    nameDoctorCalendarStore,
+    describeCalendarStore,
+  ]);
 
   useEffect(() => {
     const url = `${API}/doctor-informations`;
@@ -91,15 +103,14 @@ function Calendar(props) {
         calendarIdUser.attributes.status === true &&
         calendarIdUser.attributes.iduser === idStore
       ) {
-        if(props.id === calendarIdUser.id) {
-          setCheckStatus(false)
+        if (props.id === calendarIdUser.id) {
+          setCheckStatus(false);
         } else {
-          setCheckStatus(true)
+          setCheckStatus(true);
         }
-        
       }
     });
-  },[props.id]);
+  }, [props.id]);
 
   useEffect(() => {
     if (idCalendarStore !== undefined && props.id === undefined) {
@@ -239,7 +250,6 @@ function Calendar(props) {
   };
 
   const handleBlurDate = () => {
-    console.log(dateNow > date);
     const error = {};
     if (isEmpty(date)) {
       error.date = "Vui lòng nhập ngày hẹn.";
@@ -274,24 +284,43 @@ function Calendar(props) {
   };
 
   const handleCalendarClickDelete = () => {
-    const url = `${API}/calendars/${id}`;
-
-    axios.delete(url);
-    if (axios.delete(url)) {
-      message.success("Xóa thành công!", 3, undefined);
-      localStorage.setItem("calendar", "");
-      setCalendar("");
-      setID("");
-      setUsername("");
-      setEmail("");
-      setPhone("");
-      setDate("");
-      setTime("");
-      setDescribe("");
+    if (props.id !== undefined) {
+      const url = `${API}/calendars/${props.id}`;
+      axios.delete(url);
+      if (axios.delete(url)) {
+        message.success("Xóa thành công!", 3, undefined);
+        localStorage.setItem("calendar", "");
+        props.handleClose()
+        setCalendar("");
+        setID("");
+        setUsername("");
+        setEmail("");
+        setPhone("");
+        setDate("");
+        setTime("");
+        setDescribe("");
+        
+      }
+    } else {
+      const url = `${API}/calendars/${id}`;
+      axios.delete(url);
+      if (axios.delete(url)) {
+        message.success("Xóa thành công!", 3, undefined);
+        localStorage.setItem("calendar", "");
+        props.handleClose()
+        setCalendar("");
+        setID("");
+        setUsername("");
+        setEmail("");
+        setPhone("");
+        setDate("");
+        setTime("");
+        setDescribe("");
+      }
     }
   };
 
-  const handleCalendarClickAcc = async () => {
+  const handleCalendarClickAdd = async () => {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
     const isValidPhone = handleBlurPhone();
@@ -314,14 +343,12 @@ function Calendar(props) {
     objCalendar.namedoctor = nameDoctor;
     objCalendar.describe = describe;
     objCalendar.iduser = idStore;
-    console.log(dateNow < date);
     if (dateNow < date) {
       setStatus(true);
     } else {
       setStatus(false);
     }
     objCalendar.status = status;
-    // console.log(objCalendar);
     const url = `${API}/calendars`;
     try {
       const res = await axios.post(
@@ -337,7 +364,6 @@ function Calendar(props) {
         }
       );
       if (res) {
-        console.log("có dô");
         storeCalendar(res);
         message.success("Đặt lịch thành công!", 3, undefined);
         setCalendar(objCalendar);
@@ -346,6 +372,7 @@ function Calendar(props) {
       setError(error);
     }
   };
+
   const handleCalendarClickUpdate = async () => {
     const isValidEmail = handleBlurEmail();
     const isValidUsername = handleBlurUsername();
@@ -374,7 +401,7 @@ function Calendar(props) {
     } else {
       setStatus(false);
     }
-    calendar.status = status;
+    objCalendar.status = status;
     const url = `${API}/calendars/${id}`;
     try {
       const res = await axios.put(
@@ -386,8 +413,6 @@ function Calendar(props) {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Basic` + localStorage.getItem(AUTH_TOKEN),
-            // 'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer '+ localStorage.getItem(AUTH_TOKEN)
           },
         }
       );
@@ -403,7 +428,6 @@ function Calendar(props) {
 
   return (
     <>
-    {console.log(error)}
       {error ? (
         <Alert
           className="alert_error"
@@ -413,7 +437,9 @@ function Calendar(props) {
           afterClose={() => setError("")}
         />
       ) : null}
-      <Modal show={props.show} onHide={props.handleClose}>
+      <Modal show={props.show}
+       onHide={props.handleClose}
+       >
         <Modal.Header closeButton>
           <Modal.Title>Đặt Lịch</Modal.Title>
         </Modal.Header>
@@ -584,7 +610,17 @@ function Calendar(props) {
                   />
                   <p className="error">{messageDescribe.describe}</p>
                 </FormGroup>
-                {props.id !== undefined && checkStatus ? null : id ? (
+                {props.id !== undefined && checkStatus ? (
+                  <div className="btn-calendar">
+                    <Button
+                      type="primary"
+                      onClick={handleCalendarClickDelete}
+                      className=""
+                    >
+                      Xóa lịch hẹn
+                    </Button>
+                  </div>
+                ) : id ? (
                   <div className="btn-calendar">
                     <Button
                       type="primary"
@@ -605,7 +641,7 @@ function Calendar(props) {
                   <div className="btn-calendar">
                     <Button
                       type="primary"
-                      onClick={handleCalendarClickAcc}
+                      onClick={handleCalendarClickAdd}
                       className=""
                     >
                       Đặt Lịch Hẹn
