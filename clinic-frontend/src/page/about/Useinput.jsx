@@ -25,7 +25,7 @@ export default function Useinput() {
   if (loading) return <p>loading...</p>;
   if (error) return <p>Eror...</p>;
   const slice = data.data.slice(0, noelement); //ẩn dữ liệu data
-  console.log(slice);
+ // console.log(slice);
 
   return (
     <div>

@@ -73,7 +73,7 @@ function Nabar() {
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item>
-                      <Nav.Link className="navbare" as={Link} to={"/profile"}>
+                      <Nav.Link className="navbare navbare1" as={Link} to={"/profile"}>
                         Thông tin cá nhân
                       </Nav.Link>
                     </Dropdown.Item>

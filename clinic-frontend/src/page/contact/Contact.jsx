@@ -13,7 +13,7 @@ export default function Contact() {
     <div>
       <div className="header-nhakhoa">
         <p className="header-nhakhoa-p">
-          Trang chủ <span className="header-nhakhoa-dau">-</span>Răng Sứ
+          Trang chủ <span className="header-nhakhoa-dau">-</span>Nha khoa tổng quát
         </p>
       </div>
       <Row className="section-rangsu">

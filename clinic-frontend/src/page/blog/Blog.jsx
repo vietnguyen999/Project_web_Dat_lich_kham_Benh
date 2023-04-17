@@ -9,7 +9,7 @@ export default function Blog() {
     <div>
       <div className="header-chinhnhaniengrang">
         <p className="header-chinhnhaniengrang-p">
-          Trang chủ <span className="header-chinhnhaniengrang-dau">-</span>CHỈNH NHA
+          Trang chủ <span className="header-chinhnhaniengrang-dau">-</span>Chỉnh Nha
         </p>
       </div>
       <Row className="section-rangsu">

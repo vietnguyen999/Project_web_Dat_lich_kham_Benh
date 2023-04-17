@@ -8,6 +8,7 @@
     padding-left: 20px;
     font-weight: 500;
     font-size: 14px;
+    font-family: Arial;
 }
 .header-trongrang-dau{
     padding: 3px 5px 3px 3px;
@@ -23,12 +24,13 @@
     color:  #2866b1;
     font-size: 40px;
     font-weight: 600;
+    font-family: Arial;
 }
 .section-rangsu-left-p{
     font-size: 14px;
     font-weight: 400;
     margin-left: 10px;
-    
+    font-family: Arial;
 }
 .section-rangsu-left-tin-left{
     width: 400px;
@@ -55,11 +57,13 @@
     font-size: 22px;
     color:  #2866b1;
     font-weight: 700;
+    font-family: Arial;
 }
 .section-rangsu-left-tin-left-p{
     padding-top: 30px;
     padding-left: 10px;
     font-size: 16px;
+    font-family: Arial;
 }
 .section-rangsu-left-tin-left-btn{
     margin-left: 10px;
@@ -68,6 +72,7 @@
     font-size: 12px;
     font-weight: 500;
     background-color: white;
+    font-family: Arial;
 }
 .section-rangsu-right{
     padding-top: 70px;
@@ -77,6 +82,7 @@
     font-size: 22px;
     color:  #2866b1;
     font-weight: 700;
+    font-family: Arial;
 }
 .section-rangsu-right-dichvu{
     padding-top: 35px;
@@ -89,6 +95,7 @@
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
     border-left: 1.6px solid black;
+    font-family: Arial;
 }
 .section-rangsu-right-dichvu-h5:hover{
     color:  #2866b1;

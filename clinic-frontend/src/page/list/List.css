@@ -8,6 +8,7 @@
     padding-left: 20px;
     font-weight: 500;
     font-size: 14px;
+    font-family: Arial;
 }
 .header-banggia-dau{
     padding: 3px 5px 3px 3px;
@@ -24,6 +25,7 @@
     font-weight: 600;
     text-align: center;
     padding-top: 20px;
+    font-family: Arial;
 }
 .section-banggia-left-img{
     width: 850px;
@@ -38,6 +40,7 @@
     font-size: 22px;
     color: #2866b1;
     font-weight: 700;
+    font-family: Arial;
 }
 .section-banggia-right-dichvu{
     padding-top: 5px;
@@ -51,6 +54,7 @@
     border-bottom: 1px solid #d9d9d9;
     padding: 10px 0 10px 10px;
     border-left: 1.6px solid black;
+    font-family: Arial;
 }
 .section-right-banggia-h5:hover{
     color: #2866b1;

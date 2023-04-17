@@ -22,11 +22,12 @@
     font-size: larger;
 }
 .text-section-h4{
-    color: cadetblue;
+    color: #2866b1;
     font-size: 18px;
+    font-family: Arial;
 }
 .text-section-p{
-    color: cadetblue;
+    color: #2866b1;
     font-size: 14px;
 }
 .part-news{
@@ -52,12 +53,14 @@
     font-weight: bold;
     color: #2866b1;
     font-size: 28px;
+    font-family: Arial;
 }
 .part-news-text-p{
     padding: 5px;
      font-style: italic;
      font-weight: 450;
      font-size: 15px;
+     font-family: Arial;
 }
 .part-service{
     padding-top: 10px;
@@ -69,6 +72,7 @@
     text-align: center;
     padding-top: 20px;
     color: #2866b1;
+    font-family: Arial;
 }
 
 .part-service-left{
@@ -97,6 +101,7 @@
     font-size: 20px;
     margin-top: 15px;
     color:rgb(134, 72, 220);
+    font-family: Arial;
 }
 .part-service-left-btn{
     margin-top: 70px;
@@ -134,6 +139,7 @@
     color: white;
     text-decoration: none;
     font-size: 16px;
+    font-family: Arial;
 }
 .part-service-left-btn:hover {
     cursor: pointer;
@@ -155,13 +161,15 @@
     margin-top: 10px;
     margin-left: 10px;
     color: #2866b1;
-    font-weight:700
+    font-weight:700;
+    font-family: Arial;
 }
 .section-datlich-left-p{
     margin-top: 50px;
     margin-left: 10px;
     font-size: 18px;
     color: #2866b1;
+    font-family: Arial;
 }
 .section-datlich-left-btn
 {
@@ -174,11 +182,13 @@
     border-radius: 20px 20px;
     font-size: 20px;
     color: rgb(244, 240, 248);
+    font-family: Arial;
 }
 .section-datlich-right-btn{
     background-color: white;
     border:1in;
     color: #2866b1;
+    font-family: Arial;
 }
 .section-datlich-left-btn-icon{
     padding-right: 20px;
@@ -201,6 +211,7 @@
     margin-top: 10px;
     margin-left: 50px;
     color: #2866b1;
+    font-family: Arial;
 }
 .section-information{
     margin-top: 5px;
