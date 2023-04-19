@@ -99,14 +99,11 @@ function Calendar(props) {
 
   useEffect(() => {
     listCalendar.map((calendarIdUser) => {
-      if (
-        calendarIdUser.attributes.status === true &&
-        calendarIdUser.attributes.iduser === idStore
-      ) {
-        if (props.id === calendarIdUser.id) {
-          setCheckStatus(false);
+      if(props.id === calendarIdUser.id) {
+        if(calendarIdUser.attributes.status === true) {
+          setCheckStatus(false)
         } else {
-          setCheckStatus(true);
+          setCheckStatus(true)
         }
       }
     });
@@ -307,15 +304,16 @@ function Calendar(props) {
       if (axios.delete(url)) {
         message.success("Xóa thành công!", 3, undefined);
         localStorage.setItem("calendar", "");
-        props.handleClose()
+        
         setCalendar("");
         setID("");
-        setUsername("");
-        setEmail("");
+        setUsername(usernameStore);
+        setEmail(emailStore);
         setPhone("");
         setDate("");
         setTime("");
         setDescribe("");
+        props.handleClose()
       }
     }
   };
