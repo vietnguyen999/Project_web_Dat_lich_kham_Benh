@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.ant-message {
+  white-space: pre-wrap;
+}
+
 .login-body {
   width: 100%;
   min-height: 50vh;
