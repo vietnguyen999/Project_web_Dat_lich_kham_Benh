@@ -307,7 +307,7 @@ function Calendar(props) {
         
         setCalendar("");
         setID("");
-        setUsername(usernameStore);
+        setUsername(usernameStore); 
         setEmail(emailStore);
         setPhone("");
         setDate("");
@@ -610,13 +610,13 @@ function Calendar(props) {
                 </FormGroup>
                 {props.id !== undefined && checkStatus ? (
                   <div className="btn-calendar">
-                    <Button
+                    {/* <Button
                       type="primary"
                       onClick={handleCalendarClickDelete}
                       className=""
                     >
                       Xóa lịch hẹn
-                    </Button>
+                    </Button> */}
                   </div>
                 ) : id ? (
                   <div className="btn-calendar">

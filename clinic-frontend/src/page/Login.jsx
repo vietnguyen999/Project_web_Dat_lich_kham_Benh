@@ -81,7 +81,7 @@ function Login() {
       //   hideProgressBar: true,
       // });
       message.error(
-        "Đăng nhập không thành công. Tên đăng nhập hoặc mật khẩu sai."
+        "Đăng nhập không thành công. \n Tên đăng nhập hoặc mật khẩu sai.", 3000
       );
     }
   };
