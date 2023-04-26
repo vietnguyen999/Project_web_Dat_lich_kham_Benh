@@ -165,6 +165,7 @@ function Calendar(props) {
 
   useEffect(() => {
     if (usernameDoctorStore !== undefined) {
+      console.log(usernameDoctorStore)
       setNameDoctor(usernameDoctorStore);
     }
   }, [usernameDoctorStore]);
@@ -296,6 +297,7 @@ function Calendar(props) {
         setDate("");
         setTime("");
         setDescribe("");
+        setNameDoctor("")
         
       }
     } else {
@@ -313,6 +315,7 @@ function Calendar(props) {
         setDate("");
         setTime("");
         setDescribe("");
+        setNameDoctor("")
         props.handleClose()
       }
     }

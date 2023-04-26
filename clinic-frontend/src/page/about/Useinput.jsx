@@ -25,7 +25,6 @@ export default function Useinput() {
   if (loading) return <p>loading...</p>;
   if (error) return <p>Eror...</p>;
   const slice = data.data.slice(0, noelement); //ẩn dữ liệu data
-  console.log(slice);
 
   return (
     <div>
@@ -38,7 +37,7 @@ export default function Useinput() {
         <img src={bacsi2023} alt="" className="doctor-header-imgs-is" />
       </div>
       <div className="doctor-seach">
-        <h5 className="text-seach-doctor-h5">Tìm Kiến Bác Sĩ</h5>
+        <h5 className="text-seach-doctor-h5">Tìm Kiếm Bác Sĩ</h5>
         <input
           type="text"
           placeholder="Search..."
