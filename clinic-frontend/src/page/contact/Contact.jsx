@@ -1,7 +1,7 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import "./Contact.css";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
 import imgs26 from "../../img/imgs26.jpg";
 import imgs27 from "../../img/imgs27.jpg";
 import imgs28 from "../../img/imgs28.jpg";
@@ -16,6 +16,7 @@ export default function Contact() {
           Trang chủ <span className="header-nhakhoa-dau">-</span>Nha khoa tổng quát
         </p>
       </div>
+      <Container>
       <Row className="section-rangsu">
         <Col className="section-rangsu-left" xs={12} md={8}>
           <h2 className="section-rangsu-left-h2">RĂNG SỨ THẨM MỸ</h2>
@@ -183,6 +184,7 @@ export default function Contact() {
           </div>
         </Col>
       </Row>
+      </Container>
     </div>
   );
 }

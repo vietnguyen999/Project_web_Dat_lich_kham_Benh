@@ -19,7 +19,7 @@ import imgs12 from "../../img/imgs13.png";
 import imgs13 from "../../img/imgs14.png";
 import imgs14 from "../../img/imgs15.png";
 import { useUserData } from "../../helpers";
-import { Button, Nav } from "react-bootstrap";
+import { Container, Button, Nav } from "react-bootstrap";
 
 export default function Home() {
   const [show, setShow] = useState(false);
@@ -30,8 +30,8 @@ export default function Home() {
   return (
     <div>
       <Slider />
-      <section>
-        <div class="container text-center">
+      <Container>
+        <div class="text-center">
           <div class="row sectiopn-information-clinic">
             <div class="col-md-3 sectiopn-information">
               <img src={imgs1} alt="..." className="imgs_left_img" />
@@ -75,7 +75,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      
       <section>
         <div className="row part-news">
           <div className="col part-news-imgs">
@@ -166,7 +166,7 @@ export default function Home() {
                     <AiOutlineCalendar />
                   </span>
                   Đặt lịch
-                </button>
+                </button> 
               ) : (
                 <Button className="section-datlich-left-btn-dl">
                   <Nav.Link className=" text-dl navbare section-login" as={Link} to={"/signIn"}>
@@ -176,8 +176,7 @@ export default function Home() {
                     Đặt lịch
                   </Nav.Link>
                 </Button>
-              )}
-
+              )}     
               <Calendar show={show} handleClose={() => setShow(false)} />
               <button className=" section-datlich-left-btn-dl section-datlich-right-btn ">
                 Tư vấn
@@ -244,6 +243,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      </Container>
     </div>
   );
 }

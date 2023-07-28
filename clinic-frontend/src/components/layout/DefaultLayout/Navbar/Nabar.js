@@ -106,15 +106,6 @@ function Nabar() {
                     </Button>
                   </Nav.Link>
                
-                {/* <div className="calendar-days">
-                  <button>
-                    <Nav.Link as={Link} to={"/signIn"}>
-                      <span>
-                        <AiOutlineCalendar />
-                      </span>
-                    </Nav.Link>
-                  </button>
-                </div> */}
               </>
             )}
           </Navbar.Collapse>

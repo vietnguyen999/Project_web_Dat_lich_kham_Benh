@@ -1,6 +1,6 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import imgs24 from "../../img/imgs24.png";
 import imgs25 from "../../img/imgs25.png";
 import trongrangtoanham from "../../img/trongrangtoanham.jpg";
@@ -28,8 +28,9 @@ export default function Cayghepinplant() {
           vụ <span className="header-rangsu-dau">-</span>TRỒNG RĂNG IMPLANT
         </p>
       </div>
+      <Container>
       <Row className="section-cayghepranginplant">
-        <Col className="section-cayghepranginplant-left" xs={12} md={8}>
+        <Col className="section-cayghepranginplant-left"  xs={12} md={8}>
           <h2 className="section-cayghepranginplant-left-h2">
             CẤY GHÉP IMPLANT
           </h2>
@@ -250,6 +251,7 @@ export default function Cayghepinplant() {
           </div>
         </Col>
       </Row>
+      </Container>
     </div>
   );
 }

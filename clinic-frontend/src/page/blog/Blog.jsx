@@ -1,7 +1,7 @@
 import React from "react";
 import "./Blog.css";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import imgs22 from "../../img/imgs22.png";
 import imgs23 from "../../img/imgs23.png";
 export default function Blog() {
@@ -12,6 +12,7 @@ export default function Blog() {
           Trang chủ <span className="header-chinhnhaniengrang-dau">-</span>Chỉnh Nha
         </p>
       </div>
+      <Container>
       <Row className="section-rangsu">
         <Col className="section-rangsu-left" xs={12} md={8}>
           <h2 className="section-rangsu-left-h2">CHỈNH NHA - NIỀNG RĂNG</h2>
@@ -84,6 +85,7 @@ export default function Blog() {
           </div>
         </Col>
       </Row>
+      </Container>
     </div>
   );
 }

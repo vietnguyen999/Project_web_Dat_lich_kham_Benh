@@ -1,7 +1,7 @@
 import React from "react";
 import "./News.css";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import imgs24 from "../../img/imgs24.png";
 import imgs25 from "../../img/imgs25.png";
 export default function News() {
@@ -13,6 +13,7 @@ export default function News() {
           IMPLANT
         </p>
       </div>
+      <Container>
       <Row className="section-rangsu">
         <Col className="section-rangsu-left" xs={12} md={8}>
           <h2 className="section-rangsu-left-h2">TRỒNG RĂNG IMPLANT</h2>
@@ -86,6 +87,7 @@ export default function News() {
           </div>
         </Col>
       </Row>
+      </Container>
     </div>
   );
 }

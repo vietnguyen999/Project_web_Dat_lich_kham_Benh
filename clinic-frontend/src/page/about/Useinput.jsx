@@ -38,7 +38,7 @@ export default function Useinput() {
         <img src={bacsi2023} alt="" className="doctor-header-imgs-is" />
       </div>
       <div className="doctor-seach">
-        <h5 className="text-seach-doctor-h5">Tìm Kiến Bác Sĩ</h5>
+        <h5 className="text-seach-doctor-h5">Tìm Kiếm Bác Sĩ</h5>
         <input
           type="text"
           placeholder="Search..."
@@ -66,7 +66,7 @@ export default function Useinput() {
                       Bác Sĩ {doctor.attributes.Name}
                     </h3>
                   </div>
-                  <div>
+                  <div className="wrapper-col-old">
                     <h5 className="text-old">Tuổi: </h5>{" "}
                     <p className="text-old-old">{doctor.attributes.old}</p>
                   </div>

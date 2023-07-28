@@ -15,6 +15,7 @@
 }
 .section-rangsu{
     padding-top: 10px;
+    display: flex;
 }
 .section-rangsu-left{
     padding-left: 40px;
@@ -33,14 +34,13 @@
     font-family: Arial;
 }
 .section-rangsu-left-tin{
-    margin-top: 15px;
+    margin-left: 0px;
 }
 .section-rangsu-left-tin-left{
     width: 400px;
     height: 450px;
     display: block;
-    margin: auto;
-    padding: auto;
+   padding-top: 10px;
     border-radius: 15px;
     box-shadow: -10px -10px 10px rgba(255,255,255,0.4),10px 10px 10px rgba(0,0,0,0.1);
     
@@ -80,6 +80,7 @@
 .section-rangsu-right{
     padding-top: 70px;
     justify-content: left;
+    flex: 1;
 }
 .section-rangsu-right-h4{
     font-size: 22px;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Rangsu.css";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import imgs20 from "../../img/imgs20.png";
 import imgs21 from "../../img/imgs21.png";
 export default function Rangsu() {
@@ -12,6 +12,7 @@ export default function Rangsu() {
           Trang chủ <span className="header-rangsu-dau">-</span>Răng Sứ
         </p>
       </div>
+      <Container>
       <Row className="section-rangsu">
         <Col className="section-rangsu-left" xs={12} md={8}>
           <h2 className="section-rangsu-left-h2">RĂNG SỨ THẨM MỸ</h2>
@@ -85,6 +86,7 @@ export default function Rangsu() {
           </div>
         </Col>
       </Row>
+      </Container>
     </div>
   );
 }

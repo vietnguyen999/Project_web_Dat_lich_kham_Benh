@@ -3,11 +3,12 @@ import img1 from '../../../../img/imgs16.jpg'
 import img2 from "../../../../img/imgs18.png"
 import img3 from '../../../../img/imgs19.jpg'
 import "./slider.css"
-import Carousel from 'react-bootstrap/Carousel';
+import { Carousel} from 'react-bootstrap';
 
 function Slider() {
   return (
     <div className='carouself'>
+     
     <Carousel>
       <Carousel.Item>
         <img
